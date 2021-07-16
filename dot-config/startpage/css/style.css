@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
+
+:root {
+    --background: #272822;
+    --syn: #f92672;
+    --name: #f8f8f0;
+    --value: #e6db74;
+    --obj: #66d9ef;
+    --prompt: #204a87;
+}
+
+html,body {
+    font-family: 'Fira Code', monospace;
+    background: var(--background);
+    color: #f8f8f0;
+    font-size: 1.1em;
+    font-weight: 500;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 50px 0;
+}
+
+.search {
+    position: relative;
+    padding: 0 7px;
+    border: 2px solid #49483e;
+    border-radius: 20px;
+}
+
+.search:hover {
+    border-color: #2ea6e2;
+    transition-duration: 2s;
+}
+
+.flex-container {
+  margin-top: 200px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.obj {
+  padding: 40px 35px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: #49483e;
+  text-align: center;
+}
+
+.sub {
+  display: none;
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 0.8em;
+}
+
+.obj:hover .sub {
+  display: block;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #66d9ef;
+}
+
+a:hover {
+    color: #a6e221;
+    transition-duration: 0.5s;
+}
+
+@media screen and (max-width: 1500px) {
+    body {
+        font-size: 1em;
+    }
+
+    .container {
+        padding: 25px 50px;
+    }
+}

@@ -1,0 +1,59 @@
+# Opacity
+background_opacity: 0.8
+
+# Cursor Blink
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+  blink_interval: 550
+  unfocused_hollow: true
+
+# Font
+font:
+  normal:
+    family: BlexMono Nerd Font
+    style: Regular
+  bold:
+    family: BlexMono Nerd Font
+    style: Bold
+  italic:
+    family: BlexMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: BlexMono Nerd Font
+    style: Bold Italic
+  size: 9
+
+# Colors (Monokai)
+colors:
+  # Default Colors
+  primary:
+    background: '#272822'
+    foreground: '#f8f8f0'
+
+  cursor:
+    text: '#272822'
+    cursor: '#f8f8f0'
+
+  # Normal colors
+  normal:
+    black:   '#272822'
+    red:     '#f92672'
+    green:   '#a6e221'
+    yellow:  '#e6db74'
+    blue:    '#66d9ef'
+    magenta: '#ae81ff'
+    cyan:    '#2ea6e2'
+    white:   '#f8f8f0'
+
+  # Bright colors
+  bright:
+    black:   '#75715e'
+    red:     '#8b0807'
+    green:   '#46830c'
+    yellow:  '#fd971f'
+    blue:    '#243955'
+    magenta: '#3c3d37'
+    cyan:    '#204a87'
+    white:   '#49483e'

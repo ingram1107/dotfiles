@@ -1,0 +1,9 @@
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+fcitx-autostart &
+dunst &
+xss-lock -- slock &
+clipcatd
+picom &
+exec awesome

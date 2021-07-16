@@ -1,0 +1,8 @@
+text/html; firefox %s; copiousoutput;
+text/plain; nvim %s;
+application/pdf; zathura %s &;
+application/vnd.ms-powerpoint; soffice %s &;
+video/mpv; mpv %s &;
+video/webm; mpv %s &;
+image/jpeg; feh %s &;
+image/png; feh %s &;

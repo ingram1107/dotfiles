@@ -1,0 +1,21 @@
+IMAPAccount example
+Host imap.example.com
+user example@example.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/isync/example.gpg"
+SSLType IMAPS
+CertificateFile /somewhere/somecert.crt
+
+IMAPStore example-remote
+Account example
+
+MaildirStore example-local
+SubFolders Verbatim
+Path /somewhere/example/
+Inbox /somewhere/example/Inbox/
+
+Channel example
+Far :example-remote:
+Near :example-local:
+Patterns *
+Create Both
+SyncState *

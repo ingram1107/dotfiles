@@ -1,0 +1,8 @@
+set recolor
+set recolor-lightcolor "#272822"
+set recolor-darkcolor "#f8f8f0"
+set recolor-keephue
+set default-fg "#272822"
+set default-bg "#f8f8f0"
+set highlight-color "#204a87"
+set highlight-active-color "#e6db74"
