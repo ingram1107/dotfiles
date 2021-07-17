@@ -111,8 +111,8 @@ vim.api.nvim_exec('au TextYankPost * silent! lua vim.highlight.on_yank()', false
 vim.api.nvim_exec([[
 aug ConfigLoadView
   au!
-  au BufRead $XDG_CONFIG_HOME/nvim/lua/keymaps.lua silent! loadview
-  au BufRead $XDG_CONFIG_HOME/nvim/lua/options.lua silent! loadview
-  au BufRead $XDG_CONFIG_HOME/nvim/lua/plugins.lua silent! loadview
+  au BufRead $HOME/dotfiles/dot-config/nvim/lua/keymaps.lua silent! loadview
+  au BufRead $HOME/dotfiles/dot-config/nvim/lua/options.lua silent! loadview
+  au BufRead $HOME/dotfiles/dot-config/nvim/lua/plugins.lua silent! loadview
 aug END
 ]], false)
