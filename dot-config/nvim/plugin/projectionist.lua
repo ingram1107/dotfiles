@@ -8,9 +8,9 @@ vim.g.projectionist_heuristics = {
       type = "source",
     },
     ["*.h"] = {
-      alternate = { 
-        "{}.c", 
-        "{}.cpp", 
+      alternate = {
+        "{}.c",
+        "{}.cpp",
       },
       type = "header",
     },
@@ -26,6 +26,20 @@ vim.g.projectionist_heuristics = {
     ["*.hpp"] = {
       alternate = "{}.cpp",
       type = "header",
+    },
+
+    --- rust files
+    ["main.rs"] = {
+      alternate = "lib.rs",
+      type = "source",
+    },
+    ["lib.rs"] = {
+      alternate = "main.rs",
+      type = "library",
+    },
+    ["*.rs"] = {
+      alternate = "lib.rs",
+      type = "source",
     },
   },
 }
