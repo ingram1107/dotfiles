@@ -63,6 +63,38 @@ aug END
 -- theme {{{1
 vim.api.nvim_exec('colo moneokai', false)
 
+-- tabline {{{1
+function MyTabLine()
+  local s = ''
+  for i, _ in ipairs(vim.api.nvim_list_tabpages()) do
+    if i == vim.api.nvim_tabpage_get_number(0) then
+      s = s..'%#TabLineSel#'
+    else
+      s = s..'%#TabLine#'
+    end
+
+    s = s..' %{v:lua.MyTabLabel('..i..')} '
+  end
+
+  s = s..'%#TabLineFill#%T'
+
+  return s
+end
+
+function MyTabLabel(tab_no)
+  local buf_list = vim.fn.tabpagebuflist(tab_no)
+  local win_no = vim.api.nvim_win_get_number(vim.api.nvim_tabpage_get_win(tab_no))
+  local buf_name = vim.fn.bufname(buf_list[win_no])
+
+  if buf_name ~= '' or buf_name ~= nil then
+    return '[' ..buf_name..']'
+  else
+    return '['..']'
+  end
+end
+
+vim.o.tabline='%!v:lua.MyTabLine()'
+
 -- listchars {{{1
 vim.o.list = true
 vim.o.listchars = 'eol:↲,trail:·'
