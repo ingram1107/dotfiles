@@ -46,7 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-local theme_path = string.format("%s/awesome/themes/%s/theme.lua", os.getenv("XDG_CONFIG_HOME"), "default")
+local theme_path = string.format("%s/awesome/themes/%s/theme.lua", os.getenv("XDG_CONFIG_HOME"), "monokai")
 beautiful.init(theme_path)
 beautiful.useless_gap = 1
 -- bling modules
