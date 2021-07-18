@@ -297,7 +297,7 @@ _G.packer_plugins = {
   },
   vimwiki = {
     commands = { "VimwikiIndex" },
-    keys = { { "", "n" }, { "", "<leader>ww" } },
+    keys = { { "n", "<leader>ww" } },
     loaded = false,
     needs_bufread = true,
     path = "/home/clover/.local/share/nvim/site/pack/packer/opt/vimwiki"
@@ -370,8 +370,7 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> <leader>ww <cmd>lua require("packer.load")({'vimwiki'}, { keys = "<lt>leader>ww", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'vimwiki'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[nnoremap <silent> <leader>ww <cmd>lua require("packer.load")({'vimwiki'}, { keys = "<lt>leader>ww", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
