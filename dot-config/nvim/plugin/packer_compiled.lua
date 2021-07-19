@@ -297,7 +297,7 @@ _G.packer_plugins = {
   },
   vimwiki = {
     commands = { "VimwikiIndex" },
-    keys = { { "n", "<leader>ww" } },
+    keys = { { "", "n" }, { "", "<leader>ww" } },
     loaded = false,
     needs_bufread = true,
     path = "/home/clover/.local/share/nvim/site/pack/packer/opt/vimwiki"
@@ -370,7 +370,8 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[nnoremap <silent> <leader>ww <cmd>lua require("packer.load")({'vimwiki'}, { keys = "<lt>leader>ww", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <leader>ww <cmd>lua require("packer.load")({'vimwiki'}, { keys = "<lt>leader>ww", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'vimwiki'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
@@ -382,10 +383,10 @@ vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim'}, { ft
 vim.cmd [[au FileType vimwiki ++once lua require("packer.load")({'vim-grammarous'}, { ft = "vimwiki" }, _G.packer_plugins)]]
 vim.cmd [[au FileType lisp ++once lua require("packer.load")({'vim-slime', 'vim-sexp'}, { ft = "lisp" }, _G.packer_plugins)]]
 vim.cmd [[au FileType scss ++once lua require("packer.load")({'sass-compiler.vim'}, { ft = "scss" }, _G.packer_plugins)]]
-vim.cmd [[au FileType txt ++once lua require("packer.load")({'vim-grammarous'}, { ft = "txt" }, _G.packer_plugins)]]
+vim.cmd [[au FileType text ++once lua require("packer.load")({'vim-grammarous'}, { ft = "text" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-grammarous', 'vim-instant-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-slime'}, { ft = "python" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'emmet-vim'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'vim-slime'}, { ft = "python" }, _G.packer_plugins)]]
 vim.cmd [[au FileType dirvish ++once lua require("packer.load")({'vim-dirvish-dovish'}, { ft = "dirvish" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-grammarous', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
