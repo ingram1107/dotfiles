@@ -198,7 +198,7 @@ return require('packer').startup(function()
  -- grammar check {{{1
  use { 
    'rhysd/vim-grammarous',
-   ft = { 'markdown', 'txt', 'tex', 'vimwiki', 'gitcommit', }
+   ft = { 'markdown', 'text', 'tex', 'vimwiki', 'gitcommit', }
  }
 
  --- miscellaneous {{{1
