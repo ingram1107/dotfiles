@@ -162,11 +162,11 @@ vim.api.nvim_set_keymap('n', '<leader>fw', '<cmd>lua require("telescope.builtin"
 vim.api.nvim_set_keymap('c', '<c-r><c-r>', '<cmd>lua require("telescope.builtin").commands()<cr><cr>', { noremap = true, nowait = true })
 
 -- git related {{{1
-vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>lua require("neogit").open()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>Neogit<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gj', '<cmd>diffget //3<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>diffget //2<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gg', ':Neogit ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gl', '<cmd>lua require("neogit").open({ "log" })<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gl', '<cmd>Neogit log<cr>', { noremap = true })
 
 -- packer {{{1
 vim.api.nvim_set_keymap('n', '<leader>pI', '<cmd>lua require("packer").install()<cr>', { noremap = true })
