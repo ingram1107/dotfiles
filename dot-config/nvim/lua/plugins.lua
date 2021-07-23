@@ -113,6 +113,7 @@ return require('packer').startup(function()
  ----- git {{{1
  use {
    'TimUntersberger/neogit',
+   cmd = 'Neogit',
    config = function()
      require('neogit').setup{}
    end,
