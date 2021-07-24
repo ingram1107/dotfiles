@@ -123,38 +123,14 @@ vim.api.nvim_set_keymap('n', '<leader>po', ':AO ', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>pd', '<cmd>AD<cr>', { noremap = true })
 
 -- telescope {{{1
-T_Rg = function () 
-  require('telescope.builtin').find_files {
-    find_command = { 'rg', '--files', '.' },
-  }
-end
+T = require('telescope-custom')
 
-T_Rg_Dot = function ()
-  require('telescope.builtin').find_files {
-    find_command = { 'rg', '--files', '--hidden', },
-    cwd = "~/.config",
-    prompt_title = "Dotfiles",
-  }
-end
-
-T_Git_Branch = function()
-  require('telescope.builtin').git_branches {
-    layout_strategy = 'vertical',
-  }
-end
-
-T_Buffer = function()
-  require('telescope.builtin').buffers {
-    layout_strategy = 'vertical',
-  }
-end
-
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua T_Rg()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>lua T_Rg_Dot()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua T_Git_Branch()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fr', '<cmd>lua require("telescope.builtin").live_grep()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>lua T_Buffer()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fl', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua T.rg()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>lua T.rg_dot()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua T.git_branches()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fr', '<cmd>lua T.live_grep()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>lua T.buffers()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fl', '<cmd>lua T.current_buffer_fuzzy_find()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fq', '<cmd>lua require("telescope.builtin").quickfix()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").tags()<cr>', { noremap = true })
