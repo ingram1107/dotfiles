@@ -10,4 +10,4 @@ enable_primary = false
 
 [grpc]
 host = '127.0.0.1'
-port = 45045
+port = 50000
