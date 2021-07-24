@@ -130,7 +130,7 @@ _G.packer_plugins = {
   },
   ["nvim-markdown-preview"] = {
     loaded = false,
-    needs_bufread = false,
+    needs_bufread = true,
     path = "/home/clover/.local/share/nvim/site/pack/packer/opt/nvim-markdown-preview"
   },
   ["nvim-tree.lua"] = {
@@ -370,8 +370,8 @@ time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'vimwiki'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> <leader>ww <cmd>lua require("packer.load")({'vimwiki'}, { keys = "<lt>leader>ww", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> n <cmd>lua require("packer.load")({'vimwiki'}, { keys = "n", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]

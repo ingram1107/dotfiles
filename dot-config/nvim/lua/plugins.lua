@@ -3,22 +3,22 @@ vim.api.nvim_exec('packadd packer.nvim', false)
 vim.api.nvim_exec('packadd termdebug', false)
 
 return require('packer').startup(function()
-  --- load packer {{{1
+  -- load packer {{{1
   use { 'wbthomason/packer.nvim', opt = true }
 
- ---- benchmark {{{1
+ -- benchmark {{{1
  use {
    'tweekmonster/startuptime.vim',
    cmd = { 'StartupTime', }
  }
 
- ---- lua native {{{1
+ -- lua native {{{1
  use 'tjdevries/astronauta.nvim'
 
- ----- theme {{{1
+ -- theme {{{1
  use '/mnt/Nemo/git/moneokai'
 
- ---- statusline and tabline {{{1
+ -- statusline and tabline {{{1
  use 'hoob3rt/lualine.nvim'
 
  -- syntax and debug {{{1
@@ -52,7 +52,7 @@ return require('packer').startup(function()
    ft = 'tex',
  }
 
- ---- format {{{1
+ -- format {{{1
  use {
    'godlygeek/tabular',
    cmd = { 'Tab' },
@@ -74,7 +74,7 @@ return require('packer').startup(function()
  -- nvim dev {{{1
  use 'tjdevries/nlua.nvim'
 
- --- dir and project {{{1
+ -- dir and project {{{1
  use 'kyazdani42/nvim-web-devicons'
  use {
    'justinmk/vim-dirvish',
@@ -95,22 +95,22 @@ return require('packer').startup(function()
  use 'ingram1107/origin.nvim'
  use 'tpope/vim-projectionist'
 
- ---- session management {{{1
+ -- session management {{{1
  use '/mnt/Nemo/git/souvenir.nvim'
 
- ---- undo tree visualise {{{1
+ -- undo tree visualise {{{1
  use {
    'mbbill/undotree',
    cmd = { 'UndotreeToggle' },
  }
 
- ---- fuzzy finder {{{1
+ -- fuzzy finder {{{1
  use {
    'nvim-telescope/telescope.nvim',
    requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', },
  }
 
- ----- git {{{1
+ -- git {{{1
  use {
    'TimUntersberger/neogit',
    cmd = 'Neogit',
@@ -142,7 +142,7 @@ return require('packer').startup(function()
    end
  }
 
- ----- repl {{{1
+ -- repl {{{1
  use 'ingram1107/aedile.nvim'
  use {
    'jpalardy/vim-slime',
@@ -154,10 +154,10 @@ return require('packer').startup(function()
    config = function() vim.api.nvim_exec('packadd vim-sexp', false) end,
  }
 
- --- snippet support {{{1
+ -- snippet support {{{1
  use 'SirVer/ultisnips'
 
- ----- useful keybind {{{1
+ -- useful keybind {{{1
  use 'tpope/vim-commentary'
  use {
    'andymass/vim-matchup',
@@ -175,7 +175,7 @@ return require('packer').startup(function()
    },
  }
 
- --- note plugin {{{1
+ -- note plugin {{{1
  use {
    'vimwiki/vimwiki',
    cmd = 'VimwikiIndex',
@@ -202,7 +202,7 @@ return require('packer').startup(function()
    ft = { 'markdown', 'text', 'tex', 'vimwiki', 'gitcommit', }
  }
 
- --- miscellaneous {{{1
+ -- miscellaneous {{{1
  use {
    'norcalli/nvim-colorizer.lua',
    config = function() require('colorizer').setup() end,
