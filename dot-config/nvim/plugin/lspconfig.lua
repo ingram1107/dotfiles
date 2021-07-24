@@ -23,7 +23,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>lD', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
   buf_set_keymap('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
   buf_set_keymap('n', '<leader>le', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', opts)
-  buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', opts)
+  buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', opts)
+  -- TODO: neovim commit a8c3d50fad94971ebfe9eeedf933bdd829e66787
+  -- buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.lsp.diagnostic.set_qflist()<cr>', opts)
 
   vim.api.nvim_exec([[
     sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsDefaultError linehl= numhl=
