@@ -221,10 +221,8 @@ return require('packer').startup(function()
    },
  }
  use {
-   'instant-markdown/vim-instant-markdown',
-   run = 'yarn install',
-   ft = 'markdown',
-   config = function() vim.api.nvim_exec('packadd vim-instant-markdown', false) end,
+   'davidgranstrom/nvim-markdown-preview',
+   ft = 'markdown'
  }
  -- }}}
 end)

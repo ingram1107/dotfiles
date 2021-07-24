@@ -14,3 +14,7 @@ require('compe').setup({
     ultisnips = true,
   },
 }, 0)
+
+vim.api.nvim_exec([[
+au FileType markdown MarkdownPreview
+]], false)
