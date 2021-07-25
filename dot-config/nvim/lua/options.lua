@@ -64,7 +64,7 @@ aug END
 vim.api.nvim_exec('colo moneokai', false)
 
 -- tabline {{{1
-function MyTabLine()
+function _G.tabline()
   local s = ''
   for i, _ in ipairs(vim.api.nvim_list_tabpages()) do
     if i == vim.api.nvim_tabpage_get_number(0) then
@@ -81,7 +81,7 @@ function MyTabLine()
   return s
 end
 
-function MyTabLabel(tab_no)
+function _G.tablabel(tab_no)
   local buf_list = vim.fn.tabpagebuflist(tab_no)
   local win_no = vim.api.nvim_win_get_number(vim.api.nvim_tabpage_get_win(tab_no))
   local buf_name = vim.fn.bufname(buf_list[win_no])
@@ -93,7 +93,7 @@ function MyTabLabel(tab_no)
   end
 end
 
-vim.o.tabline='%!v:lua.MyTabLine()'
+vim.o.tabline='%!v:lua.tabline()'
 
 -- listchars {{{1
 vim.o.list = true
