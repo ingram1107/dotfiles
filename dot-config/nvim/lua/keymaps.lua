@@ -110,7 +110,7 @@ vim.api.nvim_set_keymap('n', '<leader>rr', '<cmd>lua require("aedile").toggle_re
 vim.api.nvim_set_keymap('n', '<leader>rc', '<cmd>lua require("aedile").terminate_repl()<cr>', { noremap = true })
 
 -- slime {{{1
-vim.api.nvim_set_keymap('n', '<c-c><c-c>', ':<c-u>call slime#store_curpos()<cr>:set opfunc=slime#send_op<cr>g@aF', { silent = true })
+vim.api.nvim_set_keymap('n', '<c-c><c-c>', ':<c-u>call slime#store_curpos()<cr>:set opfunc=slime#send_op<cr>g@af', { silent = true })
 vim.api.nvim_set_keymap('x', '<c-c><c-c>', '<Plug>SlimeRegionSend', {})
 vim.api.nvim_set_keymap('n', '<c-c>v', '<Plug>SlimeConfig', {})
 

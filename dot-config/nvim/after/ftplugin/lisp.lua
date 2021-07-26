@@ -1,6 +1,9 @@
 -- lisp ft conf
 vim.bo.commentstring = ";;%s"
 
+-- slime keymaps
+vim.api.nvim_buf_set_keymap(0, 'n', '<c-c><c-c>', ':<c-u>call slime#store_curpos()<cr>:set opfunc=slime#send_op<cr>g@aF', { silent = true })
+
 -- vim-sexp keymaps
 --- disable insert mode mappigns
 vim.g.sexp_enable_insert_mode_mappings = 0
