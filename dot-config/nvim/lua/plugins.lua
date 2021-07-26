@@ -96,7 +96,7 @@ return require('packer').startup(function()
  use 'tpope/vim-projectionist'
 
  -- session management {{{1
- use '/mnt/Nemo/git/souvenir.nvim'
+ use 'ingram1107/souvenir.nvim'
 
  -- undo tree visualise {{{1
  use {
