@@ -73,7 +73,7 @@ function _G.tabline()
       s = s..'%#TabLine#'
     end
 
-    s = s..' %{v:lua.MyTabLabel('..i..')} '
+    s = s..' %{v:lua.tablabel('..i..')} '
   end
 
   s = s..'%#TabLineFill#%T'
