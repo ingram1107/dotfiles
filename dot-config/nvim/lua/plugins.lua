@@ -3,8 +3,8 @@ vim.api.nvim_exec('packadd packer.nvim', false)
 vim.api.nvim_exec('packadd termdebug', false)
 
 return require('packer').startup(function()
-  -- load packer {{{1
-  use { 'wbthomason/packer.nvim', opt = true }
+ -- load packer {{{1
+ use { 'wbthomason/packer.nvim', opt = true }
 
  -- benchmark {{{1
  use {
