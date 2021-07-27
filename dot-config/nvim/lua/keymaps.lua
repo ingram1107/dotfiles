@@ -135,6 +135,7 @@ vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin"
 vim.api.nvim_set_keymap('n', '<leader>fq', '<cmd>lua require("telescope.builtin").quickfix()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").tags()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fw', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>lua require("telescope.builtin").keymaps()<cr>', { noremap = true, nowait = true })
 vim.api.nvim_set_keymap('c', '<c-r><c-r>', '<cmd>lua require("telescope.builtin").commands()<cr><cr>', { noremap = true, nowait = true })
 
 -- git related {{{1
