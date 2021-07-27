@@ -39,11 +39,19 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
 -- folding {{{1
+local raquo = '»'
+
+function _G.simple_fold()
+  local lines = '['..(vim.v.foldend - vim.v.foldstart + 1)..']'
+  local first = vim.fn.getline(vim.v.foldstart)
+  return first..' '..lines..' '..raquo
+end
+
 vim.o.foldenable = true
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevelstart = 99
-vim.o.foldtext = 'fold#simple_fold()'
+vim.o.foldtext = 'v:lua.simple_fold()'
 
 -- completion {{{1
 vim.o.completeopt = 'menuone,noselect'
