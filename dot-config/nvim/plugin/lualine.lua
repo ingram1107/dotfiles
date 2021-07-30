@@ -57,7 +57,7 @@ local function lsp_status()
   local error_count = vim.lsp.diagnostic.get_count(0, [[Error]])
   local warning_count = vim.lsp.diagnostic.get_count(0, [[Warning]])
 
-  return " : "..error_count.."  : "..warning_count
+  return "%#LualineLspError# : "..error_count.." %#LualineLspWarning# : "..warning_count
 end
 
 require('lualine').setup {
@@ -71,7 +71,7 @@ require('lualine').setup {
     lualine_b = { 'branch', },
     lualine_c = { 'diff', 'filename', },
     lualine_x = { 'filetype', },
-    lualine_y = { 'location', 'progress', },
-    lualine_z = { lsp_status, },
+    lualine_y = { lsp_status },
+    lualine_z = { 'progress', 'location', },
   },
 }
