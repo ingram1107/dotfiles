@@ -4,13 +4,15 @@ local M = {}
 
 function M.rg()
   builtin.find_files {
-    find_command = { 'rg', '--files', '.' },
+    find_command = { 'rg', '--files', },
   }
 end
 
 function M.rg_dot()
   builtin.find_files {
-    find_command = { 'rg', '--files', '--hidden', '--follow', },
+    find_command = { 'rg', '--files', },
+    hidden = true,
+    follow = true,
     cwd = "~/.config",
     prompt_title = "Dotfiles",
   }
