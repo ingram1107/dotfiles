@@ -9,7 +9,7 @@ endif
 
 let current_compiler = "python"
 
-CompilerSet makeprg=python\ %
+CompilerSet makeprg=python
 CompilerSet errorformat=
       \%A\ \ File\ \"%f\"\\\,\ line\ %l\\\,%m,
       \%C\ \ \ \ %.%#,

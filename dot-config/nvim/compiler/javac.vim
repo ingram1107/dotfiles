@@ -4,9 +4,10 @@ endif
 
 let current_compiler = 'javac'
 
-CompilerSet makeprg=javac\ %
+CompilerSet makeprg=javac\ -Xlint
 CompilerSet errorformat=
-      \%E%f:%l:\ %m,
+      \%W%f:%l:\ %tarning:\ %m,
+      \%E%f:%l:\ %trror:\ %m,
       \%-Z%p^,
       \%-C%.%#,
       \%-G%.%#

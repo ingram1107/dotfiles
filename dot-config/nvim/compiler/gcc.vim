@@ -3,7 +3,7 @@ if exists("current_compiler")
 endif
 
 let current_compiler = "gcc"
-CompilerSet makeprg=gcc\ \-Wall\ \-g\ \-o\ %:r\ %
+CompilerSet makeprg=gcc\ \-Wall\ \-g
 CompilerSet errorformat=
       \%*[^\"]\"%f\"%*\\D%l:%c:\ %m,
       \%*[^\"]\"%f\"%*\\D%l:\ %m,
