@@ -3,5 +3,5 @@ if exists("current_compiler")
 endif
 
 let current_compiler = $BROWSER
-CompilerSet makeprg=$BROWSER\ %
+CompilerSet makeprg=$BROWSER
 CompilerSet errorformat=
