@@ -3,7 +3,7 @@ require('origin').setup {
   default_source = {
     c    = { "src", "lib", "test" },
     cpp  = { "src", "lib", "test" },
-    rust = { "src", "test" },
+    rust = { "src", "tests" },
     lua  = { "lua", "plugin", "after" },
     lisp = { "src", "test" },
     vim  = { "after", "autoload", "plugin", "ftdetect", "compiler" },
