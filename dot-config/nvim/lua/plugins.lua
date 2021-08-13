@@ -104,11 +104,12 @@ return require('packer').startup(function()
    cmd = { 'UndotreeToggle' },
  }
 
- -- fuzzy finder {{{1
+ -- finder {{{1
  use {
    'nvim-telescope/telescope.nvim',
    requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', },
  }
+ use "jremmen/vim-ripgrepjremmen/vim-ripgrep"
 
  -- git {{{1
  use {
