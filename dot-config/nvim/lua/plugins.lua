@@ -53,6 +53,7 @@ return require('packer').startup(function()
  }
 
  -- format {{{1
+ use 'mhartington/formatter.nvim'
  use {
    'godlygeek/tabular',
    cmd = { 'Tab' },
