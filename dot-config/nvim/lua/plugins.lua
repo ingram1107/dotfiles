@@ -195,7 +195,7 @@ return require('packer').startup(function()
  --]]
  use { 
    'vhyrro/neorg',
-   opt = true,
+   requires = 'nvim-lua/plenary.nvim'
  }
 
  -- grammar check {{{1
