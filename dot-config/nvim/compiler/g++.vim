@@ -3,7 +3,7 @@ if exists("current_compiler")
 endif
 
 let current_compiler = 'g++'
-CompilerSet makeprg=g++\ \-Wall\ \-g
+CompilerSet makeprg=g++\ \-std=c\+\+11\ \-Wall\ \-g
 CompilerSet errorformat=
       \%*[^\"]\"%f\"%*\\D%l:%c:\ %m,
       \%*[^\"]\"%f\"%*\\D%l:\ %m,
