@@ -85,11 +85,77 @@ vim.api.nvim_set_keymap('n', ']l', '<cmd>lnext<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<c-p>', '<cmd>NvimTreeToggle<cr>', { noremap = true })
 
 -- completion {{{1
-vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { noremap = true, silent = true, expr = true})
+local function t(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local function check_bs()
+  local col = vim.fn.col('.') - 1
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
+end
+
+function _G.tab_complete()
+  if vim.fn.pumvisible() == 1 then
+    return t '<c-n>'
+  elseif check_bs() then
+    return t '<tab>'
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+
+function _G.s_tab_complete()
+  if vim.fn.pumvisible() == 1 then
+    return t '<c-p>'
+  else
+    return t '<s-tab>'
+  end
+end
+
+vim.api.nvim_set_keymap('i', '<tab>', 'v:lua.tab_complete()', { silent = true, expr = true})
+vim.api.nvim_set_keymap('i', '<s-tab>', 'v:lua.s_tab_complete()', { silent = true, expr = true})
 vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { noremap = true, silent = true, expr = true})
 vim.api.nvim_set_keymap('i', '<c-e>', 'compe#close("<c-e>")', { noremap = true, silent = true, expr = true})
 vim.api.nvim_set_keymap('i', '<c-f>', 'compe#scroll({"delta":+4})', { noremap = true, silent = true, expr = true})
 vim.api.nvim_set_keymap('i', '<c-b>', 'compe#scroll({"delta":-4})', { noremap = true, silent = true, expr = true})
+
+-- snippet {{{1
+-- local ls = require('luasnip')
+
+
+
+-- function _G.tab_complete()
+--   if vim.fn.pumvisible() == 1 then
+--     return t '<c-n>'
+--   elseif ls and ls.expand_or_jumpable() then
+--     return t '<plug>luasnip-expand-or-jump'
+--   elseif check_bs() then
+--     return t '<tab>'
+--   else
+--     return vim.fn['compe#complete']()
+--   end
+-- end
+
+-- function _G.s_tab_complete()
+--   if vim.fn.pumvisible() == 1 then
+--     return t '<c-p>'
+--   elseif ls and ls.jumpable(-1) then
+--     return t '<plug>luasnip-jump-prev'
+--   else
+--     return t '<s-tab>'
+--   end
+-- end
+
+-- vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+-- vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
+-- vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+-- vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
+-- vim.api.nvim_set_keymap('i', '<C-E>', '<Plug>luasnip-next-choice', { })
+-- vim.api.nvim_set_keymap('s', '<C-E>', '<Plug>luasnip-next-choice', { })
 
 -- undotree {{{1
 vim.api.nvim_set_keymap('n', '<leader>u', '<cmd>UndotreeToggle<cr>', { noremap = true })

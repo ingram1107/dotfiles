@@ -158,6 +158,7 @@ return require('packer').startup(function()
 
  -- snippet support {{{1
  use 'SirVer/ultisnips'
+ -- use 'L3MON4D3/LuaSnip'
 
  -- useful keybind {{{1
  use 'tpope/vim-commentary'
