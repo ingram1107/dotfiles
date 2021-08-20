@@ -6,7 +6,7 @@ require('origin').setup {
     rust = { "src", "tests" },
     lua  = { "lua", "plugin", "after" },
     lisp = { "src", "test" },
-    vim  = { "after", "autoload", "plugin", "ftdetect", "compiler" },
+    vim  = { "after", "autoload", "plugin", "colors", "ftdetect", "compiler" },
     css  = "css",
     scss = "scss",
   },
