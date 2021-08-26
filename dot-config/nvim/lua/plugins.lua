@@ -12,9 +12,6 @@ return require('packer').startup(function()
    cmd = { 'StartupTime', }
  }
 
- -- lua native {{{1
- use 'tjdevries/astronauta.nvim'
-
  -- theme {{{1
  use '/mnt/Nemo/git/moneokai'
 
