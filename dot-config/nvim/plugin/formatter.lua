@@ -11,6 +11,19 @@ require('formatter').setup {
           stdin = true,
         }
       end
-    }
+    },
+    lua = {
+      function()
+        return {
+          exe = 'stylua',
+          args = {
+            '--config-path',
+            '~/.config/stylua.toml',
+            '-',
+          },
+          stdin = true,
+        }
+      end
+    },
   }
 }
