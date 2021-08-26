@@ -453,6 +453,8 @@ globalkeys = gears.table.join(
     awful.key({ "Shift" }, "F11", function() awful.util.spawn("xbacklight -inc 5", false) end,
               {description = "increase backlight brightness", group = "screen"}),
     awful.key({ }, "Print", function() awful.util.spawn("scrot -e 'mv $f ~/Pictures/'", false) end,
+              {description = "screen shot", group = "screen"}),
+    awful.key({ "Shift" }, "Print", function() awful.util.spawn("scrot -s -e 'mv $f ~/Pictures/'", false) end,
               {description = "screen shot", group = "screen"})
 )
 
