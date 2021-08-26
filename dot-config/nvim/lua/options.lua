@@ -68,6 +68,9 @@ aug BetterTerminal
 aug END
 ]], false)
 
+-- termdebug {{{1
+vim.g.termdebug_wide = 40
+
 -- theme {{{1
 vim.api.nvim_exec('colo moneokai', false)
 
