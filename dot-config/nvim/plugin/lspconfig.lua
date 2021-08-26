@@ -68,6 +68,9 @@ lspconfig.clangd.setup {
     '--clang-tidy',
     '--header-insertion=iwyu',
   },
+  -- init_options = {
+  --   compilationDatabaseDirectory = 'cmake-build',
+  -- },
   on_attach = on_attach,
 }
 
