@@ -3,31 +3,14 @@ vim.api.nvim_set_keymap('n', '<space>', '<nop>', {})
 vim.g.mapleader = ' '
 
 -- :source file {{{1
-vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>source %<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>source<cr>', { noremap = true, silent = true })
 
 -- spelling {{{1
 vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>setlocal spell! spelllang=en_gb<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<c-c>', '<c-g>u<esc>[s1z=`]a<c-g>u', { noremap = true })
 
 -- show highlight group {{{1
-function HlGrpStr()
-  local line = vim.fn.line(".")
-  local col = vim.fn.col(".")
-  local hl_bit = 1
-  local trans_bit = 0
-
-  local hl_syn_id = vim.fn.synID(line, col, hl_bit)
-  local trans_syn_id = vim.fn.synID(line, col, trans_bit)
-  local syn_grp_id = vim.fn.synIDtrans(hl_syn_id)
-
-  local hl_syn_name = vim.fn.synIDattr(hl_syn_id, 'name')
-  local trans_syn_name = vim.fn.synIDattr(trans_syn_id, 'name')
-  local syn_grp_name = vim.fn.synIDattr(syn_grp_id, 'name')
-
-  return 'hi<'..hl_syn_name..'> trans<'..trans_syn_name..'> lo<'..syn_grp_name..'>'
-end
-
-vim.api.nvim_set_keymap('n', '<f10>', '<cmd>lua print(HlGrpStr())<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<f10>', '<cmd>TSHighlightCapturesUnderCursor<cr>', { noremap = true })
 
 -- quickhelp {{{1
 vim.api.nvim_set_keymap('n', '<leader>hh', ':h <c-r><c-w><cr>', { noremap = true })
