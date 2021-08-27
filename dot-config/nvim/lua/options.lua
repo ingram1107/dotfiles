@@ -29,7 +29,7 @@ vim.o.updatetime = 10
 vim.o.viewoptions = 'folds'
 vim.o.wildignore = '*.o,*.obj,__pycache__,*.pyc,*pycache'
 vim.o.wildmode = 'longest,full'
-vim.o.wildoptions = 'tagfile'
+vim.o.wildoptions = 'pum'
 vim.o.wrap = false
 
 -- indentation {{{1
