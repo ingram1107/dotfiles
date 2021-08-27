@@ -186,11 +186,6 @@ return require('packer').startup(function()
    'kristijanhusak/orgmode.nvim',
    opt = true,
  }
- --[[
-     TODO:
-         test neorg plugin
-           - littleclover 2021-07-12 04:48:44 PM +0800
- --]]
  use { 
    'vhyrro/neorg',
    requires = 'nvim-lua/plenary.nvim'
