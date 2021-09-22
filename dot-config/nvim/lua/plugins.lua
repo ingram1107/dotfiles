@@ -16,7 +16,7 @@ return require('packer').startup(function()
  use '/mnt/Nemo/git/moneokai'
 
  -- statusline and tabline {{{1
- use 'hoob3rt/lualine.nvim'
+ use 'shadmansaleh/lualine.nvim'
 
  -- syntax and debug {{{1
  use {
