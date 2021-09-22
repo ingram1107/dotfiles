@@ -39,12 +39,10 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
 -- folding {{{1
-local raquo = '»'
-
 function _G.simple_fold()
-  local lines = '['..(vim.v.foldend - vim.v.foldstart + 1)..']'
   local first = vim.fn.getline(vim.v.foldstart)
-  return first..' '..lines..' '..raquo
+  local last = vim.fn.trim(vim.fn.getline(vim.v.foldend))
+  return first..'...'..last
 end
 
 vim.o.foldenable = true
