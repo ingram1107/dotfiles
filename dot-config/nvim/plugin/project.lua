@@ -3,6 +3,17 @@ vim.g.projectionist_heuristics = {
   -- root project
   ["*"] = {
     --- c files
+    ["src/*.c"] = {
+      alternate = "lib/{}.h",
+      type = "source",
+    },
+    ["lib/*.h"] = {
+      alternate = {
+        "src/{}.c",
+        "src/{}.cpp",
+      },
+      type = "header",
+    },
     ["*.c"] = {
       alternate = "{}.h",
       type = "source",
@@ -16,6 +27,17 @@ vim.g.projectionist_heuristics = {
     },
 
     --- cpp files
+    ["src/*.cpp"] = {
+      alternate = {
+        "lib/{}.hpp",
+        "lib/{}.h",
+      },
+      type = "source",
+    },
+    ["lib/*.hpp"] = {
+      alternate = "src/{}.cpp",
+      type = "header",
+    },
     ["*.cpp"] = {
       alternate = {
         "{}.hpp",
