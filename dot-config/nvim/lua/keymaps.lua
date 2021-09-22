@@ -99,8 +99,6 @@ function _G.s_tab_complete()
   end
 end
 
-vim.api.nvim_set_keymap('i', '<tab>', 'v:lua.tab_complete()', { silent = true, expr = true})
-vim.api.nvim_set_keymap('i', '<s-tab>', 'v:lua.s_tab_complete()', { silent = true, expr = true})
 vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { noremap = true, silent = true, expr = true})
 vim.api.nvim_set_keymap('i', '<c-e>', 'compe#close("<c-e>")', { noremap = true, silent = true, expr = true})
 vim.api.nvim_set_keymap('i', '<c-f>', 'compe#scroll({"delta":+4})', { noremap = true, silent = true, expr = true})
