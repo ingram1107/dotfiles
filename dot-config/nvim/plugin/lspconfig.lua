@@ -75,7 +75,7 @@ lspconfig.clangd.setup {
 }
 
 --- nlua: nvim lua dev
-local sumneko_root_path = '/usr/share/lua-language-server/'
+local sumneko_root_path = '/usr/lib/lua-language-server/'
 local sumneko_binary = '/usr/bin/lua-language-server'
 require('nlua/lsp/nvim').setup(lspconfig, {
   cmd = {
@@ -118,3 +118,6 @@ lspconfig.jedi_language_server.setup {
 
   on_attach = on_attach,
 }
+
+--- jdtls: Java
+lspconfig.jdtls.setup { }
