@@ -10,7 +10,7 @@ end
 
 function M.rg_dot()
   builtin.find_files {
-    find_command = { 'rg', '--files', },
+    find_command = { 'rg', '--files', '--follow' },
     hidden = true,
     follow = true,
     cwd = "~/.config",
