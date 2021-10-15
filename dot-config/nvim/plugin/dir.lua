@@ -11,9 +11,21 @@ command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args
 ]], false)
 
 -- nvim-tree conf
-vim.g.nvim_tree_width = 25
+require('nvim-tree').setup {
+  disable_netrw = false,
+  auto_close = true,
+  update_to_buf_dir = {
+    enable = false,
+  },
+  hijack_cursor = true,
+  update_cwd = true,
+  lsp_diagnostics = true,
+  view = {
+    width = 25,
+  }
+}
+
 vim.g.nvim_tree_ignore = { '.git', 'node_modules' }
-vim.g.nvim_tree_highlight_opened_files = 3
-vim.g.nvim_tree_follow = 1
+vim.g.nvim_tree_highlight_opened_files = 2
+vim.g.nvim_tree_git_hl = true
 vim.g.nvim_tree_quit_on_open = 1
-vim.g.nvim_tree_lsp_diagnostics = 1
