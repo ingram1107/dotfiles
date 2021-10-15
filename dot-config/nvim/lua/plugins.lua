@@ -88,7 +88,23 @@ return require('packer').startup(function()
  }
  use {
    'kyazdani42/nvim-tree.lua',
+   requires = 'kyazdani42/nvim-web-devicons',
    cmd = 'NvimTreeToggle',
+   config = function()
+     require('nvim-tree').setup {
+       disable_netrw = false,
+       auto_close = true,
+       update_to_buf_dir = {
+         enable = false,
+       },
+       hijack_cursor = true,
+       update_cwd = true,
+       lsp_diagnostics = true,
+       view = {
+         width = 25,
+       }
+     }
+   end,
  }
  use 'ingram1107/origin.nvim'
  use 'tpope/vim-projectionist'
