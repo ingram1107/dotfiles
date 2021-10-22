@@ -1,5 +1,7 @@
 -- lspconfig
 local lspconfig = require('lspconfig')
+local configs = require('lspconfig/configs')
+
 --- on_attach func
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -121,3 +123,19 @@ lspconfig.jedi_language_server.setup {
 
 --- jdtls: Java
 lspconfig.jdtls.setup { }
+
+-- zk: Zettelkastan
+configs.zk = {
+  default_config = {
+    cmd = {'zk', 'lsp', '--log', '/tmp/zk-lsp.log'},
+    filetypes = {'markdown'},
+    root_dir = function()
+      return vim.loop.cwd()
+    end,
+    settings = {}
+  };
+}
+
+lspconfig.zk.setup {
+  on_attach = on_attach,
+}
