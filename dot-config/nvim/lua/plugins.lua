@@ -14,6 +14,10 @@ return require('packer').startup(function()
 
  -- theme {{{1
  use '/mnt/Nemo/git/moneokai'
+ use {
+   'mcchrish/zenbones.nvim',
+   requires = 'rktjmp/lush.nvim',
+ }
 
  -- statusline and tabline {{{1
  use 'shadmansaleh/lualine.nvim'
