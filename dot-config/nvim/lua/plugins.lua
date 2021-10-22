@@ -230,7 +230,7 @@ return require('packer').startup(function()
  }
  use {
    'davidgranstrom/nvim-markdown-preview',
-   ft = 'markdown'
+   cmd = 'MarkdownPreview'
  }
  -- }}}
 end)
