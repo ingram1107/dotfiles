@@ -174,7 +174,7 @@ return require('packer').startup(function()
  -- use 'L3MON4D3/LuaSnip'
 
  -- useful keybind {{{1
- use 'tpope/vim-commentary'
+ use 'tomtom/tcomment_vim'
  use {
    'andymass/vim-matchup',
    config = function()
