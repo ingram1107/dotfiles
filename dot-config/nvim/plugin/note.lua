@@ -1,4 +1,5 @@
 -- vimwiki conf
+-- TODO: source out vimwiki notes
 vim.g.vimwiki_list = {
   {
     path = '/mnt/Nemo/Documents/vimwiki',
@@ -7,11 +8,6 @@ vim.g.vimwiki_list = {
     template_ext = '.html',
     css_name = 'monokai.css',
     auto_tags = 1,
-  },
-  {
-    path = '/mnt/Nemo/Documents/notes',
-    syntax = 'markdown',
-    ext = '.md',
   },
 }
 vim.g.vimwiki_key_mappings = {
