@@ -19,4 +19,4 @@ require('compe').setup({
     spell = true,
     ultisnips = true,
   },
-}, 0)
+})
