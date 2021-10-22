@@ -198,10 +198,6 @@ return require('packer').startup(function()
    keys = { 'n', '<leader>ww' },
  }
  use 'ledger/vim-ledger'
- use {
-   'kristijanhusak/orgmode.nvim',
-   opt = true,
- }
  use { 
    'vhyrro/neorg',
    branch = 'unstable',
