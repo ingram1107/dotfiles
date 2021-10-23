@@ -129,6 +129,7 @@ vim.api.nvim_set_keymap('n', '<leader>gg', ':Neogit ', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gl', '<cmd>Neogit log<cr>', { noremap = true })
 
 -- packer {{{1
+vim.api.nvim_set_keymap('n', '<leader>pE', '<cmd>PluginEdit<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>pI', '<cmd>lua require("packer").install()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>pC', '<cmd>lua require("packer").compile()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>pX', '<cmd>lua require("packer").clean()<cr>', { noremap = true })
