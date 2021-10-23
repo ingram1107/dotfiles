@@ -38,18 +38,6 @@ local on_attach = function(client, bufnr)
   sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsDefaultInformation linehl= numhl=
   ]], false)
 
-  --- use document highlight based on server capability
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec([[
-    aug LspDocHighlight
-    au! * <buffer>
-    au CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    au CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    au CursorHold <buffer> lua vim.lsp.buf.clear_references()
-    aug END
-    ]], false)
-  end
-
   --- set keybind for lsp formatting based on server capability
   if client.resolved_capabilities.document_formatting then
     buf_set_keymap("n", "glf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
