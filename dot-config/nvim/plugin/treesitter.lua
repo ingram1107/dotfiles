@@ -28,12 +28,12 @@ require 'nvim-treesitter.configs'.setup {
     enable = true,
     extended_mode = true,
     colors = {
-      '#f92672',
-      '#e6db74',
-      '#66d9ef',
-      '#a6e221',
-      '#2ea6e2',
-      '#ae81ff',
+      '#e8838f',
+      '#61abda',
+      '#d68c67',
+      '#8bae68',
+      '#65b8c1',
+      '#cf86c1',
     },
   },
   textobjects = {
