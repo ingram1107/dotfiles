@@ -64,7 +64,20 @@ return require('packer').startup(function()
  use 'neovim/nvim-lspconfig'
 
  -- completion {{{1
- use 'hrsh7th/nvim-compe'
+ use {
+   'hrsh7th/nvim-compe',
+   opt = true,
+ }
+ use {
+   'hrsh7th/nvim-cmp',
+   requires = {
+     'hrsh7th/cmp-buffer',
+     'hrsh7th/cmp-path',
+     'hrsh7th/cmp-nvim-lsp',
+     'hrsh7th/cmp-nvim-lua',
+     'saadparwaiz1/cmp_luasnip',
+   },
+ }
  use 'windwp/nvim-autopairs' 
 
  -- additional compiler plugin {{{1

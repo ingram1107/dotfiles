@@ -2,6 +2,7 @@
 vim.api.nvim_exec('filetype plugin on', false)
 vim.o.backupcopy = 'no'
 vim.o.clipboard = 'unnamedplus'
+vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.concealcursor = 'nc'
 vim.o.conceallevel = 2
 vim.o.encoding = 'utf8'

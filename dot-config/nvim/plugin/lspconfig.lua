@@ -1,6 +1,7 @@
 -- lspconfig
 local lspconfig = require('lspconfig')
 local configs = require('lspconfig/configs')
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 --- on_attach func
 local on_attach = function(client, bufnr)
@@ -74,6 +75,7 @@ lspconfig.clangd.setup {
   --   compilationDatabaseDirectory = 'cmake-build',
   -- },
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 --- nlua: nvim lua dev
@@ -104,6 +106,7 @@ require('nlua/lsp/nvim').setup(lspconfig, {
     },
   },
   on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 --- jedi_language_server: Python
@@ -119,10 +122,13 @@ lspconfig.jedi_language_server.setup {
   },
 
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 --- jdtls: Java
-lspconfig.jdtls.setup { }
+lspconfig.jdtls.setup {
+  capabilities = capabilities,
+}
 
 -- zk: Zettelkastan
 configs.zk = {
@@ -138,4 +144,5 @@ configs.zk = {
 
 lspconfig.zk.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }
