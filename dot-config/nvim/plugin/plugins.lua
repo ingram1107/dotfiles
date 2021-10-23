@@ -25,27 +25,14 @@ return require('packer').startup(function()
  -- syntax and debug {{{1
  use {
    'nvim-treesitter/nvim-treesitter',
+   requires = {
+     'nvim-treesitter/nvim-treesitter-textobjects',
+     'p00f/nvim-ts-rainbow',
+     'romgrk/nvim-treesitter-context',
+     'JoosepAlviste/nvim-ts-context-commentstring',
+     'nvim-treesitter/playground',
+   },
    run = ':TSUpdate',
- }
- use {
-   'nvim-treesitter/nvim-treesitter-textobjects',
-   requires = 'nvim-treesitter/nvim-treesitter',
- }
- use {
-   'p00f/nvim-ts-rainbow',
-   requires = 'nvim-treesitter/nvim-treesitter',
- }
- use {
-   'romgrk/nvim-treesitter-context',
-   requires = 'nvim-treesitter/nvim-treesitter',
- }
- use {
-   'JoosepAlviste/nvim-ts-context-commentstring',
-   requires = 'nvim-treesitter/nvim-treesitter',
- }
- use {
-   'nvim-treesitter/playground',
-   requires = 'nvim-treesitter/nvim-treesitter',
  }
  use 'dag/vim-fish'
  use {
@@ -90,7 +77,6 @@ return require('packer').startup(function()
  use 'tjdevries/nlua.nvim'
 
  -- dir and project {{{1
- use 'kyazdani42/nvim-web-devicons'
  use {
    'justinmk/vim-dirvish',
    key = { 'n', '<c-n>' },
