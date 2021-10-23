@@ -1,5 +1,5 @@
 ---------------------------
--- Default awesome theme --
+--        zenflesh       --
 ---------------------------
 
 local theme_assets = require("beautiful.theme_assets")
