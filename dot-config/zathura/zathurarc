@@ -1,8 +1,10 @@
 set recolor
-set recolor-lightcolor "#272822"
-set recolor-darkcolor "#f8f8f0"
+set recolor-lightcolor "#1c1917"
+set recolor-darkcolor "#b4bdc3"
 set recolor-keephue
-set default-fg "#272822"
-set default-bg "#272822"
-set highlight-color "#204a87"
-set highlight-active-color "#e6db74"
+set default-fg "#b4bdc3"
+set default-bg "#1c1917"
+set highlight-color "#65435e"
+set highlight-active-color "#b4bdc3"
+set statusbar-bg "#322d2b"
+set statusbar-fg "#cad0d4"
