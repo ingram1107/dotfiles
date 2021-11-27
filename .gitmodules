@@ -1,3 +1,6 @@
 [submodule "dot-config/awesome/rubato"]
 	path = dot-config/awesome/rubato
 	url = https://github.com/andOrlando/rubato
+[submodule "dot-config/awesome/bling"]
+	path = dot-config/awesome/bling
+	url = https://github.com/BlingCorp/bling
