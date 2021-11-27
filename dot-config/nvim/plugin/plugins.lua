@@ -22,7 +22,7 @@ return require('packer').startup({
     }
 
     -- statusline and tabline {{{1
-    use 'shadmansaleh/lualine.nvim'
+    use 'nvim-lualine/lualine.nvim'
 
     -- syntax and debug {{{1
     use {

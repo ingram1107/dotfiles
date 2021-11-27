@@ -32,21 +32,14 @@ cmp.setup({
 
 -- autopairs conf
 local nv_pairs = require('nvim-autopairs')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local rule = require('nvim-autopairs.rule')
 local cond = require('nvim-autopairs.conds')
 
 nv_pairs.setup { }
 
-require("nvim-autopairs.completion.cmp").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
-  auto_select = true, -- automatically select the first item
-  insert = false, -- use insert confirm behavior instead of replace
-  map_char = { -- modifies the function or method delimiter by filetypes
-    all = '(',
-    tex = '{'
-  }
-})
+cmp.event:on('confirm_done',cmp_autopairs.on_confirm_done({ map_char = { tex = '' }}))
+cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
 nv_pairs.add_rules({
   rule('$', '$', 'vimwiki')
@@ -55,9 +48,3 @@ nv_pairs.add_rules({
     :with_move(cond.after_text_check('$'))
     :with_cr(cond.none())
 })
-
--- ultisnips conf
-vim.g.UltiSnipsExpandTrigger = "<c-_>"
-vim.g.UltiSnipsJumpForwardTrigger = "<c-_>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<c-h>"
-vim.g.UltiSnipsEditSplit = "tabdo"
