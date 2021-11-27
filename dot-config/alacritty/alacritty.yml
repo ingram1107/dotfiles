@@ -57,6 +57,8 @@ font:
 #     magenta: '#3c3d37'
 #     cyan:    '#204a87'
 #     white:   '#49483e'
+
+# Colors (Zenflesh)
 colors:
   # Default colors
   primary:
