@@ -124,6 +124,6 @@ aug ConfigLoadView
   au!
   au BufRead $HOME/dotfiles/dot-config/nvim/lua/keymaps.lua silent! loadview
   au BufRead $HOME/dotfiles/dot-config/nvim/lua/options.lua silent! loadview
-  au BufRead $HOME/dotfiles/dot-config/nvim/lua/plugins.lua silent! loadview
+  au BufRead $HOME/dotfiles/dot-config/nvim/plugin/plugins.lua silent! loadview
 aug END
 ]], false)
