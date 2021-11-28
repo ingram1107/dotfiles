@@ -117,6 +117,7 @@ return require('packer').startup({
 
     -- session management {{{1
     use 'ingram1107/souvenir.nvim'
+    use 'ThePrimeagen/harpoon'
 
     -- undo tree visualise {{{1
     use {
