@@ -462,7 +462,7 @@ globalkeys = gears.table.join(
 
   -- Programs
   awful.key({ modkey }, 'w', function()
-    awful.util.spawn('firefox', false)
+    awful.util.spawn('firefox-profile-menu', false)
   end, { description = 'open browse', group = 'programs' }),
   awful.key({ modkey }, 'v', function()
     awful.util.spawn('record', false)
