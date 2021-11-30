@@ -175,6 +175,11 @@ return require('packer').startup({
       ft = { 'lisp', },
       config = function() vim.api.nvim_exec('packadd vim-sexp', false) end,
     }
+    use {
+      'dccsillag/magma-nvim',
+      run = ':UpdateRemotePlugins',
+      ft = { 'python', },
+    }
 
     -- snippet support {{{1
     use { 'SirVer/ultisnips', opt=true }
