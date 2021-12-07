@@ -63,7 +63,7 @@ end
 
 require('lualine').setup {
   options = {
-    theme = 'zenflesh',
+    theme = 'zenbones',
     section_separators = { left = '', right = ''},
     component_separators = { left ='', right = ''},
   },
