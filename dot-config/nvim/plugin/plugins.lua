@@ -98,17 +98,24 @@ return require('packer').startup({
       cmd = 'NvimTreeToggle',
       config = function()
         require('nvim-tree').setup {
-          disable_netrw = false,
           auto_close = true,
+          hijack_cursor = true,
+
+          diagnostic = {
+            enable = true,
+          },
+
           update_to_buf_dir = {
             enable = false,
           },
-          hijack_cursor = true,
-          update_cwd = true,
-          lsp_diagnostics = true,
+
           view = {
             width = 25,
-          }
+          },
+
+          filters = {
+            custom = { '.git', 'node_modules' },
+          },
         }
       end,
     }
