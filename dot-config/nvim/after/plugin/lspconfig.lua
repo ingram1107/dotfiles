@@ -32,16 +32,11 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.lsp.diagnostic.set_qflist()<cr>', opts)
 
   vim.api.nvim_exec([[
-  sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsDefaultError linehl= numhl=
-  sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsDefaultWarning linehl= numhl=
-  sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsDefaultHint linehl= numhl=
-  sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsDefaultInformation linehl= numhl=
+  sign define DiagnosticsSignError text= texthl=LspDiagnosticsDefaultError linehl= numhl=
+  sign define DiagnosticsSignWarning text= texthl=LspDiagnosticsDefaultWarning linehl= numhl=
+  sign define DiagnosticsSignHint text= texthl=LspDiagnosticsDefaultHint linehl= numhl=
+  sign define DiagnosticsSignInformation text= texthl=LspDiagnosticsDefaultInformation linehl= numhl=
   ]], false)
-  -- TODO merge this when 0.6.0 is available
-  -- sign define DiagnosticsSignError text= texthl=LspDiagnosticsDefaultError linehl= numhl=
-  -- sign define DiagnosticsSignWarning text= texthl=LspDiagnosticsDefaultWarning linehl= numhl=
-  -- sign define DiagnosticsSignHint text= texthl=LspDiagnosticsDefaultHint linehl= numhl=
-  -- sign define DiagnosticsSignInformation text= texthl=LspDiagnosticsDefaultInformation linehl= numhl=
 
   --- set keybind for lsp formatting based on server capability
   if client.resolved_capabilities.document_formatting then
