@@ -120,7 +120,22 @@ vim.api.nvim_set_keymap('n', '<leader>fq', '<cmd>lua require("telescope.builtin"
 vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").tags()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fw', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>lua require("telescope.builtin").keymaps()<cr>', { noremap = true, nowait = true })
+vim.api.nvim_set_keymap('n', '<leader>fs', '<cmd>lua require("telescope").extensions.souvenir.souvenir()<cr>', { noremap = true, nowait = true })
 vim.api.nvim_set_keymap('c', '<c-r><c-r>', '<cmd>lua require("telescope.builtin").commands()<cr><cr>', { noremap = true, nowait = true })
+
+-- harpoon {{{1
+vim.api.nvim_set_keymap('n', '<leader>ma', '<cmd>lua require("harpoon.mark").add_file()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m1', '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m2', '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m3', '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m4', '<cmd>lua require("harpoon.ui").nav_file(4)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m5', '<cmd>lua require("harpoon.ui").nav_file(5)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m6', '<cmd>lua require("harpoon.ui").nav_file(6)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m7', '<cmd>lua require("harpoon.ui").nav_file(7)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m8', '<cmd>lua require("harpoon.ui").nav_file(8)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m9', '<cmd>lua require("harpoon.ui").nav_file(9)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>m0', '<cmd>lua require("harpoon.ui").nav_file(10)<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>mm', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', { noremap = true })
 
 -- git related {{{1
 vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>Neogit<cr>', { noremap = true })
