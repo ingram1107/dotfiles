@@ -110,6 +110,7 @@ T = require('telescope-custom')
 
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua T.rg()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>lua T.rg_dot()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fn', '<cmd>lua T.rg_note()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua T.git_branches()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fr', '<cmd>lua T.live_grep()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>lua T.buffers()<cr>', { noremap = true })

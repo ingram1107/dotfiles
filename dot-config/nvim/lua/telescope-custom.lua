@@ -18,6 +18,16 @@ function M.rg_dot()
   }
 end
 
+function M.rg_note()
+  builtin.find_files {
+    find_command = { 'rg', '--files', '--follow' },
+    hidden = true,
+    follow = true,
+    cwd = "/mnt/Nemo/Documents/neorg",
+    prompt_title = "Notes",
+  }
+end
+
 function M.live_grep()
   builtin.live_grep {
     previewer = false,
