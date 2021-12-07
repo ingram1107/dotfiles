@@ -218,9 +218,9 @@ return require('packer').startup({
     }
     use 'ledger/vim-ledger'
     use { 
-      'vhyrro/neorg',
+      'nvim-neorg/neorg',
       branch = 'unstable',
-      requires = 'nvim-lua/plenary.nvim'
+      requires = 'nvim-lua/plenary.nvim',
     }
 
     -- grammar check {{{1
