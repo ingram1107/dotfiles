@@ -185,8 +185,9 @@ return require('packer').startup({
     use {
       'dccsillag/magma-nvim',
       run = ':UpdateRemotePlugins',
-      ft = { 'python', },
+      cmd = 'MagmaInit'
     }
+    use 'goerz/jupytext.vim'
 
     -- snippet support {{{1
     use { 'SirVer/ultisnips', opt=true }
