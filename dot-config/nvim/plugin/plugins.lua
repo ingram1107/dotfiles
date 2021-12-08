@@ -69,11 +69,12 @@ return require('packer').startup({
     }
     use 'windwp/nvim-autopairs' 
 
-    -- additional compiler plugin {{{1
+    -- compiler plugin {{{1
     use {
       'ingram1107/sass-compiler.vim',
       ft = 'scss',
     }
+    use 'tpope/vim-dispatch'
 
     -- nvim dev {{{1
     use 'tjdevries/nlua.nvim'
