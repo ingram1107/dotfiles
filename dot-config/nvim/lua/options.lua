@@ -71,8 +71,7 @@ aug END
 vim.g.termdebug_wide = 40
 
 -- theme {{{1
-vim.api.nvim_exec('colo zenbones', false)
-vim.o.bg = 'dark'
+vim.api.nvim_exec('colo monokai_pro', false)
 
 -- tabline {{{1
 function _G.tabline()

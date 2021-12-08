@@ -16,10 +16,7 @@ return require('packer').startup({
 
     -- theme {{{1
     use '/mnt/Nemo/git/moneokai'
-    use {
-      'mcchrish/zenbones.nvim',
-      requires = 'rktjmp/lush.nvim',
-    }
+    use 'tanvirtin/monokai.nvim'
 
     -- statusline and tabline {{{1
     use 'nvim-lualine/lualine.nvim'

@@ -26,61 +26,27 @@ font:
   size: 9
 
 # Colors (Monokai)
-# colors:
-#   # Default Colors
-#   primary:
-#     background: '#272822'
-#     foreground: '#f8f8f0'
-#
-#   cursor:
-#     text: '#272822'
-#     cursor: '#f8f8f0'
-#
-#   # Normal colors
-#   normal:
-#     black:   '#272822'
-#     red:     '#f92672'
-#     green:   '#a6e221'
-#     yellow:  '#e6db74'
-#     blue:    '#66d9ef'
-#     magenta: '#ae81ff'
-#     cyan:    '#2ea6e2'
-#     white:   '#f8f8f0'
-#
-#   # Bright colors
-#   bright:
-#     black:   '#75715e'
-#     red:     '#8b0807'
-#     green:   '#46830c'
-#     yellow:  '#fd971f'
-#     blue:    '#243955'
-#     magenta: '#3c3d37'
-#     cyan:    '#204a87'
-#     white:   '#49483e'
-
-# Colors (Zenflesh)
 colors:
-  # Default colors
   primary:
-    background: '#1C1917'
-    foreground: '#B4BDC3'
-  # Normal colors
+    background: '#26292C'
+    foreground: '#FCFCFA'
+
   normal:
-    black:   '#1C1917'
-    red:     '#DE6E7C'
-    green:   '#819B69'
-    yellow:  '#B77E64'
-    blue:    '#6099C0'
-    magenta: '#B279A7'
-    cyan:    '#66A5AD'
-    white:   '#B4BDC3'
-  # Bright colors
+    black:   '#403E41'
+    red:     '#FF6188'
+    green:   '#A9DC76'
+    yellow:  '#FFD866'
+    blue:    '#FC9867'
+    magenta: '#AB9DF2'
+    cyan:    '#78DCE8'
+    white:   '#FCFCFA'
+
   bright:
-    black:   '#403833'
-    red:     '#E8838F'
-    green:   '#8BAE68'
-    yellow:  '#D68C67'
-    blue:    '#61ABDA'
-    magenta: '#CF86C1'
-    cyan:    '#65B8C1'
-    white:   '#888F94'
+    black:   '#727072'
+    red:     '#FF6188'
+    green:   '#A9DC76'
+    yellow:  '#FFD866'
+    blue:    '#FC9867'
+    magenta: '#AB9DF2'
+    cyan:    '#78DCE8'
+    white:   '#FCFCFA'
