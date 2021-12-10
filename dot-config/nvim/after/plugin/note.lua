@@ -1,5 +1,8 @@
 -- vimwiki conf
 -- TODO: source out vimwiki notes
+vim.api.nvim_exec([[
+  let vimwiki_ext2syntax = {}
+]], false)
 vim.g.vimwiki_list = {
   {
     path = '/mnt/Nemo/Documents/vimwiki',
