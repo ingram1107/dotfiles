@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = 'IBMPlex Mono 8'
+theme.font = 'IBMPlex Sans 8'
 
 theme.bg_normal = '#1c1917'
 theme.bg_focus = '#3d4042'

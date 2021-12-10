@@ -17,6 +17,12 @@ local hotkeys_popup = require('awful.hotkeys_popup')
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require('awful.hotkeys_popup.keys')
+-- More graphical widget
+local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -135,75 +141,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
--- Battery widget
-mybattery = awful.widget.watch(
-  { awful.util.shell, '-c', "upower -i /org/freedesktop/UPower/devices/battery_BAT0 | sed -n '/present/,/icon-name/p'" },
-  30,
-  function(widget, stdout)
-    local bat_now = {
-      present = 'N/A',
-      state = 'N/A',
-      warninglevel = 'N/A',
-      energy = 'N/A',
-      energyfull = 'N/A',
-      energyrate = 'N/A',
-      voltage = 'N/A',
-      percentage = 'N/A',
-      capacity = 'N/A',
-      icon = 'N/A',
-    }
-
-    for k, v in string.gmatch(stdout, '([%a]+[%a|-]+):%s*([%a|%d]+[,|%a|%d]-)') do
-      if k == 'present' then
-        bat_now.present = v
-      elseif k == 'state' then
-        bat_now.state = v
-      elseif k == 'warning-level' then
-        bat_now.warninglevel = v
-      elseif k == 'energy' then
-        bat_now.energy = string.gsub(v, ',', '.') -- Wh
-      elseif k == 'energy-full' then
-        bat_now.energyfull = string.gsub(v, ',', '.') -- Wh
-      elseif k == 'energy-rate' then
-        bat_now.energyrate = string.gsub(v, ',', '.') -- W
-      elseif k == 'voltage' then
-        bat_now.voltage = string.gsub(v, ',', '.') -- V
-      elseif k == 'percentage' then
-        bat_now.percentage = tonumber(v) -- %
-      elseif k == 'capacity' then
-        bat_now.capacity = string.gsub(v, ',', '.') -- %
-      elseif k == 'icon-name' then
-        bat_now.icon = v
-      end
-    end
-
-    -- customize here
-    widget:set_text('  ' .. bat_now.percentage .. ' ' .. bat_now.state)
-  end
-)
-
-mynewmail = awful.widget.watch({ awful.util.shell, '-c', 'newmail' }, 15, function(widget, stdout)
-  local icon = '  '
-
-  if tonumber(stdout) < 1 then
-    icon = '  '
-  end
-
-  widget:set_text(icon .. stdout)
-end)
-
-mycpu = awful.widget.watch({ awful.util.shell, '-c', 'custom_cpu' }, 15, function(widget, stdout)
-  widget:set_text('  ' .. stdout)
-end)
-
-mynet = awful.widget.watch({ awful.util.shell, '-c', 'custom_network' }, 5, function(widget, stdout)
-  widget:set_text(stdout)
-end)
-
-mymem = awful.widget.watch({ awful.util.shell, '-c', 'custom_mem' }, 15, function(widget, stdout)
-  widget:set_text('  ' .. stdout)
-end)
-
 myvolume = awful.widget.watch({ awful.util.shell, '-c', 'pamixer --get-volume-human' }, 1, function(widget, stdout)
   local icon = '  '
   -- TODO:
@@ -211,6 +148,16 @@ myvolume = awful.widget.watch({ awful.util.shell, '-c', 'pamixer --get-volume-hu
   --      - littleclover  Sun 25 Apr 2021 08:17:16 PM +08
   if stdout == 'muted' then
     icon = '  '
+  end
+
+  widget:set_text(icon .. stdout)
+end)
+
+mynewmail = awful.widget.watch({ awful.util.shell, '-c', 'newmail' }, 15, function(widget, stdout)
+  local icon = '  '
+
+  if tonumber(stdout) < 1 then
+    icon = '  '
   end
 
   widget:set_text(icon .. stdout)
@@ -330,12 +277,26 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
       mykeyboardlayout,
       wibox.widget.systray(),
-      mybattery,
-      mycpu,
-      mymem,
-      mynet,
-      mynewmail,
+      cpu_widget({
+        width = 30,
+        color = '#78dce8'
+      }),
+      ram_widget({
+        color_used = '#ff6188',
+        color_free = '#a9dc76',
+        color_buf = '#ffd866',
+        timeout = 5,
+      }),
       myvolume,
+      brightness_widget({
+        tooltip = true,
+      }),
+      battery_widget(),
+      net_speed_widget({
+        timeout = 5,
+        width = 45,
+      }),
+      mynewmail,
       mytextclock,
       s.mylayoutbox,
     },
@@ -504,10 +465,10 @@ globalkeys = gears.table.join(
 
   -- Screen
   awful.key({ 'Shift' }, 'F10', function()
-    awful.util.spawn('xbacklight -dec 5', false)
+    awful.util.spawn('light -U 5', false)
   end, { description = 'decrease backlight brightness', group = 'screen' }),
   awful.key({ 'Shift' }, 'F11', function()
-    awful.util.spawn('xbacklight -inc 5', false)
+    awful.util.spawn('light -A 5', false)
   end, { description = 'increase backlight brightness', group = 'screen' }),
   awful.key({}, 'Print', function()
     awful.util.spawn("scrot -e 'mv $f ~/Pictures/'", false)
