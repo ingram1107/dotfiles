@@ -36,6 +36,9 @@ require 'nvim-treesitter.configs'.setup {
       '#78dce8',
     },
   },
+  autotag = {
+    enable = true,
+  },
   textobjects = {
     select = {
       enable = true,
