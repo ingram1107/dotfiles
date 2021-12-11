@@ -4,6 +4,3 @@
 [submodule "dot-config/awesome/bling"]
 	path = dot-config/awesome/bling
 	url = https://github.com/BlingCorp/bling
-[submodule "dot-config/awesome/awesome-wm-widgets"]
-	path = dot-config/awesome/awesome-wm-widgets
-	url = https://github.com/streetturtle/awesome-wm-widgets
