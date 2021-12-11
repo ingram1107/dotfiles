@@ -12,16 +12,16 @@ cursor:
 # Font
 font:
   normal:
-    family: FuraCode Nerd Font Mono
+    family: JetbRainsMono Nerd Font Mono
     style: Regular
   bold:
-    family: FuraCode Nerd Font Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Bold
   italic:
-    family: FuraCode Nerd Font Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Italic
   bold_italic:
-    family: FuraCode Nerd Font Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
   size: 10
 
