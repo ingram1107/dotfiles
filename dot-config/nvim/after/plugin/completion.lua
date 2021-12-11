@@ -1,5 +1,6 @@
--- cmp conf
+-- cmp+lspkind
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 cmp.setup({
   snippet = {
@@ -24,10 +25,17 @@ cmp.setup({
     { name = 'buffer', keyword_length = 5 },
   }),
 
+  formatting = {
+    format = lspkind.cmp_format({
+      with_text = false,
+      maxwidth = 50,
+    }),
+  },
+
   experimental = {
     native_menu = false,
     ghost_text = true,
-  }
+  },
 })
 
 -- autopairs conf
@@ -36,17 +44,20 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local rule = require('nvim-autopairs.rule')
 local cond = require('nvim-autopairs.conds')
 
-nv_pairs.setup { 
-  disable_filetype = { "TelescopePrompt" , "lisp" },
-}
+nv_pairs.setup({
+  disable_filetype = { 'TelescopePrompt', 'lisp' },
+})
 
-cmp.event:on('confirm_done',cmp_autopairs.on_confirm_done({ map_char = { tex = '' }}))
-cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = 'racket'
 
 nv_pairs.add_rules({
   rule('$', '$', 'vimwiki')
     :with_pair(cond.not_after_text_check('$'))
     :with_pair(cond.not_before_regex_check('%w'))
     :with_move(cond.after_text_check('$'))
-    :with_cr(cond.none())
+    :with_cr(cond.none()),
 })
+
+-- tabout.nvim conf
+require('tabout').setup()

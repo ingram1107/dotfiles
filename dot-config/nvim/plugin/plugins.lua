@@ -64,8 +64,10 @@ return require('packer').startup({
         'saadparwaiz1/cmp_luasnip',
       },
     }
+    use 'onsails/lspkind-nvim'
     use 'windwp/nvim-autopairs' 
     use 'windwp/nvim-ts-autotag'
+    use 'abecodes/tabout.nvim'
 
     -- compiler plugin {{{1
     use {
