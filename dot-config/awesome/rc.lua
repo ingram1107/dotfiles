@@ -23,6 +23,7 @@ local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local mail_widget = require("mywidgets.mail")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -148,16 +149,6 @@ myvolume = awful.widget.watch({ awful.util.shell, '-c', 'pamixer --get-volume-hu
   --      - littleclover  Sun 25 Apr 2021 08:17:16 PM +08
   if stdout == 'muted' then
     icon = '  '
-  end
-
-  widget:set_text(icon .. stdout)
-end)
-
-mynewmail = awful.widget.watch({ awful.util.shell, '-c', 'newmail' }, 15, function(widget, stdout)
-  local icon = '  '
-
-  if tonumber(stdout) < 1 then
-    icon = '  '
   end
 
   widget:set_text(icon .. stdout)
@@ -296,7 +287,7 @@ awful.screen.connect_for_each_screen(function(s)
         timeout = 5,
         width = 45,
       }),
-      mynewmail,
+      mail_widget,
       mytextclock,
       s.mylayoutbox,
     },
