@@ -6,7 +6,7 @@ local path_to_icons = '/usr/share/icons/Arc/actions/22/'
 local icon_widget = wibox.widget({
   {
     id = "icon",
-    image = path_to_icons .. 'mail-mark-new.png',
+    image = path_to_icons .. 'mail_new.png',
     widget = wibox.widget.imagebox,
   },
   valign = 'center',
@@ -32,7 +32,7 @@ awful.widget.watch({ awful.util.shell, '-c', 'newmail' }, 15, function(widget, s
   if unread > 0 then
     widget.icon:set_image(path_to_icons .. 'mail-mark-unread.png')
   elseif unread == 0 then
-    widget.icon:set_image(path_to_icons .. 'mail-mark-new.png')
+    widget.icon:set_image(path_to_icons .. 'mail_new.png')
   end
 end, icon_widget)
 
