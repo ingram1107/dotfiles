@@ -1,4 +1,4 @@
-text/html; firefox %s; copiousoutput;
+text/html; firefox -p social %s; copiousoutput;
 text/plain; nvim %s;
 application/pdf; zathura %s &;
 application/vnd.ms-powerpoint; soffice %s &;
