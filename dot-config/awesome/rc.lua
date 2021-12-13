@@ -282,12 +282,12 @@ awful.screen.connect_for_each_screen(function(s)
       brightness_widget({
         tooltip = true,
       }),
-      battery_widget(),
       net_speed_widget({
         timeout = 5,
         width = 45,
       }),
       mail_widget,
+      battery_widget(),
       mytextclock,
       s.mylayoutbox,
     },
