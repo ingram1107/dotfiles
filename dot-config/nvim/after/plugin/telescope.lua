@@ -1,9 +1,9 @@
 -- telescope conf
 local t = require('telescope')
 
-t.setup {
+t.setup({
   defaults = {
-    sorting_strategy = "ascending",
+    sorting_strategy = 'ascending',
     layout_config = {
       horizontal = {
         width = 0.95,
@@ -16,8 +16,8 @@ t.setup {
       },
     },
     color_devicons = true,
-  }
-}
+  },
+})
 
 t.load_extension('souvenir')
 t.load_extension('harpoon')
