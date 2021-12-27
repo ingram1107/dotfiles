@@ -195,7 +195,16 @@ return require('packer').startup({
     use 'L3MON4D3/LuaSnip'
 
     -- useful keybind {{{1
-    use 'tomtom/tcomment_vim'
+    use {
+      'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup({
+          mappings = {
+            extended = true,
+          }
+        })
+      end
+    }
     use {
       'andymass/vim-matchup',
       config = function()
