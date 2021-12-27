@@ -148,6 +148,7 @@ return require('packer').startup({
         require('neogit').setup{}
       end,
     }
+    use 'emmanueltouzery/agitator.nvim'
     use {
       'lewis6991/gitsigns.nvim',
       requires = {

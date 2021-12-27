@@ -143,6 +143,8 @@ vim.api.nvim_set_keymap('n', '<leader>gj', '<cmd>diffget //3<cr>', { noremap = t
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>diffget //2<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gg', ':Neogit ', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>gl', '<cmd>Neogit log<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua require("agitator").git_blame_toggle()<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gm', '<cmd>lua require("agitator").git_time_machine()<cr>', { noremap = true })
 
 -- packer {{{1
 vim.api.nvim_set_keymap('n', '<leader>pE', '<cmd>PluginEdit<cr>', { noremap = true })
