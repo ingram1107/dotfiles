@@ -1,46 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
 
 :root {
-    --background: #1c1917;
-    --syn: #e8838f;
-    --name: #b4bdc3;
-    --value: #b77e64;
-    --obj: #888f94;
-    --prompt: #66a5ad;
+  --background: #26292C;
+  --name: #FFD866;
+  --obj-background: #2E323C;
+  --site: #78DCE8;
+  --hover: #AB9DF2;
 }
 
 html,body {
-    font-family: 'Fira Code', monospace;
-    background: var(--background);
-    color: var(--name);
-    font-size: 1.1em;
-    font-weight: 500;
-    font-smooth: always;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Fira Code', monospace;
+  background: var(--background);
+  color: var(--name);
+  font-size: 1.1em;
+  font-weight: 500;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-    width: 90vw;
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 50px 0;
-}
-
-.search {
-    position: relative;
-    padding: 0 7px;
-    border: 2px solid #49483e;
-    border-radius: 20px;
-}
-
-.search:hover {
-    border-color: #2ea6e2;
-    transition-duration: 2s;
+  width: 90vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 50px 0;
 }
 
 .flex-container {
-  margin-top: 200px;
+  margin: 200px 0px;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -49,11 +36,10 @@ html,body {
 
 .obj {
   padding: 40px 35px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 10px 20px;
   font-weight: bold;
   font-size: 1.5em;
-  background-color: #403833;
+  background-color: var(--obj-background);
   text-align: center;
 }
 
@@ -69,29 +55,29 @@ html,body {
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 a {
-    text-decoration: none;
-    color: #A1938C;
+  text-decoration: none;
+  color: var(--site);
 }
 
 a:hover {
-    color: #5C534F;
-    transition-duration: 0.5s;
+  color: var(--hover);
+  transition-duration: 0.5s;
 }
 
 @media screen and (max-width: 1500px) {
-    body {
-        font-size: 1em;
-    }
+  body {
+    font-size: 1em;
+  }
 
-    .container {
-        padding: 25px 50px;
-    }
+  .container {
+    padding: 25px 50px;
+  }
 }
