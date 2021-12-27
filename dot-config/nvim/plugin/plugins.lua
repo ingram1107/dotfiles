@@ -151,6 +151,7 @@ return require('packer').startup({
     use 'emmanueltouzery/agitator.nvim'
     use {
       'lewis6991/gitsigns.nvim',
+      tag = 'release',
       requires = {
         'nvim-lua/plenary.nvim',
       },
@@ -231,7 +232,6 @@ return require('packer').startup({
     use 'ledger/vim-ledger'
     use { 
       'nvim-neorg/neorg',
-      branch = 'unstable',
       requires = 'nvim-lua/plenary.nvim',
     }
 
