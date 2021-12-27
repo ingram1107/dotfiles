@@ -1,8 +1,11 @@
 -- vimwiki conf
 -- TODO: source out vimwiki notes
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
   let vimwiki_ext2syntax = {}
-]], false)
+]],
+  false
+)
 vim.g.vimwiki_list = {
   {
     path = '/mnt/Nemo/Documents/vimwiki',
@@ -31,6 +34,11 @@ require('neorg').setup({
         neorg_leader = '<Leader>o',
       },
     },
+    ['core.norg.completion'] = {
+      config = {
+        engine = 'nvim-cmp',
+      },
+    },
     ['core.norg.concealer'] = {},
     ['core.norg.dirman'] = {
       config = {
@@ -41,17 +49,17 @@ require('neorg').setup({
       },
     },
     ['core.gtd.base'] = {
-      workspace = "default",
+      workspace = 'default',
       displayers = {
         projects = {
           show_completed_projects = true,
-        }
+        },
       },
       syntax = {
-          context = "#contexts",
-          due = "#time.due",
-          start = "#time.start",
-          waiting = "#waiting.for"
+        context = '#contexts',
+        due = '#time.due',
+        start = '#time.start',
+        waiting = '#waiting.for',
       },
     },
   },
