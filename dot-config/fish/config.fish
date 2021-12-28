@@ -41,14 +41,17 @@ alias trans="rlwrap trans"
 alias pipe-viewer="rlwrap pipe-viewer"
 
 ## User abbreviation
-abbr cat "bat"
 abbr e "nvim"
 abbr enc "emacsclient -nc"
-abbr ls "exa"
 abbr se "sudoedit"
 abbr ytdl "youtube-dl"
 abbr ytv "pipe-viewer"
 
 ## User key bind
-bind -M insert \ce "nvim +VimwikiIndex"
+bind -M insert \ce "nvr +VimwikiIndex"
 bind -M insert \ck fg
+
+## gnupg initialisation
+gpg-connect-agent updatestartuptty /bye >/dev/null
+set -e SSH_AGENT_PID
+set -Ux SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
