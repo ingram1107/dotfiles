@@ -1,6 +1,6 @@
 server_host = '127.0.0.1'
 server_port = 50000
-finder = 'dmenu'
+finder = 'rofi'
 
 [rofi]
 line_length = 100

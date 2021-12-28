@@ -48,7 +48,7 @@ theme.tabbed_spawn_in_tab = false
 theme.tabbar_ontop = false
 theme.tabbar_radius = 0
 theme.tabbar_style = 'default'
-theme.tabbar_font = 'IBMPlexMono 10'
+theme.tabbar_font = 'JetBrainsMono Nerd Font 10'
 theme.tabbar_size = 20
 theme.tabbar_position = 'bottom'
 theme.tabbar_bg_normal = theme.bg_minimize
@@ -74,13 +74,6 @@ theme.tabbar_fg_focus = theme.fg_focus
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
-
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path .. 'default/submenu.png'
-theme.menu_height = dpi(15)
-theme.menu_width = dpi(100)
 
 -- You can add as many variables as
 -- you wish and access them by using

@@ -384,7 +384,7 @@ globalkeys = gears.table.join(
 
   -- Prompt
   awful.key({ modkey }, 'r', function()
-    awful.util.spawn('dmenu_run', false)
+    awful.util.spawn('rofi -show', false)
   end, { description = 'run prompt', group = 'launcher' }),
 
   -- awful.key({ modkey }, "x",
@@ -403,8 +403,8 @@ globalkeys = gears.table.join(
 
   -- tab ctrl
   awful.key({ 'Mod1' }, 'i', function()
-    bling.module.tabbed.pick_with_dmenu('dmenu')
-  end, { description = 'picks a client with a dmenu application', group = 'tab' }),
+    bling.module.tabbed.pick_with_dmenu()
+  end, { description = 'picks a client with a rofi application', group = 'tab' }),
   awful.key({ 'Mod1' }, 'o', function()
     bling.module.tabbed.pop()
   end, { description = 'removes the focused client from the tabbing group', group = 'tab' }),
@@ -423,7 +423,7 @@ globalkeys = gears.table.join(
     awful.util.spawn('killall record & killall ffmpeg', false)
   end, { description = 'stop record screen', group = 'programs' }),
   awful.key({ modkey }, 'p', function()
-    awful.util.spawn('passmenu', false)
+    awful.util.spawn('rofi-pass', false)
   end, { description = 'password menu', group = 'programs' }),
   awful.key({ modkey }, 'c', function()
     awful.util.spawn('clipcat-menu', false)
@@ -440,7 +440,7 @@ globalkeys = gears.table.join(
     awful.util.spawn('slock', false)
   end, { description = 'screenlock', group = 'system' }),
   awful.key({ 'Shift' }, 'End', function()
-    awful.util.spawn('powermenu suspend', false)
+    awful.util.spawn('rofi -show power-menu', false)
   end, { description = 'power management', group = 'system' }),
 
   -- Media control
