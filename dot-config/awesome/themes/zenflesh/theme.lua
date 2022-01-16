@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = 'IBMPlex Sans 8'
+theme.font = 'JetBrainsMono Nerd Font 8'
 
 theme.bg_normal = '#1c1917'
 theme.bg_focus = '#3d4042'
@@ -100,7 +100,10 @@ theme.layout_cornerne = themes_path .. 'default/layouts/cornernew.png'
 theme.layout_cornersw = themes_path .. 'default/layouts/cornersww.png'
 theme.layout_cornerse = themes_path .. 'default/layouts/cornersew.png'
 
-theme.tasklist_disable_task_name = true
+-- theme.tasklist_disable_task_name = true
+theme.taglist_font = "Font Awesome 9"
+theme.tasklist_disable_icon = true
+theme.tasklist_align = "center"
 
 return theme
 
