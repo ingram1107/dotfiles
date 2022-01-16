@@ -1,9 +1,9 @@
 -- lualine conf
 local function lsp_status()
-  local error_count = vim.lsp.diagnostic.get_count(0, [[Error]])
-  local warning_count = vim.lsp.diagnostic.get_count(0, [[Warning]])
+  local error_count = #vim.diagnostic.get(0, {severity = vim.diagnostic.severity.ERROR})
+  local warning_count = #vim.diagnostic.get(0, {severity = vim.diagnostic.severity.WARN})
 
-  return " : "..error_count.."  : "..warning_count
+  return "E : "..error_count.." W : "..warning_count
 end
 
 require('lualine').setup {
