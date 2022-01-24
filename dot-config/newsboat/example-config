@@ -7,6 +7,9 @@ max-items 1000
 notify-program "/usr/bin/dunstify"
 notify-format "Unread: %n, New: %d"
 
+confirm-delete-all-articles no
+confirm-mark-all-feeds-read no
+
 bind-key j down
 bind-key k up
 bind-key G end
