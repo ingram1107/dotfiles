@@ -17,7 +17,7 @@ end
 
 ls.snippets = {
   all = {
-    s('date', t(os.date())),
+    s('date', t(os.date("%Y-%m-%d %H:%M:%S %p %z"))),
     s('gpl', {
       i(1, 'progname'), t(' '), i(2, 'desc'),
       t({
