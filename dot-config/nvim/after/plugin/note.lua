@@ -43,10 +43,21 @@ require('neorg').setup({
     ['core.norg.dirman'] = {
       config = {
         workspaces = {
-          default = '/mnt/Nemo/Documents/neorg',
+          notes = '/mnt/Nemo/Documents/neorg',
+          diary = '/mnt/Nemo/Documents/diary',
         },
         autodetect = true,
+        autochdir= true,
+        index = 'index.norg',
+        last_workspace = vim.fn.stdpath('cache')..'/neorg_last_workspace.txt'
       },
+    },
+    ['core.norg.journal'] = {
+      config = {
+        workspace = 'diary',
+        journal_folder = nil,
+        use_folders = true,
+      }
     },
     ['core.gtd.base'] = {
       workspace = 'default',
