@@ -1,9 +1,9 @@
-set recolor
-set recolor-lightcolor "#26292c"
-set recolor-darkcolor "#fcfcfa"
-set recolor-keephue
-set default-fg "#fcfcfa"
-set default-bg "#26292c"
+" set recolor
+" set recolor-lightcolor "#26292c"
+" set recolor-darkcolor "#fcfcfa"
+" set recolor-keephue
+" set default-fg "#fcfcfa"
+" set default-bg "#26292c"
 set highlight-color "#ffd866"
 set highlight-active-color "#fcfcfa"
 set statusbar-bg "#2E323C"
