@@ -15,11 +15,17 @@ return require('packer').startup({
     }
 
     -- theme {{{1
-    use '/mnt/Nemo/git/moneokai'
+    use '/mnt/Nemo/git/vim-monokai'
     use 'tanvirtin/monokai.nvim'
 
     -- statusline and tabline {{{1
     use 'nvim-lualine/lualine.nvim'
+    use {
+      'j-hui/fidget.nvim',
+      config = function ()
+        require('fidget').setup()
+      end
+    }
 
     -- syntax and debug {{{1
     use {
@@ -234,6 +240,7 @@ return require('packer').startup({
       'nvim-neorg/neorg',
       requires = 'nvim-lua/plenary.nvim',
     }
+    use 'mickael-menu/zk-nvim'
 
     -- grammar check {{{1
     use { 
