@@ -47,7 +47,7 @@ local rule = require('nvim-autopairs.rule')
 local cond = require('nvim-autopairs.conds')
 
 nv_pairs.setup({
-  disable_filetype = { 'TelescopePrompt', 'lisp', 'fennel' },
+  disable_filetype = { 'TelescopePrompt', 'lisp', 'scheme', 'fennel' },
 })
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))

@@ -197,7 +197,10 @@ return require('packer').startup({
     use {
       'guns/vim-sexp',
       ft = { 'lisp', 'fennel' },
-      config = function() vim.api.nvim_exec('packadd vim-sexp', false) end,
+      config = function()
+        vim.api.nvim_exec('packadd vim-sexp', false)
+        vim.g.sexp_filetypes = vim.g.sexp_filetypes .. 'fennel'
+      end,
     }
     use {
       'tpope/vim-sexp-mappings-for-regular-people',
