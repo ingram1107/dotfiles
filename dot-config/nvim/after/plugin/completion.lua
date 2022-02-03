@@ -20,6 +20,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
+    { name = 'conjure' },
     { name = 'neorg' },
     { name = 'path' },
     { name = 'luasnip' },
@@ -46,11 +47,10 @@ local rule = require('nvim-autopairs.rule')
 local cond = require('nvim-autopairs.conds')
 
 nv_pairs.setup({
-  disable_filetype = { 'TelescopePrompt', 'lisp' },
+  disable_filetype = { 'TelescopePrompt', 'lisp', 'fennel' },
 })
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
-cmp_autopairs.lisp[#cmp_autopairs.lisp + 1] = 'racket'
 
 nv_pairs.add_rules({
   rule('$', '$', 'vimwiki')

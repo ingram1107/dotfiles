@@ -68,6 +68,7 @@ return require('packer').startup({
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-nvim-lua',
         'saadparwaiz1/cmp_luasnip',
+        'PaterJason/cmp-conjure',
       },
     }
     use 'onsails/lspkind-nvim'
@@ -184,12 +185,24 @@ return require('packer').startup({
     use 'ingram1107/aedile.nvim'
     use {
       'jpalardy/vim-slime',
-      ft = { 'lisp', 'python', },
+      ft = { 'python' },
+    }
+    use {
+      'Olical/conjure',
+      config = function()
+        vim.g['conjure#mapping#prefix'] = '\\'
+        vim.g['conjure#filetype#fennel'] = 'conjure.client.fennel.stdio'
+      end,
     }
     use {
       'guns/vim-sexp',
-      ft = { 'lisp', },
+      ft = { 'lisp', 'fennel' },
       config = function() vim.api.nvim_exec('packadd vim-sexp', false) end,
+    }
+    use {
+      'tpope/vim-sexp-mappings-for-regular-people',
+      ft = { 'lisp', 'fennel' },
+      config = function() vim.api.nvim_exec('packadd sexp-mappings-for-regular-people', false) end,
     }
     use {
       'dccsillag/magma-nvim',
