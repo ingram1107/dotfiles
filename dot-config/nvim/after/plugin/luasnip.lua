@@ -15,6 +15,10 @@ local function newline(text)
   return t({ '', text })
 end
 
+local function default_in(inode)
+  return f(function(args) return args[1] end, {inode})
+end
+
 ls.snippets = {
   all = {
     s('date', t(os.date("%Y-%m-%d %H:%M:%S %p %z"))),
@@ -47,7 +51,7 @@ ls.snippets = {
         '',
         '=============================================================================',
         '*',
-      }), f(function(args) return args[1] end, {1}), t('*'),
+      }), default_in(1), t('*'),
       newline(''),
       newline(''),
       i(3, 'Detail desc'),
@@ -123,9 +127,9 @@ ls.snippets = {
         '    <applet-desc',
         '',
       }),
-      t('         name='), f(function(args) return args[1] end, {2}),
+      t('         name='), default_in(2),
       newline(''),
-      t('         main-class='), f(function(args) return args[1] end, {4}),
+      t('         main-class='), default_in(4),
       t({
         '',
         '         width="500"',
@@ -248,7 +252,7 @@ ls.autosnippets = {
     s('bg', {
       t('\\begin{'), i(1), t('}'), i(0),
       newline(''),
-      t('\\end{'), f(function(args) return args[1] end, {1}), t('}'),
+      t('\\end{'), default_in(1), t('}'),
     }),
     s('tb', {
       t('\\begin{minipace}{\\textwidth}'),
@@ -261,8 +265,8 @@ ls.autosnippets = {
       newline(''),
       t('\\def\\arraystretch{'), i(4, '2'), t('}%'),
       newline(''),
-      t('{\\rowcolors{2}{'), f(function(args) return args[1] end, {1}), t('}{'),
-      f(function(args) return args[1] end, {2}), t('}'),
+      t('{\\rowcolors{2}{'), default_in(1), t('}{'),
+      default_in(2), t('}'),
       newline(''),
       t('\\begin{tabular}{'), i(5, 'cc'), t('}'),
       newline(''),
