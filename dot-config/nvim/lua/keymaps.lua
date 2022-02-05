@@ -79,7 +79,7 @@ vim.api.nvim_set_keymap('n', '<leader>u', '<cmd>UndotreeToggle<cr>', { noremap =
 
 -- treesitter {{{1
 function TSRestart()
-  vim.api.nvim_exec('write|edit', false)
+  vim.cmd('write|edit')
 end
 
 vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>lua require("nvim-treesitter-playground.internal").toggle()<cr>', { noremap = true })
@@ -155,8 +155,8 @@ vim.api.nvim_set_keymap('n', '<leader>pU', '<cmd>lua require("packer").sync()<cr
 
 -- search {{{1
 vim.api.nvim_set_keymap('n', '/', '/\\v', { noremap = true })
-vim.api.nvim_exec('cabbrev s/ s/\\v', false)
-vim.api.nvim_exec('cabbrev %s/ %s/\\v', false)
+vim.cmd('cabbrev s/ s/\\v')
+vim.cmd('cabbrev %s/ %s/\\v')
 
 -- clear search reg/trailing white space {{{1
 vim.api.nvim_set_keymap('n', '<leader>n', '<cmd>let @/=""<cr>', { noremap = true, silent = true })

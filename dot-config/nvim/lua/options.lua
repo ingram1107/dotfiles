@@ -1,5 +1,5 @@
 -- general {{{1
-vim.api.nvim_exec('filetype plugin on', false)
+vim.cmd('filetype plugin on')
 vim.o.backupcopy = 'no'
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menu,menuone,noselect'
@@ -34,7 +34,7 @@ vim.o.wildoptions = 'pum'
 vim.o.wrap = false
 
 -- indentation {{{1
-vim.api.nvim_exec('filetype plugin indent on', false)
+vim.cmd('filetype plugin indent on')
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
@@ -58,20 +58,20 @@ vim.o.shortmess = vim.o.shortmess .. 'c'
 
 -- better terminal integration {{{1
 --- TODO: neovim/neovim autocmd native lua callback PR#12378 and PR#14661
-vim.api.nvim_exec([[
+vim.cmd([[
 aug BetterTerminal
   au!
   au TermOpen term://* startinsert
   au TermOpen term://* setlocal nocursorline nonumber norelativenumber
   au TermLeave term://* stopinsert
 aug END
-]], false)
+]])
 
 -- termdebug {{{1
 vim.g.termdebug_wide = 40
 
 -- theme {{{1
-vim.api.nvim_exec('colo monokai_pro', false)
+vim.cmd('colo monokai_pro')
 
 -- tabline {{{1
 function _G.tabline()
@@ -114,15 +114,15 @@ vim.o.fillchars = 'fold: '
 
 -- yank highlight {{{1
 --- TODO: neovim/neovim autocmd native lua callback PR#12378 and PR#14661
-vim.api.nvim_exec('au TextYankPost * silent! lua vim.highlight.on_yank()', false)
+vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
 
 
 -- loadview for config files {{{1
-vim.api.nvim_exec([[
+vim.cmd([[
 aug ConfigLoadView
   au!
   au BufRead $HOME/dotfiles/dot-config/nvim/lua/keymaps.lua silent! loadview
   au BufRead $HOME/dotfiles/dot-config/nvim/lua/options.lua silent! loadview
   au BufRead $HOME/dotfiles/dot-config/nvim/plugin/plugins.lua silent! loadview
 aug END
-]], false)
+]])

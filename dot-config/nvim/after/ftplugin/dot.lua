@@ -1,2 +1,2 @@
 -- dot ft conf
-vim.api.nvim_exec('compiler dot', false)
+vim.cmd('compiler dot')

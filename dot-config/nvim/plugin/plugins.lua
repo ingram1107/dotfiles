@@ -1,6 +1,6 @@
 -- packer conf
-vim.api.nvim_exec('packadd packer.nvim', false)
-vim.api.nvim_exec('packadd termdebug', false)
+vim.cmd('packadd packer.nvim')
+vim.cmd('packadd termdebug')
 
 return require('packer').startup({
   function()
@@ -198,14 +198,14 @@ return require('packer').startup({
       'guns/vim-sexp',
       ft = { 'lisp', 'fennel' },
       config = function()
-        vim.api.nvim_exec('packadd vim-sexp', false)
+        vim.cmd('packadd vim-sexp')
         vim.g.sexp_filetypes = vim.g.sexp_filetypes .. 'fennel'
       end,
     }
     use {
       'tpope/vim-sexp-mappings-for-regular-people',
       ft = { 'lisp', 'fennel' },
-      config = function() vim.api.nvim_exec('packadd sexp-mappings-for-regular-people', false) end,
+      config = function() vim.cmd('packadd sexp-mappings-for-regular-people') end,
     }
     use {
       'dccsillag/magma-nvim',

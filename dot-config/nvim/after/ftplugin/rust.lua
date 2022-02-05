@@ -1,3 +1,3 @@
 -- rust ft conf
-vim.api.nvim_exec('compiler cargo', false)
+vim.cmd('compiler cargo')
 vim.bo.textwidth = 100

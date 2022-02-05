@@ -1,3 +1,3 @@
 -- java ft conf
-vim.api.nvim_exec('compiler javac', false)
+vim.cmd('compiler javac')
 vim.bo.textwidth = 80
