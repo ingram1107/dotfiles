@@ -117,20 +117,3 @@ lspconfig.jedi_language_server.setup {
 lspconfig.jdtls.setup {
   capabilities = capabilities,
 }
-
--- zk: Zettelkastan
-configs.zk = {
-  default_config = {
-    cmd = {'zk', 'lsp', '--log', '/tmp/zk-lsp.log'},
-    filetypes = {'markdown'},
-    root_dir = function()
-      return vim.loop.cwd()
-    end,
-    settings = {}
-  };
-}
-
-lspconfig.zk.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
