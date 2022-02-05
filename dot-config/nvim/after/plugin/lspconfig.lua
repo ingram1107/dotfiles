@@ -26,8 +26,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gwl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', opts)
   buf_set_keymap('n', 'gld', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
   buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-  buf_set_keymap('n', 'gle', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', opts)
-  buf_set_keymap('n', 'glq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', opts)
+  buf_set_keymap('n', 'gle', '<cmd>lua vim.diagnostic.show()<cr>', opts)
+  buf_set_keymap('n', 'glq', '<cmd>lua vim.diagnostic.setloclist()<cr>', opts)
   -- TODO: neovim commit a8c3d50fad94971ebfe9eeedf933bdd829e66787
   -- buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.lsp.diagnostic.set_qflist()<cr>', opts)
 
