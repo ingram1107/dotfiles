@@ -163,7 +163,11 @@ vim.api.nvim_set_keymap('n', '<leader>n', '<cmd>let @/=""<cr>', { noremap = true
 vim.api.nvim_set_keymap('n', '<leader>y', 'm`:%s/\\s\\+$//e<cr>``', { noremap = true })
 
 -- notes {{{1
-vim.api.nvim_set_keymap('n', '<leader>ww', '<Plug>VimwikiIndex', {})
+vim.api.nvim_set_keymap('n', '<leader>zn', '<cmd>ZkNew { title = vim.fn.input("Title: ") }<cr>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>zo', '<cmd>ZkNotes { sort = { "modified" } }<cr>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>zt', '<cmd>ZkTags<cr>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('n', '<leader>zf', '<cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<cr>', { noremap = true, silent = false })
+vim.api.nvim_set_keymap('v', '<leader>zf', ":'<,'>ZkMatch<cr>", { noremap = true, silent = false })
 
 -- disable arrow keys {{{1
 vim.api.nvim_set_keymap('n', '<up>', '<cmd>echoerr "---> k <---"<cr>', { noremap = true })
