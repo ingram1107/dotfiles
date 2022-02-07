@@ -252,7 +252,7 @@ return require('packer').startup({
       keys = { 'n', '<leader>ww' },
     }
     use 'ledger/vim-ledger'
-    use { 
+    use {
       'nvim-neorg/neorg',
       requires = 'nvim-lua/plenary.nvim',
     }
