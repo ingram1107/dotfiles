@@ -182,10 +182,10 @@ return require('packer').startup({
     }
 
     -- repl {{{1
-    use 'ingram1107/aedile.nvim'
+    use '/mnt/Nemo/git/aedile.nvim'
     use {
       'jpalardy/vim-slime',
-      ft = { 'python' },
+      ft = { 'python', 'lua' },
     }
     use {
       'Olical/conjure',

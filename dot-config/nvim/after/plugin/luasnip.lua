@@ -153,7 +153,20 @@ ls.autosnippets = {
         'href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution',
         '4.0 International License</a>',
       })
-    })
+    }),
+    s('tg', {
+      t({
+        '---',
+        'layout:     post',
+        'title:      ',
+      }), i(1, 'Today\'s title'),
+      newline(''),
+      t({
+        'date:       '..os.date("%Y-%m-%d %H:%M:%S %p %z"),
+        'categories: ',
+      }), i(2, 'tags'),
+      newline('---'),
+    }),
   },
 
   bib = {

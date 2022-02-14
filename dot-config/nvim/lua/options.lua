@@ -71,7 +71,7 @@ aug END
 vim.g.termdebug_wide = 40
 
 -- theme {{{1
-vim.cmd('colo monokai_pro')
+vim.cmd('colo monokai_ristretto')
 
 -- tabline {{{1
 function _G.tabline()
