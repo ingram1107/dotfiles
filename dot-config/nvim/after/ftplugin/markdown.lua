@@ -19,7 +19,7 @@ vim.api.nvim_buf_set_keymap(0, 'n', '<leader>zz', '<cmd>ZkSetup<cr>', { silent =
 if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
   vim.api.nvim_buf_set_keymap(0, 'n', '<cr>', '<cmd>lua vim.lsp.buf.definition()<cr>', { silent = true, noremap = true })
   vim.api.nvim_buf_set_keymap(0, 'n', '<leader>zb', '<cmd>ZkBacklinks<cr>', { silent = true, noremap = true })
-  vim.api.nvim_buf_set_keymap(0, 'v', '<leader>znt', ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", opts)
+  vim.api.nvim_buf_set_keymap(0, 'v', '<leader>znt', ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", { silent = true, noremap = true })
   vim.api.nvim_buf_set_keymap(0, 'n', '<leader>zl', '<cmd>ZkLinks<cr>', { silent = true, noremap = true })
   vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { silent = true, noremap = true })
 end
