@@ -116,4 +116,15 @@ lspconfig.jedi_language_server.setup {
 --- jdtls: Java
 lspconfig.jdtls.setup {
   capabilities = capabilities,
-}
+
+-- LTeX: Natural languages
+lspconfig.ltex.setup({
+  language = 'en-GB',
+  filetypes = { 'bib', 'gitcommit', 'markdown', 'org', 'plaintex', 'rst', 'rnoweb', 'tex', 'norg' },
+  additionalRules = {
+    enablePickyRules = true,
+  },
+  -- checkFrequency = 'save', // improve performance
+  on_attach = on_attach,
+  capabilities = capabilities,
+})

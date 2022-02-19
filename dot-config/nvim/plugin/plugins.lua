@@ -258,13 +258,6 @@ return require('packer').startup({
     }
     use 'mickael-menu/zk-nvim'
 
-    -- grammar check {{{1
-    use { 
-      'rhysd/vim-grammarous',
-      ft = { 'markdown', 'norg', 'text', 'tex', 'vimwiki', 'gitcommit', 'mail',
-             'NeogitCommitMessage' }
-    }
-
     -- miscellaneous {{{1
     use {
       'norcalli/nvim-colorizer.lua',
