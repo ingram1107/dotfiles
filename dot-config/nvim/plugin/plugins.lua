@@ -246,11 +246,6 @@ return require('packer').startup({
     }
 
     -- note plugin {{{1
-    use {
-      'vimwiki/vimwiki',
-      cmd = 'VimwikiIndex',
-      keys = { 'n', '<leader>ww' },
-    }
     use 'ledger/vim-ledger'
     use {
       'nvim-neorg/neorg',
