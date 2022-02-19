@@ -5,8 +5,12 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 --- on_attach func
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  local function buf_set_keymap(...)
+    vim.api.nvim_buf_set_keymap(bufnr, ...)
+  end
+  local function buf_set_option(...)
+    vim.api.nvim_buf_set_option(bufnr, ...)
+  end
 
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -40,9 +44,9 @@ local on_attach = function(client, bufnr)
 
   --- set keybind for lsp formatting based on server capability
   if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "glf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap('n', 'glf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "glf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+    buf_set_keymap('n', 'glf', '<cmd>lua vim.lsp.buf.range_formatting()<CR>', opts)
   end
 
   if client.resolved_capabilities.code_action then
@@ -51,7 +55,7 @@ local on_attach = function(client, bufnr)
 end
 
 --- clangd: C/C++/Obj-C
-lspconfig.clangd.setup {
+lspconfig.clangd.setup({
   cmd = {
     'clangd',
     '--background-index',
@@ -64,7 +68,7 @@ lspconfig.clangd.setup {
   -- },
   on_attach = on_attach,
   capabilities = capabilities,
-}
+})
 
 --- nlua: nvim lua dev
 local sumneko_root_path = '/usr/lib/lua-language-server/'
@@ -73,7 +77,7 @@ require('nlua/lsp/nvim').setup(lspconfig, {
   cmd = {
     sumneko_binary,
     '-E',
-    sumneko_root_path .. 'main.lua'
+    sumneko_root_path .. 'main.lua',
   },
   settings = {
     Lua = {
@@ -98,7 +102,7 @@ require('nlua/lsp/nvim').setup(lspconfig, {
 })
 
 --- jedi_language_server: Python
-lspconfig.jedi_language_server.setup {
+lspconfig.jedi_language_server.setup({
   startupMessage = false,
 
   -- jediSettings = {
@@ -111,11 +115,12 @@ lspconfig.jedi_language_server.setup {
 
   on_attach = on_attach,
   capabilities = capabilities,
-}
+})
 
 --- jdtls: Java
-lspconfig.jdtls.setup {
+lspconfig.jdtls.setup({
   capabilities = capabilities,
+})
 
 -- LTeX: Natural languages
 lspconfig.ltex.setup({
