@@ -3,7 +3,9 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 fcitx-autostart &
 dunst &
+xset s 480 600
 xss-lock -- slock &
 clipcatd --no-daemon &
 picom &
+thunar --daemon &
 exec awesome
