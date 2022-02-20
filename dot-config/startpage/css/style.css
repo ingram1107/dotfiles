@@ -27,12 +27,11 @@ html,body {
   padding: 50px 0;
 }
 
-.flex-container {
-  margin: 200px 0px;
-  flex: 1;
-  display: flex;
+.grid-container {
+  margin: 10% 0px;
+  display: grid;
+  grid: auto-flow / minmax(100px, 350px);
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .obj {
