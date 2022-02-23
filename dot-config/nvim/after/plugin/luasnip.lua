@@ -81,15 +81,17 @@ ls.snippets = {
 
   c = {
     s('main', {
-      t('int main(int argc, char* argv[])'),
-      newline('{'),
+      t('int main(int argc, char** argv) {'),
+      newline(''),
       i(0),
+      newline(''),
       newline('}'),
     }),
     s('fn', {
-      i(1, 'void'), t(' '), i(2, 'func'), t('('), i(3), t(')'),
-      newline('{'),
+      i(1, 'void'), t(' '), i(2, 'func'), t('('), i(3), t(') {'),
+      newline(''),
       i(0),
+      newline(''),
       newline('}'),
     }),
   },
@@ -186,11 +188,11 @@ ls.autosnippets = {
 
   bib = {
     s('nbb', {
-      t('@'), i(1, 'book'), t('{'), i(2, 'tag'), t(','),
-      newline('  author = '), t('{'), i(3, 'author'), t('}'),
-      newline('  title = '), t('{'), i(4, 'title'), t('}'),
-      newline('  date = '), t('{'), i(5, 'date'), t('}'),
-      newline('  publisher = '), t('{'), i(6, 'publisher'), t('}'),
+      t('@'), i(1, 'book'), t('{'), i(2, 'tag'), t('},'),
+      newline('  author = '), t('{'), i(3, 'author'), t('},'),
+      newline('  title = '), t('{'), i(4, 'title'), t('},'),
+      newline('  date = '), t('{'), i(5, 'date'), t('},'),
+      newline('  publisher = '), t('{'), i(6, 'publisher'), t('},'),
       newline('}'),
     })
   },

@@ -27,6 +27,16 @@ return require('packer').startup({
       end
     }
 
+    -- visual improvement {{{1
+    use {
+      'luukvbaal/stabilize.nvim',
+      config = function() require('stabilize').setup() end,
+    }
+    use {
+      'https://gitlab.com/yorickpeterse/nvim-pqf',
+      config = function() require('pqf').setup() end,
+    }
+
     -- syntax and debug {{{1
     use {
       'nvim-treesitter/nvim-treesitter',
@@ -213,6 +223,7 @@ return require('packer').startup({
       cmd = 'MagmaInit'
     }
     use 'goerz/jupytext.vim'
+    use 'rafcamlet/nvim-luapad'
 
     -- snippet support {{{1
     use { 'SirVer/ultisnips', opt=true }
