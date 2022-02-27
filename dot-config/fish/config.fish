@@ -44,11 +44,11 @@ alias pipe-viewer="rlwrap pipe-viewer"
 abbr e "nvim"
 abbr enc "emacsclient -nc"
 abbr se "sudoedit"
-abbr ytdl "youtube-dl"
-abbr ytv "pipe-viewer"
+abbr ytdl "yt-dlp"
+abbr ytv "ytfzf"
 
 ## User key bind
-bind -M insert \ce "nvr +VimwikiIndex"
+bind -M insert \ce "nvim +Neorg"
 bind -M insert \ck fg
 
 ## gnupg initialisation

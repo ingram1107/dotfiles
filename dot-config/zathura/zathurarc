@@ -11,3 +11,4 @@ set highlight-color "#ffd866"
 set highlight-active-color "#fcfcfa"
 set statusbar-bg "#2E323C"
 set statusbar-fg "#b1b1b1"
+set selection-clipboard clipboard
