@@ -21,8 +21,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
   buf_set_keymap('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
   buf_set_keymap('i', '<c-e>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
   buf_set_keymap('n', 'gwa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', opts)
@@ -30,16 +30,14 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gwl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', opts)
   buf_set_keymap('n', 'gld', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
   buf_set_keymap('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-  buf_set_keymap('n', 'gle', '<cmd>lua vim.diagnostic.show()<cr>', opts)
+  buf_set_keymap('n', 'gle', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
   buf_set_keymap('n', 'glq', '<cmd>lua vim.diagnostic.setloclist()<cr>', opts)
-  -- TODO: neovim commit a8c3d50fad94971ebfe9eeedf933bdd829e66787
-  -- buf_set_keymap('n', '<leader>lq', '<cmd>lua vim.lsp.diagnostic.set_qflist()<cr>', opts)
 
   vim.cmd([[
-  sign define DiagnosticsSignError text= texthl=LspDiagnosticsDefaultError linehl= numhl=
-  sign define DiagnosticsSignWarning text= texthl=LspDiagnosticsDefaultWarning linehl= numhl=
-  sign define DiagnosticsSignHint text= texthl=LspDiagnosticsDefaultHint linehl= numhl=
-  sign define DiagnosticsSignInformation text= texthl=LspDiagnosticsDefaultInformation linehl= numhl=
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
+  sign define DiagnosticSignWarning text= texthl=DiagnosticSignWarning linehl= numhl=
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
+  sign define DiagnosticSignInformation text= texthl=DiagnosticSignInformation linehl= numhl=
   ]])
 
   --- set keybind for lsp formatting based on server capability
