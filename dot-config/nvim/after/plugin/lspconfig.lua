@@ -127,7 +127,7 @@ lspconfig.ltex.setup({
   additionalRules = {
     enablePickyRules = true,
   },
-  -- checkFrequency = 'save', // improve performance
+  checkFrequency = 'save',
   on_attach = on_attach,
   capabilities = capabilities,
 })
