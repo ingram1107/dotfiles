@@ -1,184 +1,378 @@
+-- helpers {{{1
+T = require('telescope-custom')
+local map = vim.api.nvim_set_keymap
+
+--- operators overloading
+local tbl_overload = {
+  --- concatenate two tables using +
+  __add = function(t1, t2)
+    for i = 1, #t2 do
+      t1[#t1 + 1] = t2[i]
+    end
+
+    return t1
+  end,
+}
+
+--- map options (set metatable for operator overloading)
+local noremap = { noremap = true }
+setmetatable(noremap, tbl_overload)
+local nowait = { nowait = true }
+setmetatable(nowait, tbl_overload)
+local silent = { silent = true }
+setmetatable(silent, tbl_overload)
+local script = { script = true }
+setmetatable(script, tbl_overload)
+local expr = { expr = true }
+setmetatable(expr, tbl_overload)
+local unique = { unique = true }
+setmetatable(unique, tbl_overload)
+
+local function mapto(mode, keymaps)
+  if type(keymaps) == 'table' then
+    for _, keymap in ipairs(keymaps) do
+      map(mode, keymap.map, keymap.cmd, keymap.opts)
+    end
+  end
+end
+
+--[[
+    mapping for normal mode
+    @param keymaps
+            - map: the assigned keymap
+            - cmd: the cmd that should be assigned to map
+            - opts: options for the keymap, optional
+--]]
+local function n(keymaps)
+  mapto('n', keymaps)
+end
+
+--[[
+    mapping for insert mode
+    @param keymaps
+            - map: the assigned keymap
+            - cmd: the cmd that should be assigned to map
+            - opts: options for the keymap, optional
+--]]
+local function i(keymaps)
+  mapto('i', keymaps)
+end
+
+--[[
+    mapping for visual mode
+    @param keymaps
+            - map: the assigned keymap
+            - cmd: the cmd that should be assigned to map
+            - opts: options for the keymap, optional
+--]]
+local function v(keymaps)
+  mapto('v', keymaps)
+end
+
+--[[
+    mapping for terminal mode
+    @param keymaps
+            - map: the assigned keymap
+            - cmd: the cmd that should be assigned to map
+            - opts: options for the keymap, optional
+--]]
+local function t(keymaps)
+  mapto('t', keymaps)
+end
+
+--[[
+    mapping for command mode
+    @param keymaps
+            - map: the assigned keymap
+            - cmd: the cmd that should be assigned to map
+            - opts: options for the keymap, optional
+--]]
+local function c(keymaps)
+  mapto('c', keymaps)
+end
+
+--[[
+    mapping for select mode
+    @param keymaps
+            - map: the assigned keymap
+            - cmd: the cmd that should be assigned to map
+            - opts: options for the keymap, optional
+--]]
+local function s(keymaps)
+  mapto('s', keymaps)
+end
+
+--[[
+    mapping for operator mode
+    @param keymaps
+            - map: the assigned keymap
+            - cmd: the cmd that should be assigned to map
+            - opts: options for the keymap, optional
+--]]
+local function x(keymaps)
+  mapto('x', keymaps)
+end
+
 -- mapleader {{{1
-vim.api.nvim_set_keymap('n', '<space>', '<nop>', {})
+n({
+  { map = '<space>', cmd = '<nop>', opts = {} },
+})
 vim.g.mapleader = ' '
 
 -- :source file {{{1
-vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>source<cr>', { noremap = true, silent = true })
+n({
+  { map = '<leader>s', cmd = '<cmd>source<cr>', opts = noremap + silent },
+})
 
 -- spelling {{{1
-vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>setlocal spell! spelllang=en_gb<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<c-c>', '<c-g>u<esc>[s1z=`]a<c-g>u', { noremap = true })
+n({
+  {
+    map = '<leader>c',
+    cmd = '<cmd>setlocal spell! spelllang=en_gb<cr>',
+    opts = noremap + silent,
+  },
+})
+
+i({
+  { map = '<c-c>', cmd = '<c-g>u<esc>[s1z=`]a<c-g>u', opts = noremap },
+})
 
 -- show highlight group {{{1
-vim.api.nvim_set_keymap('n', '<f10>', '<cmd>TSHighlightCapturesUnderCursor<cr>', { noremap = true })
+n({
+  { map = '<f10>', cmd = '<cmd>TSHighlightCapturesUnderCursor<cr>', opts = noremap },
 
--- quickhelp {{{1
-vim.api.nvim_set_keymap('n', '<leader>hh', ':h <c-r><c-w><cr>', { noremap = true })
+  -- quickhelp {{{1
+  { map = '<leader>hh', cmd = ':h <c-r><c-w><cr>', opts = noremap },
+})
 
 -- terminal esc {{{1
-vim.api.nvim_set_keymap('t', '<c-[>', '<c-\\><c-n>', { noremap = true })
+t({
+  { map = '<c-[>', cmd = '<c-\\><c-n>', opts = noremap },
+})
 
 -- termdebug {{{1
-vim.api.nvim_set_keymap('n', '<leader>dt', ':Termdebug ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>dd', '<cmd>Gdb<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dp', '<cmd>Program<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ds', '<cmd>Source<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>da', '<cmd>Asm<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dK', '<cmd>Evaluate<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dr', '<cmd>Run<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dA', ':Arguments ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>dB', '<cmd>Break<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dC', '<cmd>Clear<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dj', '<cmd>Step<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dO', '<cmd>Over<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dD', '<cmd>Finish<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dc', '<cmd>Continue<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>dT', '<cmd>Stop<cr>', { noremap = true, silent = true })
+n({
+  { map = '<leader>dt', cmd = ':Termdebug ', opts = noremap },
+  { map = '<leader>dd', cmd = '<cmd>Gdb<cr>', opts = noremap + silent },
+  { map = '<leader>dp', cmd = '<cmd>Program<cr>', opts = noremap + silent },
+  { map = '<leader>ds', cmd = '<cmd>Source<cr>', opts = noremap + silent },
+  { map = '<leader>da', cmd = '<cmd>Asm<cr>', opts = noremap + silent },
+  { map = '<leader>dK', cmd = '<cmd>Evaluate<cr>', opts = noremap + silent },
+  { map = '<leader>dr', cmd = '<cmd>Run<cr>', opts = noremap + silent },
+  { map = '<leader>dA', cmd = ':Arguments ', opts = noremap },
+  { map = '<leader>dB', cmd = '<cmd>Break<cr>', opts = noremap + silent },
+  { map = '<leader>dC', cmd = '<cmd>Clear<cr>', opts = noremap + silent },
+  { map = '<leader>dj', cmd = '<cmd>Step<cr>', opts = noremap + silent },
+  { map = '<leader>dO', cmd = '<cmd>Over<cr>', opts = noremap + silent },
+  { map = '<leader>dD', cmd = '<cmd>Finish<cr>', opts = noremap + silent },
+  { map = '<leader>dc', cmd = '<cmd>Continue<cr>', opts = noremap + silent },
+  { map = '<leader>dT', cmd = '<cmd>Stop<cr>', opts = noremap + silent },
 
--- dirvish {{{1
-vim.api.nvim_set_keymap('n', '<c-n>', '<Plug>(dirvish_up)', { silent = true })
+  -- dirvish {{{1
+  { map = '<c-n>', cmd = '<Plug>(dirvish_up)', opts = silent },
 
--- add new lines {{{1
-vim.api.nvim_set_keymap('n', '[<space>', 'm`O<esc>``', { noremap = true })
-vim.api.nvim_set_keymap('n', ']<space>', 'm`o<esc>``', { noremap = true })
+  -- add new lines {{{1
+  { map = '[<space>', cmd = 'm`O<esc>``', opts = noremap },
+  { map = ']<space>', cmd = 'm`o<esc>``', opts = noremap },
 
--- move line {{{1
-vim.api.nvim_set_keymap('n', '[e', '<cmd>move .-2<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', ']e', '<cmd>move .+1<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '[e', ":move '<-2<cr>gv=gv", { noremap = true, silent = true })  --- <cmd> does not do the job well
-vim.api.nvim_set_keymap('v', ']e', ":move '>+1<cr>gv=gv", { noremap = true, silent = true })  --- <cmd> does not do the job well
+  -- move line {{{1
+  { map = '[e', cmd = '<cmd>move .-2<cr>', opts = noremap + silent },
+  { map = ']e', cmd = '<cmd>move .+1<cr>', opts = noremap + silent },
+})
+
+v({
+  { map = '[e', cmd = ":move '<-2<cr>gv=gv", opts = noremap + silent }, --- <cmd> does not do the job well
+  { map = ']e', cmd = ":move '>+1<cr>gv=gv", opts = noremap + silent }, --- <cmd> does not do the job well
+})
 
 -- window resize {{{1
-vim.api.nvim_set_keymap('n', '<m-h>', '<c-w><', { noremap = true })
-vim.api.nvim_set_keymap('n', '<m-l>', '<c-w>>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<m-k>', '<c-w>+', { noremap = true })
-vim.api.nvim_set_keymap('n', '<m-j>', '<c-w>-', { noremap = true })
+n({
+  { map = '<m-h>', cmd = '<c-w><', opts = noremap },
+  { map = '<m-l>', cmd = '<c-w>>', opts = noremap },
+  { map = '<m-k>', cmd = '<c-w>+', opts = noremap },
+  { map = '<m-j>', cmd = '<c-w>-', opts = noremap },
+})
 
 -- quickfix and local list navigation {{{1
-vim.api.nvim_set_keymap('n', '[C', '<cmd>copen<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', ']C', '<cmd>cclose<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '[L', '<cmd>lopen<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', ']L', '<cmd>lclose<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '[c', '<cmd>cprevious<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', ']c', '<cmd>cnext<cr>', { noremap = true } )
-vim.api.nvim_set_keymap('n', '[l', '<cmd>lprevious<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', ']l', '<cmd>lnext<cr>', { noremap = true })
+n({
+  { map = '[C', cmd = '<cmd>copen<cr>', opts = noremap },
+  { map = ']C', cmd = '<cmd>cclose<cr>', opts = noremap },
+  { map = '[L', cmd = '<cmd>lopen<cr>', opts = noremap },
+  { map = ']L', cmd = '<cmd>lclose<cr>', opts = noremap },
+  { map = '[c', cmd = '<cmd>cprevious<cr>', opts = noremap },
+  { map = ']c', cmd = '<cmd>cnext<cr>', opts = noremap },
+  { map = '[l', cmd = '<cmd>lprevious<cr>', opts = noremap },
+  { map = ']l', cmd = '<cmd>lnext<cr>', opts = noremap },
 
--- drawer {{{1
-vim.api.nvim_set_keymap('n', '<c-p>', '<cmd>NvimTreeToggle<cr>', { noremap = true })
+  -- drawer {{{1
+  { map = '<c-p>', cmd = '<cmd>NvimTreeToggle<cr>', opts = noremap },
+})
 
 -- snippet {{{1
-vim.api.nvim_set_keymap('i', '<c-k>', 'luasnip#expand_or_jumpable() ? "<Plug>luasnip-expand-or-jump" : "<c-k>"', { silent = true, expr = true })
-vim.api.nvim_set_keymap('i', '<c-j>', '<cmd>lua require("luasnip").jump(-1)<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<c-h>', 'luasnip#choice_active() ? "<Plug>luasnip-next-choice" : "<c-h>"', { silent = true, expr = true })
-vim.api.nvim_set_keymap('s', '<c-k>', '<cmd>lua require("luasnip").jump(1)<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('s', '<c-j>', '<cmd>lua require("luasnip").jump(-1)<cr>', { noremap = true, silent = true })
+i({
+  {
+    map = '<c-k>',
+    cmd = 'luasnip#expand_or_jumpable() ? "<Plug>luasnip-expand-or-jump" : "<c-k>"',
+    opts = silent + expr,
+  },
+  { map = '<c-j>', cmd = '<cmd>lua require("luasnip").jump(-1)<cr>', opts = noremap + silent },
+  {
+    map = '<c-h>',
+    cmd = 'luasnip#choice_active() ? "<Plug>luasnip-next-choice" : "<c-h>"',
+    opts = silent + expr,
+  },
+})
+
+s({
+  { map = '<c-k>', cmd = '<cmd>lua require("luasnip").jump(1)<cr>', opts = noremap + silent },
+  { map = '<c-j>', cmd = '<cmd>lua require("luasnip").jump(-1)<cr>', opts = noremap + silent },
+})
 
 -- undotree {{{1
-vim.api.nvim_set_keymap('n', '<leader>u', '<cmd>UndotreeToggle<cr>', { noremap = true })
+n({
+  { map = '<leader>u', cmd = '<cmd>UndotreeToggle<cr>', opts = noremap },
+})
 
 -- treesitter {{{1
-function TSRestart()
+function _G.TSRestart()
   vim.cmd('write|edit')
 end
 
-vim.api.nvim_set_keymap('n', '<leader>tt', '<cmd>lua require("nvim-treesitter-playground.internal").toggle()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>tr', '<cmd>lua TSRestart()<cr>', { noremap = true, silent=true })
+n({
+  {
+    map = '<leader>tt',
+    cmd = '<cmd>lua require("nvim-treesitter-playground.internal").toggle()<cr>',
+    opts = noremap,
+  },
+  { map = '<leader>tr', cmd = '<cmd>lua TSRestart()<cr>', opts = noremap + silent },
 
--- add tags (C/C++) {{{1
-vim.api.nvim_set_keymap('n', '[t', '<cmd>call jobstart("ctags -R")<cr>', { noremap = true })
+  -- add tags (C/C++) {{{1
+  { map = '[t', cmd = '<cmd>call jobstart("ctags -R")<cr>', opts = noremap },
 
--- aedile {{{1
-vim.api.nvim_set_keymap('n', '<leader>rr', '<cmd>lua require("aedile").toggle_repl()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>rc', '<cmd>lua require("aedile").terminate_repl()<cr>', { noremap = true })
+  -- aedile {{{1
+  { map = '<leader>rr', cmd = '<cmd>lua require("aedile").toggle_repl()<cr>', opts = noremap },
+  { map = '<leader>rc', cmd = '<cmd>lua require("aedile").terminate_repl()<cr>', opts = noremap },
 
--- slime {{{1
-vim.api.nvim_set_keymap('n', '<c-c><c-c>', ':<c-u>call slime#store_curpos()<cr>:set opfunc=slime#send_op<cr>g@af', { silent = true })
-vim.api.nvim_set_keymap('x', '<c-c><c-c>', '<Plug>SlimeRegionSend', {})
-vim.api.nvim_set_keymap('n', '<c-c>v', '<Plug>SlimeConfig', {})
+  -- slime {{{1
+  { map = '<c-c><c-c>', cmd = ':<c-u>call slime#store_curpos()<cr>:set opfunc=slime#send_op<cr>g@af', opts = silent },
+  { map = '<c-c>v', cmd = '<Plug>SlimeConfig', opts = {} },
+})
+
+x({
+  { map = '<c-c><c-c>', cmd = '<Plug>SlimeRegionSend', opts = {} },
+})
 
 -- projectionist {{{1
-vim.api.nvim_set_keymap('n', '<leader>pa', '<cmd>A<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>ps', ':AS ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pv', ':AV ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pt', ':AT ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>po', ':AO ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pd', '<cmd>AD<cr>', { noremap = true })
+n({
+  { map = '<leader>pa', cmd = '<cmd>A<cr>', opts = noremap },
+  { map = '<leader>ps', cmd = ':AS ', opts = noremap },
+  { map = '<leader>pv', cmd = ':AV ', opts = noremap },
+  { map = '<leader>pt', cmd = ':AT ', opts = noremap },
+  { map = '<leader>po', cmd = ':AO ', opts = noremap },
+  { map = '<leader>pd', cmd = '<cmd>AD<cr>', opts = noremap },
 
--- telescope {{{1
-T = require('telescope-custom')
+  -- telescope {{{1
+  { map = '<leader>ff', cmd = '<cmd>lua T.rg()<cr>', opts = noremap },
+  { map = '<leader>fd', cmd = '<cmd>lua T.rg_dot()<cr>', opts = noremap },
+  { map = '<leader>fn', cmd = '<cmd>lua T.rg_note()<cr>', opts = noremap },
+  { map = '<leader>fg', cmd = '<cmd>lua T.git_branches()<cr>', opts = noremap },
+  { map = '<leader>fr', cmd = '<cmd>lua T.live_grep()<cr>', opts = noremap },
+  { map = '<leader>fb', cmd = '<cmd>lua T.buffers()<cr>', opts = noremap },
+  { map = '<leader>fl', cmd = '<cmd>lua T.current_buffer_fuzzy_find()<cr>', opts = noremap },
+  { map = '<leader>fh', cmd = '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts = noremap },
+  { map = '<leader>fq', cmd = '<cmd>lua require("telescope.builtin").quickfix()<cr>', opts = noremap },
+  { map = '<leader>ft', cmd = '<cmd>lua require("telescope.builtin").tags()<cr>', opts = noremap },
+  { map = '<leader>fw', cmd = '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<cr>', opts = noremap },
+  {
+    map = '<leader>fm',
+    cmd = '<cmd>lua require("telescope.builtin").keymaps()<cr>',
+    opts = noremap + nowait,
+  },
+  {
+    map = '<leader>fs',
+    cmd = '<cmd>lua require("telescope").extensions.souvenir.souvenir()<cr>',
+    opts = noremap + nowait,
+  },
+  {
+    map = '<c-r><c-r>',
+    cmd = '<cmd>lua require("telescope.builtin").commands()<cr><cr>',
+    opts = noremap + nowait,
+  },
 
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua T.rg()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>lua T.rg_dot()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fn', '<cmd>lua T.rg_note()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua T.git_branches()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fr', '<cmd>lua T.live_grep()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>lua T.buffers()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fl', '<cmd>lua T.current_buffer_fuzzy_find()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fq', '<cmd>lua require("telescope.builtin").quickfix()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>ft', '<cmd>lua require("telescope.builtin").tags()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fw', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fm', '<cmd>lua require("telescope.builtin").keymaps()<cr>', { noremap = true, nowait = true })
-vim.api.nvim_set_keymap('n', '<leader>fs', '<cmd>lua require("telescope").extensions.souvenir.souvenir()<cr>', { noremap = true, nowait = true })
-vim.api.nvim_set_keymap('c', '<c-r><c-r>', '<cmd>lua require("telescope.builtin").commands()<cr><cr>', { noremap = true, nowait = true })
+  -- harpoon {{{1
+  { map = '<leader>ma', cmd = '<cmd>lua require("harpoon.mark").add_file()<cr>', opts = noremap },
+  { map = '<leader>m1', cmd = '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', opts = noremap },
+  { map = '<leader>m2', cmd = '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', opts = noremap },
+  { map = '<leader>m3', cmd = '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', opts = noremap },
+  { map = '<leader>m4', cmd = '<cmd>lua require("harpoon.ui").nav_file(4)<cr>', opts = noremap },
+  { map = '<leader>m5', cmd = '<cmd>lua require("harpoon.ui").nav_file(5)<cr>', opts = noremap },
+  { map = '<leader>m6', cmd = '<cmd>lua require("harpoon.ui").nav_file(6)<cr>', opts = noremap },
+  { map = '<leader>m7', cmd = '<cmd>lua require("harpoon.ui").nav_file(7)<cr>', opts = noremap },
+  { map = '<leader>m8', cmd = '<cmd>lua require("harpoon.ui").nav_file(8)<cr>', opts = noremap },
+  { map = '<leader>m9', cmd = '<cmd>lua require("harpoon.ui").nav_file(9)<cr>', opts = noremap },
+  { map = '<leader>m0', cmd = '<cmd>lua require("harpoon.ui").nav_file(10)<cr>', opts = noremap },
+  { map = '<leader>mm', cmd = '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', opts = noremap },
 
--- harpoon {{{1
-vim.api.nvim_set_keymap('n', '<leader>ma', '<cmd>lua require("harpoon.mark").add_file()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m1', '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m2', '<cmd>lua require("harpoon.ui").nav_file(2)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m3', '<cmd>lua require("harpoon.ui").nav_file(3)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m4', '<cmd>lua require("harpoon.ui").nav_file(4)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m5', '<cmd>lua require("harpoon.ui").nav_file(5)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m6', '<cmd>lua require("harpoon.ui").nav_file(6)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m7', '<cmd>lua require("harpoon.ui").nav_file(7)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m8', '<cmd>lua require("harpoon.ui").nav_file(8)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m9', '<cmd>lua require("harpoon.ui").nav_file(9)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>m0', '<cmd>lua require("harpoon.ui").nav_file(10)<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>mm', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', { noremap = true })
+  -- git related {{{1
+  { map = '<leader>gs', cmd = '<cmd>Neogit<cr>', opts = noremap },
+  { map = '<leader>gj', cmd = '<cmd>diffget //3<cr>', opts = noremap },
+  { map = '<leader>gf', cmd = '<cmd>diffget //2<cr>', opts = noremap },
+  { map = '<leader>gg', cmd = ':Neogit ', opts = noremap },
+  { map = '<leader>gl', cmd = '<cmd>Neogit log<cr>', opts = noremap },
+  { map = '<leader>gb', cmd = '<cmd>lua require("agitator").git_blame_toggle()<cr>', opts = noremap },
+  { map = '<leader>gm', cmd = '<cmd>lua require("agitator").git_time_machine()<cr>', opts = noremap },
 
--- git related {{{1
-vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>Neogit<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gj', '<cmd>diffget //3<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>diffget //2<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gg', ':Neogit ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gl', '<cmd>Neogit log<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua require("agitator").git_blame_toggle()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gm', '<cmd>lua require("agitator").git_time_machine()<cr>', { noremap = true })
+  -- packer {{{1
+  { map = '<leader>pE', cmd = '<cmd>PluginEdit<cr>', opts = noremap },
+  { map = '<leader>pI', cmd = '<cmd>lua require("packer").install()<cr>', opts = noremap },
+  { map = '<leader>pC', cmd = '<cmd>lua require("packer").compile()<cr>', opts = noremap },
+  { map = '<leader>pX', cmd = '<cmd>lua require("packer").clean()<cr>', opts = noremap },
+  { map = '<leader>pU', cmd = '<cmd>lua require("packer").sync()<cr>', opts = noremap },
 
--- packer {{{1
-vim.api.nvim_set_keymap('n', '<leader>pE', '<cmd>PluginEdit<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pI', '<cmd>lua require("packer").install()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pC', '<cmd>lua require("packer").compile()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pX', '<cmd>lua require("packer").clean()<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>pU', '<cmd>lua require("packer").sync()<cr>', { noremap = true })
+  -- search {{{1
+  { map = '/', cmd = '/\\v', opts = noremap },
+})
 
--- search {{{1
-vim.api.nvim_set_keymap('n', '/', '/\\v', { noremap = true })
 vim.cmd('cabbrev s/ s/\\v')
 vim.cmd('cabbrev %s/ %s/\\v')
 
 -- clear search reg/trailing white space {{{1
-vim.api.nvim_set_keymap('n', '<leader>n', '<cmd>let @/=""<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>y', 'm`:%s/\\s\\+$//e<cr>``', { noremap = true })
+n({
+  { map = '<leader>n', cmd = '<cmd>let @/=""<cr>', opts = noremap + silent },
+  { map = '<leader>y', cmd = 'm`:%s/\\s\\+$//e<cr>``', opts = noremap },
 
--- notes {{{1
-vim.api.nvim_set_keymap('n', '<leader>zn', '<cmd>ZkNew { title = vim.fn.input("Title: ") }<cr>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<leader>zo', '<cmd>ZkNotes { sort = { "modified" } }<cr>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<leader>zt', '<cmd>ZkTags<cr>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<leader>zf', '<cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<cr>', { noremap = true, silent = false })
-vim.api.nvim_set_keymap('v', '<leader>zf', ":'<,'>ZkMatch<cr>", { noremap = true, silent = false })
+  -- notes {{{1
+  --TODO: might need to set silent = false
+  { map = '<leader>zn', cmd = '<cmd>ZkNew { title = vim.fn.input("Title: ") }<cr>', opts = noremap },
+  { map = '<leader>zo', cmd = '<cmd>ZkNotes { sort = { "modified" } }<cr>', opts = noremap },
+  { map = '<leader>zt', cmd = '<cmd>ZkTags<cr>', opts = noremap },
+  {
+    map = '<leader>zf',
+    cmd = '<cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<cr>',
+    opts = noremap,
+  },
+})
 
--- disable arrow keys {{{1
-vim.api.nvim_set_keymap('n', '<up>', '<cmd>echoerr "---> k <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<down>', '<cmd>echoerr "---> j <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<left>', '<cmd>echoerr "---> h <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<right>', '<cmd>echoerr "---> l <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<up>', '<cmd>echoerr "---> <c-]>k <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<down>', '<cmd>echoerr "---> <c-]>j <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<left>', '<cmd>echoerr "---> <c-]>h <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<right>', '<cmd>echoerr "---> <c-]>l <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('v', '<up>', '<cmd>echoerr "---> k <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('v', '<down>', '<cmd>echoerr "---> j <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('v', '<left>', '<cmd>echoerr "---> h <---"<cr>', { noremap = true })
-vim.api.nvim_set_keymap('v', '<right>', '<cmd>echoerr "---> l <---"<cr>', { noremap = true })
+v({
+  { map = '<leader>zf', cmd = ":'<,'>ZkMatch<cr>", opts = noremap },
+
+  -- disable arrow keys {{{1
+  { map = '<up>', cmd = '<cmd>echoerr "---> k <---"<cr>', opts = noremap },
+  { map = '<down>', cmd = '<cmd>echoerr "---> j <---"<cr>', opts = noremap },
+  { map = '<left>', cmd = '<cmd>echoerr "---> h <---"<cr>', opts = noremap },
+  { map = '<right>', cmd = '<cmd>echoerr "---> l <---"<cr>', opts = noremap },
+})
+
+n({
+  { map = '<up>', cmd = '<cmd>echoerr "---> k <---"<cr>', opts = noremap },
+  { map = '<down>', cmd = '<cmd>echoerr "---> j <---"<cr>', opts = noremap },
+  { map = '<left>', cmd = '<cmd>echoerr "---> h <---"<cr>', opts = noremap },
+  { map = '<right>', cmd = '<cmd>echoerr "---> l <---"<cr>', opts = noremap },
+})
+
+i({
+  { map = '<up>', cmd = '<cmd>echoerr "---> <c-]>k <---"<cr>', opts = noremap },
+  { map = '<down>', cmd = '<cmd>echoerr "---> <c-]>j <---"<cr>', opts = noremap },
+  { map = '<left>', cmd = '<cmd>echoerr "---> <c-]>h <---"<cr>', opts = noremap },
+  { map = '<right>', cmd = '<cmd>echoerr "---> <c-]>l <---"<cr>', opts = noremap },
+})
