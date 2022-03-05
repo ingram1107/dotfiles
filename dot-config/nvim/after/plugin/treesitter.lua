@@ -56,18 +56,6 @@ require('nvim-treesitter.configs').setup({
     updatetime = 25,
     persist_queries = false,
   },
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    colors = {
-      '#ff6188',
-      '#a9dc76',
-      '#ffd866',
-      '#fc9867',
-      '#ab9df2',
-      '#78dce8',
-    },
-  },
   autotag = {
     enable = true,
   },
