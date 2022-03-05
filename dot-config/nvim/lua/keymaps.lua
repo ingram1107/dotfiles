@@ -293,12 +293,17 @@ n({
     cmd = '<cmd>lua require("telescope").extensions.souvenir.souvenir()<cr>',
     opts = noremap + nowait,
   },
+})
+
+c({
   {
     map = '<c-r><c-r>',
     cmd = '<cmd>lua require("telescope.builtin").commands()<cr><cr>',
     opts = noremap + nowait,
   },
+})
 
+n({
   -- harpoon {{{1
   { map = '<leader>ma', cmd = '<cmd>lua require("harpoon.mark").add_file()<cr>', opts = noremap },
   { map = '<leader>m1', cmd = '<cmd>lua require("harpoon.ui").nav_file(1)<cr>', opts = noremap },
