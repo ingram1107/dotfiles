@@ -1,0 +1,9 @@
+#!/bin/sh
+# From Luke Smith
+
+student_unread=$(fd -t f . /mnt/Nemo/mail/student/Inbox/new/ | wc -l)
+clover_unread=$(fd -t f . /mnt/Nemo/mail/clover/Inbox/new/ | wc -l)
+pmarcilus_unread=$(fd -t f . /mnt/Nemo/mail/pmarcilus/Inbox/new/ | wc -l)
+total_unread=$(( $student_unread + $clover_unread + $pmarcilus_unread ))
+
+echo -e "$total_unread"
