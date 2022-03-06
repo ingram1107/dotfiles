@@ -107,7 +107,7 @@ vim.o.tabline='%!v:lua.tabline()'
 
 -- listchars {{{1
 vim.o.list = true
-vim.o.listchars = 'eol:↲,trail:·'
+vim.o.listchars = 'tab:» ,eol:↲'
 
 -- fillchars {{{1
 vim.o.fillchars = 'fold: '

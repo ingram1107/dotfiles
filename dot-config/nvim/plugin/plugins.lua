@@ -97,16 +97,8 @@ return require('packer').startup({
 
     -- dir and project {{{1
     use {
-      'justinmk/vim-dirvish',
-      key = { 'n', '<c-n>' },
-    }
-    use {
-      'bounceme/remote-viewer',
-      cmd = 'Dirvish'
-    }
-    use {
-      'roginfarrer/vim-dirvish-dovish',
-      ft = 'dirvish',
+      'elihunter173/dirbuf.nvim',
+      cmd = 'Dirbuf',
     }
     use {
       'kyazdani42/nvim-tree.lua',
@@ -114,6 +106,7 @@ return require('packer').startup({
       cmd = 'NvimTreeToggle',
       config = function()
         require('nvim-tree').setup {
+          disable_netrw = true,
           auto_close = true,
           hijack_cursor = true,
 
