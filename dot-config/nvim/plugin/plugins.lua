@@ -160,8 +160,17 @@ return require('packer').startup({
       'TimUntersberger/neogit',
       cmd = 'Neogit',
       config = function()
-        require('neogit').setup{}
+        require('neogit').setup{
+          integrations = {
+            diffview = true,
+          },
+        }
       end,
+    }
+    use {
+      'sindrets/diffview.nvim',
+      cmd = { 'Neogit', 'DiffviewOpen', 'DiffviewFileHistory' },
+      requires = 'nvim-lua/plenary.nvim',
     }
     use 'emmanueltouzery/agitator.nvim'
     use {
