@@ -326,6 +326,11 @@ n({
   { map = '<leader>gl', cmd = '<cmd>Neogit log<cr>', opts = noremap },
   { map = '<leader>gb', cmd = '<cmd>lua require("agitator").git_blame_toggle()<cr>', opts = noremap },
   { map = '<leader>gm', cmd = '<cmd>lua require("agitator").git_time_machine()<cr>', opts = noremap },
+  { map = '<leader>gdo', cmd = '<cmd>DiffviewOpen<cr>', opts = noremap },
+  { map = '<leader>gdd', cmd = ':DiffviewOpen ', opts = noremap },
+  { map = '<leader>gdq', cmd = '<cmd>DiffviewClose<cr>', opts = noremap },   --- move this to DiffviewFiles
+  { map = '<leader>gdh', cmd = '<cmd>DiffviewFileHistory<cr>', opts = noremap },
+  { map = '<leader>gdH', cmd = ':DiffviewFileHistory ', opts = noremap },
 
   -- packer {{{1
   { map = '<leader>pE', cmd = '<cmd>PluginEdit<cr>', opts = noremap },
