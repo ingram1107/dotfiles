@@ -41,6 +41,10 @@ require('nvim-treesitter.configs').setup({
     'norg_table',
     'latex',
     'query',
+    'make',
+    'css',
+    'html',
+    'yaml',
   },
   highlight = {
     enable = true,
