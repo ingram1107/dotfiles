@@ -209,23 +209,63 @@ n({
 })
 
 -- snippet {{{1
+local function prequire(...)
+  local status, lib = pcall(require, ...)
+  if (status) then return lib end
+
+  return nil
+end
+
+local luasnip = prequire('luasnip')
+local cmp = prequire("cmp")
+
+local tc = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+_G.luasnip_expand_or_jump = function()
+    if cmp and cmp.visible() then
+        cmp.select_next_item()
+    elseif luasnip and luasnip.expand_or_jumpable() then
+        return tc("<Plug>luasnip-expand-or-jump")
+    elseif check_back_space() then
+        return tc "<c-k>"
+    else
+        cmp.complete()
+    end
+    return ""
+end
+
+_G.luasnip_jump_to_previous = function()
+    if cmp and cmp.visible() then
+        cmp.select_prev_item()
+    elseif luasnip and luasnip.jumpable(-1) then
+        return tc("<Plug>luasnip-jump-prev")
+    else
+        return tc "<c-j>"
+    end
+    return ""
+end
+
 i({
-  {
-    map = '<c-k>',
-    cmd = 'luasnip#expand_or_jumpable() ? "<Plug>luasnip-expand-or-jump" : "<c-k>"',
-    opts = silent + expr,
-  },
-  { map = '<c-j>', cmd = '<cmd>lua require("luasnip").jump(-1)<cr>', opts = noremap + silent },
-  {
-    map = '<c-h>',
-    cmd = 'luasnip#choice_active() ? "<Plug>luasnip-next-choice" : "<c-h>"',
-    opts = silent + expr,
-  },
+  { map = "<c-k>", cmd = "v:lua.luasnip_expand_or_jump()", opts = expr } ,
+  { map = "<c-j>", cmd = "v:lua.luasnip_jump_to_previous()", opts = expr },
+  { map = "<c-h>", cmd = "<Plug>luasnip-next-choice", opts = {}},
 })
 
 s({
-  { map = '<c-k>', cmd = '<cmd>lua require("luasnip").jump(1)<cr>', opts = noremap + silent },
-  { map = '<c-j>', cmd = '<cmd>lua require("luasnip").jump(-1)<cr>', opts = noremap + silent },
+  { map = "<c-k>", cmd = "v:lua.luasnip_expand_or_jump()", opts = expr },
+  { map = "<c-j>", cmd = "v:lua.luasnip_jump_to_previous()", opts = expr },
+  { map = "<c-h>", cmd = "<Plug>luasnip-next-choice", opts = {} },
 })
 
 -- undotree {{{1
