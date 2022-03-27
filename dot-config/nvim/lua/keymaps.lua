@@ -168,8 +168,6 @@ n({
   { map = '<leader>dc', cmd = '<cmd>Continue<cr>', opts = noremap + silent },
   { map = '<leader>dT', cmd = '<cmd>Stop<cr>', opts = noremap + silent },
 
-  -- dirvish {{{1
-  { map = '<c-n>', cmd = '<cmd>Dirbuf<cr>', opts = silent },
 
   -- add new lines {{{1
   { map = '[<space>', cmd = 'm`O<esc>``', opts = noremap },
