@@ -396,7 +396,7 @@ globalkeys = gears.table.join(
 
   -- Programs
   awful.key({ modkey }, 'w', function()
-    awful.util.spawn('firefox-profile-menu', false)
+    awful.util.spawn(os.getenv('BROWSER'), false)
   end, { description = 'open browse', group = 'programs' }),
   awful.key({ modkey }, 'v', function()
     awful.util.spawn('record', false)
@@ -606,7 +606,7 @@ awful.rules.rules = {
   -- Add titlebars to normal clients and dialogs
   { rule_any = { type = { 'normal', 'dialog' } }, properties = { titlebars_enabled = false } },
 
-  { rule = { class = "firefox" },
+  { rule = { role = "browser" },
     properties = { screen = 1, tag = "" } },
   { rule = { class = "Transmission" },
     properties = { screen = 1, tag = "" } },
