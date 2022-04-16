@@ -1,6 +1,8 @@
 -- packer conf
-vim.cmd('packadd packer.nvim')
-vim.cmd('packadd termdebug')
+vim.cmd([[
+packadd packer.nvim
+packadd termdebug
+]])
 
 return require('packer').startup({
   function()
