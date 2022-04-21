@@ -1,5 +1,6 @@
 -- cmp+lspkind
 local cmp = require('cmp')
+local types = require('cmp.types')
 local lspkind = require('lspkind')
 
 cmp.setup({
@@ -15,6 +16,8 @@ cmp.setup({
     ['<c-l>'] = cmp.mapping.complete(),
     ['<c-e>'] = cmp.mapping.close(),
     ['<c-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<c-n>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }), { 'i', 'c' }),
+    ['<c-p>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }), { 'i', 'c' }),
   },
 
   sources = cmp.config.sources({
