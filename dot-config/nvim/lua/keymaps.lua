@@ -255,6 +255,10 @@ _G.luasnip_jump_to_previous = function()
     return ""
 end
 
+n({
+  { map = '<leader>ls', cmd = '<cmd>lua require("luasnip.loaders.from_lua").edit_snippet_files()<cr>', opts = noremap },
+})
+
 i({
   { map = "<c-k>", cmd = "v:lua.luasnip_expand_or_jump()", opts = expr } ,
   { map = "<c-j>", cmd = "v:lua.luasnip_jump_to_previous()", opts = expr },
