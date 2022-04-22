@@ -109,7 +109,6 @@ return require('packer').startup({
       config = function()
         require('nvim-tree').setup {
           disable_netrw = true,
-          auto_close = true,
           hijack_cursor = true,
 
           diagnostic = {
