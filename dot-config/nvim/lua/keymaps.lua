@@ -168,7 +168,6 @@ n({
   { map = '<leader>dc', cmd = '<cmd>Continue<cr>', opts = noremap + silent },
   { map = '<leader>dT', cmd = '<cmd>Stop<cr>', opts = noremap + silent },
 
-
   -- add new lines {{{1
   { map = '[<space>', cmd = 'm`O<esc>``', opts = noremap },
   { map = ']<space>', cmd = 'm`o<esc>``', opts = noremap },
@@ -210,65 +209,71 @@ n({
 -- snippet {{{1
 local function prequire(...)
   local status, lib = pcall(require, ...)
-  if (status) then return lib end
+  if status then
+    return lib
+  end
 
   return nil
 end
 
 local luasnip = prequire('luasnip')
-local cmp = prequire("cmp")
+local cmp = prequire('cmp')
 
 local tc = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
+  local col = vim.fn.col('.') - 1
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
 end
 
 _G.luasnip_expand_or_jump = function()
-    if cmp and cmp.visible() then
-        cmp.select_next_item()
-    elseif luasnip and luasnip.expand_or_jumpable() then
-        return tc("<Plug>luasnip-expand-or-jump")
-    elseif check_back_space() then
-        return tc "<c-k>"
-    else
-        cmp.complete()
-    end
-    return ""
+  if cmp and cmp.visible() then
+    cmp.select_next_item()
+  elseif luasnip and luasnip.expand_or_jumpable() then
+    return tc('<Plug>luasnip-expand-or-jump')
+  elseif check_back_space() then
+    return tc('<c-k>')
+  else
+    cmp.complete()
+  end
+  return ''
 end
 
 _G.luasnip_jump_to_previous = function()
-    if cmp and cmp.visible() then
-        cmp.select_prev_item()
-    elseif luasnip and luasnip.jumpable(-1) then
-        return tc("<Plug>luasnip-jump-prev")
-    else
-        return tc "<c-j>"
-    end
-    return ""
+  if cmp and cmp.visible() then
+    cmp.select_prev_item()
+  elseif luasnip and luasnip.jumpable(-1) then
+    return tc('<Plug>luasnip-jump-prev')
+  else
+    return tc('<c-j>')
+  end
+  return ''
 end
 
 n({
-  { map = '<leader>ls', cmd = '<cmd>lua require("luasnip.loaders.from_lua").edit_snippet_files()<cr>', opts = noremap },
+  {
+    map = '<leader>ls',
+    cmd = '<cmd>lua require("luasnip.loaders.from_lua").edit_snippet_files()<cr>',
+    opts = noremap,
+  },
 })
 
 i({
-  { map = "<c-k>", cmd = "v:lua.luasnip_expand_or_jump()", opts = expr } ,
-  { map = "<c-j>", cmd = "v:lua.luasnip_jump_to_previous()", opts = expr },
-  { map = "<c-h>", cmd = "<Plug>luasnip-next-choice", opts = {}},
+  { map = '<c-k>', cmd = 'v:lua.luasnip_expand_or_jump()', opts = expr },
+  { map = '<c-j>', cmd = 'v:lua.luasnip_jump_to_previous()', opts = expr },
+  { map = '<c-h>', cmd = '<Plug>luasnip-next-choice', opts = {} },
 })
 
 s({
-  { map = "<c-k>", cmd = "v:lua.luasnip_expand_or_jump()", opts = expr },
-  { map = "<c-j>", cmd = "v:lua.luasnip_jump_to_previous()", opts = expr },
-  { map = "<c-h>", cmd = "<Plug>luasnip-next-choice", opts = {} },
+  { map = '<c-k>', cmd = 'v:lua.luasnip_expand_or_jump()', opts = expr },
+  { map = '<c-j>', cmd = 'v:lua.luasnip_jump_to_previous()', opts = expr },
+  { map = '<c-h>', cmd = '<Plug>luasnip-next-choice', opts = {} },
 })
 
 -- undotree {{{1
@@ -371,7 +376,7 @@ n({
   { map = '<leader>gm', cmd = '<cmd>lua require("agitator").git_time_machine()<cr>', opts = noremap },
   { map = '<leader>gdo', cmd = '<cmd>DiffviewOpen<cr>', opts = noremap },
   { map = '<leader>gdd', cmd = ':DiffviewOpen ', opts = noremap },
-  { map = '<leader>gdq', cmd = '<cmd>DiffviewClose<cr>', opts = noremap },   --- move this to DiffviewFiles
+  { map = '<leader>gdq', cmd = '<cmd>DiffviewClose<cr>', opts = noremap }, --- move this to DiffviewFiles
   { map = '<leader>gdh', cmd = '<cmd>DiffviewFileHistory<cr>', opts = noremap },
   { map = '<leader>gdH', cmd = ':DiffviewFileHistory ', opts = noremap },
 
