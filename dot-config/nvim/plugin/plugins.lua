@@ -25,7 +25,11 @@ return require('packer').startup({
     use {
       'j-hui/fidget.nvim',
       config = function ()
-        require('fidget').setup()
+        require('fidget').setup({
+          window = {
+            blend = 50,  -- makes it transparent
+          }
+        })
       end
     }
 
