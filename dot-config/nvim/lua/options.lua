@@ -139,11 +139,24 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- loadview for config files {{{1
-vim.cmd([[
-aug ConfigLoadView
-  au!
-  au BufRead $HOME/dotfiles/dot-config/nvim/lua/keymaps.lua silent! loadview
-  au BufRead $HOME/dotfiles/dot-config/nvim/lua/options.lua silent! loadview
-  au BufRead $HOME/dotfiles/dot-config/nvim/plugin/plugins.lua silent! loadview
-aug END
-]])
+-- TODO: pattern does not expand environment variables
+local view_group = vim.api.nvim_create_augroup('ConfigLoadView', { clear = true })
+local nvim_conf_path = os.getenv('HOME') .. '/dotfiles/dot-config/nvim/'
+
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = nvim_conf_path .. 'lua/keymaps.lua',
+  command = 'silent! loadview',
+  group = view_group,
+})
+
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = nvim_conf_path .. 'lua/options.lua',
+  command = 'silent! loadview',
+  group = view_group,
+})
+
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = nvim_conf_path .. 'plugin/plugins.lua',
+  command = 'silent! loadview',
+  group = view_group,
+})
