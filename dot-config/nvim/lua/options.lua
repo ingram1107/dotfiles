@@ -1,5 +1,4 @@
 -- general {{{1
-vim.cmd('filetype plugin on')
 vim.o.backupcopy = 'no'
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menu,menuone,noselect'
@@ -34,8 +33,11 @@ vim.o.wildmode = 'longest,full'
 vim.o.wildoptions = 'pum'
 vim.o.wrap = false
 
+-- enable filetype.lua and disable filetype.vim
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+
 -- indentation {{{1
-vim.cmd('filetype plugin indent on')
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
