@@ -12,6 +12,7 @@ vim.o.guicursor = 'n-v-i-c-sm:block,ci-ve:ver25,r-cr:hor20'
 vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.inccommand = 'nosplit'
+vim.o.laststatus = 3
 vim.o.modelines = 0
 vim.o.number = true
 vim.o.path = '.,**'
