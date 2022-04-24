@@ -30,4 +30,20 @@ return {
       i(2, 'tags'),
       newline('---'),
     }),
+    s('zkt', {
+      t({
+        '---',
+        'title: ',
+      }),
+      i(1, "Book's Title"),
+      newline('authors: '),
+      i(2, "Book's Author"),
+      newline('year: '),
+      i(3, os.date('%Y')),
+      newline('date: ' .. os.date('%Y-%m-%d %H:%M')),
+      newline('tags: [literature, '),
+      i(5, 'philosophy, socialism'),
+      t(']'),
+      newline('---'),
+    }),
   }
