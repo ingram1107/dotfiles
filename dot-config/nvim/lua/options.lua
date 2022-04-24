@@ -160,3 +160,25 @@ vim.api.nvim_create_autocmd('BufRead', {
   command = 'silent! loadview',
   group = view_group,
 })
+
+-- nvim-tree auto close
+-- TODO: inconsistent behaviour across Vimscript and Lua
+local nvim_tree_group = vim.api.nvim_create_augroup('NvimTreeAutoClose', { clear = true })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  desc = 'Auto quit the tab/vim if the last window is nvim-tree',
+  pattern = '*',
+  nested = true,
+  callback = function()
+    local windows = vim.api.nvim_tabpage_list_wins(0)
+    local winnr = #windows
+    local bufname = vim.api.nvim_buf_get_name(0)
+    local tabpagenr = vim.api.nvim_win_get_tabpage(0)
+    local match_bufname = 'NvimTree_' .. tabpagenr
+
+    if winnr == 1 and bufname == match_bufname then
+      vim.cmd('quit')
+    end
+  end,
+  group = nvim_tree_group,
+})
