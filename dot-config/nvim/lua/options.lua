@@ -128,8 +128,15 @@ vim.o.fillchars = 'fold: '
 
 -- yank highlight {{{1
 --- TODO: neovim/neovim autocmd native lua callback PR#12378 and PR#14661
-vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank()')
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 
+vim.api.nvim_create_autocmd('TextYankPost', {
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+})
 
 -- loadview for config files {{{1
 vim.cmd([[
