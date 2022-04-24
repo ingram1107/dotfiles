@@ -57,15 +57,29 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
 
 -- better terminal integration {{{1
---- TODO: neovim/neovim autocmd native lua callback PR#12378 and PR#14661
-vim.cmd([[
-aug BetterTerminal
-  au!
-  au TermOpen term://* startinsert
-  au TermOpen term://* setlocal nocursorline nonumber norelativenumber
-  au TermLeave term://* stopinsert
-aug END
-]])
+local terminal_group = vim.api.nvim_create_augroup('BetterTerminal', { clear = true })
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = 'term://*',
+  command = 'startinsert',
+  group = terminal_group,
+})
+
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = 'term://*',
+  callback = function()
+    vim.api.nvim_set_option_value('cursorline', false, { scope = 'local' })
+    vim.api.nvim_set_option_value('number', false, { scope = 'local' })
+    vim.api.nvim_set_option_value('relativenumber', false, { scope = 'local' })
+  end,
+  group = terminal_group,
+})
+
+vim.api.nvim_create_autocmd('TermLeave', {
+  pattern = 'term://*',
+  command = 'stopinsert',
+  group = terminal_group,
+})
 
 -- termdebug {{{1
 vim.g.termdebug_wide = 40
