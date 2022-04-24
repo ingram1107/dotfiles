@@ -8,7 +8,7 @@ vim.o.conceallevel = 2
 vim.o.encoding = 'utf8'
 vim.o.equalalways = false
 vim.o.formatoptions = 'jcrqlnB'
-vim.o.guicursor = "n-v-i-c-sm:block,ci-ve:ver25,r-cr:hor20"
+vim.o.guicursor = 'n-v-i-c-sm:block,ci-ve:ver25,r-cr:hor20'
 vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.inccommand = 'nosplit'
@@ -21,7 +21,7 @@ vim.o.relativenumber = true
 vim.o.scrollback = 100000
 vim.o.scrolloff = 10
 vim.o.showmode = false
-vim.o.signcolumn = "yes:1"
+vim.o.signcolumn = 'yes:1'
 vim.o.smartcase = true
 vim.o.swapfile = false
 vim.o.termguicolors = true
@@ -43,7 +43,7 @@ vim.o.expandtab = true
 function _G.simple_fold()
   local first = vim.fn.getline(vim.v.foldstart)
   local last = vim.fn.trim(vim.fn.getline(vim.v.foldend))
-  return first..'...'..last
+  return first .. '...' .. last
 end
 
 vim.o.foldenable = true
@@ -92,15 +92,15 @@ function _G.tabline()
   local s = ''
   for i, _ in ipairs(vim.api.nvim_list_tabpages()) do
     if i == vim.api.nvim_tabpage_get_number(0) then
-      s = s..'%#TabLineSel#'
+      s = s .. '%#TabLineSel#'
     else
-      s = s..'%#TabLine#'
+      s = s .. '%#TabLine#'
     end
 
-    s = s..' %{v:lua.tablabel('..i..')} '
+    s = s .. ' %{v:lua.tablabel(' .. i .. ')} '
   end
 
-  s = s..'%#TabLineFill#%T'
+  s = s .. '%#TabLineFill#%T'
 
   return s
 end
@@ -111,13 +111,13 @@ function _G.tablabel(tab_no)
   local buf_name = vim.fn.bufname(buf_list[win_no])
 
   if buf_name ~= '' or buf_name ~= nil then
-    return '[' ..buf_name..']'
+    return '[' .. buf_name .. ']'
   else
-    return '['..']'
+    return '[' .. ']'
   end
 end
 
-vim.o.tabline='%!v:lua.tabline()'
+vim.o.tabline = '%!v:lua.tabline()'
 
 -- listchars {{{1
 vim.o.list = true
