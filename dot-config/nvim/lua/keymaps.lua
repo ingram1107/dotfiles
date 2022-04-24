@@ -202,7 +202,7 @@ n({
   { map = ']l', cmd = '<cmd>lnext<cr>', opts = noremap },
 
   -- directory viewer and drawer {{{1
-  { map = '<c-n>', cmd = '<cmd>Dirbuf<cr>', opts = noremap },
+  { map = '<c-n>', cmd = '<cmd>Dirbuf %<cr>', opts = noremap },
   { map = '<c-p>', cmd = '<cmd>NvimTreeToggle<cr>', opts = noremap },
 })
 
