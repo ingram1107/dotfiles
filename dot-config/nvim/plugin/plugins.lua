@@ -219,13 +219,7 @@ return require('packer').startup({
       ft = { 'clojure', 'scheme', 'lisp', 'timl', 'fennel' },
       config = function()
         vim.cmd('packadd vim-sexp')
-        vim.g.sexp_filetypes = vim.g.sexp_filetypes .. ',fennel'
       end,
-    }
-    use {
-      'tpope/vim-sexp-mappings-for-regular-people',
-      ft = { 'clojure', 'scheme', 'lisp', 'timl', 'fennel' },
-      config = function() vim.cmd('packadd vim-sexp-mappings-for-regular-people') end,
     }
     use {
       'dccsillag/magma-nvim',
