@@ -19,8 +19,18 @@ vim.keymap.set('n', '<leader>zz', '<cmd>ZkSetup<cr>', { buffer = true, silent = 
 if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
   vim.keymap.set('n', '<cr>', '<cmd>lua vim.lsp.buf.definition()<cr>', { buffer = true, silent = true })
   vim.keymap.set('n', '<leader>zb', '<cmd>ZkBacklinks<cr>', { buffer = true, silent = true })
-  vim.keymap.set('v', '<leader>znt', ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", { buffer = true, silent = true })
-  vim.keymap.set('v', '<leader>znc', ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>", { buffer = true, silent = true })
+  vim.keymap.set(
+    'v',
+    '<leader>znt',
+    ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>",
+    { buffer = true, silent = true }
+  )
+  vim.keymap.set(
+    'v',
+    '<leader>znc',
+    ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>",
+    { buffer = true, silent = true }
+  )
   vim.keymap.set('n', '<leader>zl', '<cmd>ZkLinks<cr>', { buffer = true, silent = true })
   vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { buffer = true, silent = true })
 end

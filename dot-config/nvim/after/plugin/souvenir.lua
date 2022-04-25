@@ -1,5 +1,5 @@
 -- souvenir conf
 
-require('souvenir').setup {
+require('souvenir').setup({
   override = true,
-}
+})

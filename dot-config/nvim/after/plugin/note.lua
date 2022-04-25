@@ -25,9 +25,9 @@ require('neorg').setup({
           diary = '/mnt/Nemo/Documents/diary',
         },
         autodetect = true,
-        autochdir= true,
+        autochdir = true,
         index = 'index.norg',
-        last_workspace = vim.fn.stdpath('cache')..'/neorg_last_workspace.txt'
+        last_workspace = vim.fn.stdpath('cache') .. '/neorg_last_workspace.txt',
       },
     },
     ['core.norg.journal'] = {
@@ -35,7 +35,7 @@ require('neorg').setup({
         workspace = 'diary',
         journal_folder = nil,
         use_folders = true,
-      }
+      },
     },
     ['core.gtd.base'] = {
       config = {
@@ -51,7 +51,7 @@ require('neorg').setup({
           start = '#time.start',
           waiting = '#waiting.for',
         },
-      }
+      },
     },
   },
 })

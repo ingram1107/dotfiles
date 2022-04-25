@@ -1,6 +1,6 @@
 -- formatter.nvim conf
 
-require('formatter').setup {
+require('formatter').setup({
   logging = true,
   filetype = {
     c = {
@@ -26,10 +26,10 @@ require('formatter').setup {
       function()
         return {
           exe = 'rustfmt',
-          args = {'--emit=stdout'},
+          args = { '--emit=stdout' },
           stdin = true,
         }
-      end
+      end,
     },
     lua = {
       function()
@@ -42,7 +42,7 @@ require('formatter').setup {
           },
           stdin = true,
         }
-      end
+      end,
     },
-  }
-}
+  },
+})

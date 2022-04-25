@@ -1,7 +1,7 @@
 local ls = require('luasnip')
 local t = ls.text_node
 
-local M = {};
+local M = {}
 
 --- convenient newline
 function M.newline(text)

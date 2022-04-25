@@ -1,82 +1,82 @@
 -- projectionist conf
 vim.g.projectionist_heuristics = {
   -- root project
-  ["*"] = {
+  ['*'] = {
     --- c files
-    ["src/*.c"] = {
-      alternate = "lib/{}.h",
-      type = "source",
+    ['src/*.c'] = {
+      alternate = 'lib/{}.h',
+      type = 'source',
     },
-    ["lib/*.h"] = {
+    ['lib/*.h'] = {
       alternate = {
-        "src/{}.c",
-        "src/{}.cpp",
+        'src/{}.c',
+        'src/{}.cpp',
       },
-      type = "header",
+      type = 'header',
     },
-    ["*.c"] = {
-      alternate = "{}.h",
-      type = "source",
+    ['*.c'] = {
+      alternate = '{}.h',
+      type = 'source',
     },
-    ["*.h"] = {
+    ['*.h'] = {
       alternate = {
-        "{}.c",
-        "{}.cpp",
+        '{}.c',
+        '{}.cpp',
       },
-      type = "header",
+      type = 'header',
     },
 
     --- cpp files
-    ["src/*.cpp"] = {
+    ['src/*.cpp'] = {
       alternate = {
-        "lib/{}.hpp",
-        "lib/{}.h",
+        'lib/{}.hpp',
+        'lib/{}.h',
       },
-      type = "source",
+      type = 'source',
     },
-    ["lib/*.hpp"] = {
-      alternate = "src/{}.cpp",
-      type = "header",
+    ['lib/*.hpp'] = {
+      alternate = 'src/{}.cpp',
+      type = 'header',
     },
-    ["*.cpp"] = {
+    ['*.cpp'] = {
       alternate = {
-        "{}.hpp",
-        "{}.h",
+        '{}.hpp',
+        '{}.h',
       },
-      type = "source",
+      type = 'source',
     },
-    ["*.hpp"] = {
-      alternate = "{}.cpp",
-      type = "header",
+    ['*.hpp'] = {
+      alternate = '{}.cpp',
+      type = 'header',
     },
 
     --- rust files
-    ["main.rs"] = {
-      alternate = "lib.rs",
-      type = "source",
+    ['main.rs'] = {
+      alternate = 'lib.rs',
+      type = 'source',
     },
-    ["lib.rs"] = {
-      alternate = "main.rs",
-      type = "library",
+    ['lib.rs'] = {
+      alternate = 'main.rs',
+      type = 'library',
     },
-    ["*.rs"] = {
-      alternate = "lib.rs",
-      type = "source",
+    ['*.rs'] = {
+      alternate = 'lib.rs',
+      type = 'source',
     },
   },
 }
 
 -- origin conf
-require('origin').setup {
+require('origin').setup({
   default_source = {
-    c    = { "src", "lib", "test" },
-    cpp  = { "src", "lib", "test" },
-    rust = { "src", "tests" },
-    lua  = { "lua", "plugin", "after" },
-    lisp = { "src", "test" },
-    vim  = { "after", "autoload", "plugin", "colors", "ftdetect", "compiler" },
-    css  = "css",
-    scss = "scss",
+    c = { 'src', 'lib', 'test' },
+    cpp = { 'src', 'lib', 'test' },
+    rust = { 'src', 'tests' },
+    lua = { 'lua', 'plugin', 'after' },
+    lisp = { 'src', 'test' },
+    vim = { 'after', 'autoload', 'plugin', 'colors', 'ftdetect', 'compiler' },
+    css = 'css',
+    scss = 'scss',
   },
   prompt = false,
-}
+})

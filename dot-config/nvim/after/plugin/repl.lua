@@ -12,7 +12,7 @@ vim.g.slime_no_mappings = 1
 -- vim.g.slime_dont_ask_default = 1
 
 -- aedile conf
-require('aedile').setup {
+require('aedile').setup({
   repl = {
     lua = 'luajit',
     lisp = 'sbcl',
@@ -21,4 +21,4 @@ require('aedile').setup {
   split_method = 'vertical',
   scrollup_map = '<M-u>',
   scrolldown_map = '<M-d>',
-}
+})

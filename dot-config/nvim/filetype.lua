@@ -4,6 +4,6 @@ vim.filetype.add({
     jnlp = 'xml',
   },
   filename = {
-    fish_variables = 'fish'
+    fish_variables = 'fish',
   },
 })
