@@ -114,6 +114,10 @@ return require('packer').startup({
         require('nvim-tree').setup {
           disable_netrw = true,
           hijack_cursor = true,
+          
+          hijack_directories = {
+            enable = false,
+          },
 
           diagnostics = {
             enable = true,
