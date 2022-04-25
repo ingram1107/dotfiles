@@ -119,10 +119,6 @@ return require('packer').startup({
             enable = true,
           },
 
-          update_to_buf_dir = {
-            enable = false,
-          },
-
           view = {
             width = 25,
           },
