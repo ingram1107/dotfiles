@@ -102,10 +102,7 @@ return require('packer').startup({
     use 'milisims/nvim-luaref'
 
     -- dir and project {{{1
-    use {
-      'elihunter173/dirbuf.nvim',
-      cmd = 'Dirbuf',
-    }
+    use 'elihunter173/dirbuf.nvim'
     use {
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons',

@@ -55,6 +55,10 @@ vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevelstart = 99
 vim.o.foldtext = 'v:lua.simple_fold()'
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- completion {{{1
 vim.o.completeopt = 'menuone,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
