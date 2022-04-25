@@ -96,7 +96,7 @@ return {
         '\\end{document}',
       }),
     }),
-    s('bg', {
+    s('begg', {
       t('\\begin{'),
       i(1),
       t('}'),
@@ -105,6 +105,17 @@ return {
       t('\\end{'),
       rep(1),
       t('}'),
+    }),
+    s('figg', {
+      t('\\begin{figure}['),
+      i(1, 'htpb'), t(']'),
+      newline('  \\centering'),
+      newline(''),
+      i(2, '  \\includegrahics[width=0.8\\textwidth]'), t('{'),
+      i(3), t('}'),
+      newline('  \\caption{'), rep(3), t('}'),
+      newline('  \\label{fig:'), rep(3), t('}'),
+      newline('\\end{figure}'),
     }),
     s('tb', {
       t('\\begin{minipace}{\\textwidth}'),
@@ -145,7 +156,7 @@ return {
         '\\end{minipage}',
       }),
     }),
-    s('enr', {
+    s('enm', {
       t({
         '\\begin{enumerate}',
         '  \\item ',
