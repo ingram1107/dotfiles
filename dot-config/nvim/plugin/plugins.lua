@@ -210,6 +210,11 @@ return require('packer').startup({
       end,
     }
     use {
+      'eraserhd/parinfer-rust',
+      cmd = 'ParinferOn',
+      run = 'cargo build --release',
+    }
+    use {
       'guns/vim-sexp',
       ft = { 'clojure', 'scheme', 'lisp', 'timl', 'fennel' },
       config = function()
