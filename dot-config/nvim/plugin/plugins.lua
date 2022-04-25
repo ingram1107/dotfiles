@@ -115,7 +115,7 @@ return require('packer').startup({
           disable_netrw = true,
           hijack_cursor = true,
 
-          diagnostic = {
+          diagnostics = {
             enable = true,
           },
 
