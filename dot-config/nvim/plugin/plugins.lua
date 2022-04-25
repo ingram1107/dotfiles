@@ -112,7 +112,6 @@ return require('packer').startup({
       cmd = 'NvimTreeToggle',
       config = function()
         require('nvim-tree').setup {
-          disable_netrw = true,
           hijack_cursor = true,
           
           hijack_directories = {
@@ -121,6 +120,7 @@ return require('packer').startup({
 
           diagnostics = {
             enable = true,
+            show_on_dirs = true,
           },
 
           view = {
