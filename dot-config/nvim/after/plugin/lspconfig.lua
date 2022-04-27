@@ -123,7 +123,7 @@ lspconfig.jdtls.setup({
 -- LTeX: Natural languages
 lspconfig.ltex.setup({
   language = 'en-GB',
-  filetypes = { 'bib', 'gitcommit', 'markdown', 'org', 'plaintex', 'rst', 'rnoweb', 'tex', 'norg' },
+  filetypes = { 'bib', 'gitcommit', 'markdown', 'org', 'plaintex', 'rst', 'rnoweb', 'tex', 'norg', 'NeogitCommitMessage' },
   additionalRules = {
     enablePickyRules = true,
   },
