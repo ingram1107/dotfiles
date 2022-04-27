@@ -122,7 +122,6 @@ lspconfig.jdtls.setup({
 
 -- LTeX: Natural languages
 lspconfig.ltex.setup({
-  language = 'en-GB',
   filetypes = {
     'NeogitCommitMessage',
     'bib',
@@ -135,10 +134,15 @@ lspconfig.ltex.setup({
     'rst',
     'tex',
   },
-  additionalRules = {
-    enablePickyRules = true,
+  settings = {
+    ltex = {
+      language = 'en-GB',
+      additionalRules = {
+        enablePickyRules = true,
+      },
+      checkFrequency = 'save',
+    },
   },
-  checkFrequency = 'save',
   on_attach = on_attach,
   capabilities = capabilities,
 })
