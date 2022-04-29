@@ -398,12 +398,6 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, 'w', function()
     awful.util.spawn(os.getenv('BROWSER'), false)
   end, { description = 'open browse', group = 'programs' }),
-  awful.key({ modkey }, 'v', function()
-    awful.util.spawn('record', false)
-  end, { description = 'record screen', group = 'programs' }),
-  awful.key({ modkey, 'Shift' }, 'v', function()
-    awful.util.spawn('killall record & killall ffmpeg', false)
-  end, { description = 'stop record screen', group = 'programs' }),
   awful.key({ modkey }, 'p', function()
     awful.util.spawn('rofi-pass', false)
   end, { description = 'password menu', group = 'programs' }),
