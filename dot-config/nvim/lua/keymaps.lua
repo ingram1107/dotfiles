@@ -93,7 +93,7 @@ nmap({ '[l', '<cmd>lprevious<cr>' })
 nmap({ ']l', '<cmd>lnext<cr>' })
 
 -- directory viewer and drawer {{{1
-nmap({ '<c-n>', '<cmd>Dirbuf %<cr>' })
+nmap({ '<c-n>', '<cmd>Dirbuf<cr>' })
 nmap({ '<c-p>', '<cmd>NvimTreeToggle<cr>' })
 
 -- snippet {{{1
