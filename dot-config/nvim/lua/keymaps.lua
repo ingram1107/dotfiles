@@ -46,7 +46,7 @@ nmap({ '<f10>', '<cmd>TSHighlightCapturesUnderCursor<cr>' })
 nmap({ '<leader>hh', ':h <c-r><c-w><cr>' })
 
 -- terminal esc {{{1
-tmap({ '<c-[>', '<c-\\><c-n>' })
+tmap({ '<esc>', '<c-\\><c-n>' })
 
 -- termdebug {{{1
 nmap({ '<leader>dt', ':Termdebug ' })
