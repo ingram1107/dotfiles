@@ -119,6 +119,15 @@ lspconfig.jdtls.setup({
   capabilities = capabilities,
 })
 
+local en_dict = io.open(os.getenv('XDG_CONFIG_HOME') .. '/nvim/spell/en.utf-8.add')
+local en_words = {}
+
+if en_dict ~= nil then
+  for word in en_dict:lines() do
+    table.insert(en_words, word)
+  end
+end
+
 -- LTeX: Natural languages
 lspconfig.ltex.setup({
   filetypes = {
@@ -136,6 +145,9 @@ lspconfig.ltex.setup({
   settings = {
     ltex = {
       language = 'en-GB',
+      dictionary = {
+        ['en-GB'] = en_words,
+      },
       additionalRules = {
         enablePickyRules = true,
       },
