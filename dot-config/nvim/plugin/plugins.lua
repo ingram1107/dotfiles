@@ -254,6 +254,7 @@ return require('packer').startup({
       ft = {
         'html',
         'css',
+        'php',
       },
     }
 
