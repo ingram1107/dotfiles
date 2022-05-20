@@ -59,7 +59,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-local theme_path = string.format('%s/awesome/themes/%s/theme.lua', os.getenv('XDG_CONFIG_HOME'), 'zenflesh')
+local theme_path = string.format('%s/awesome/themes/%s/theme.lua', os.getenv('XDG_CONFIG_HOME'), 'zhi')
 beautiful.init(theme_path)
 beautiful.useless_gap = 1
 -- bling modules
@@ -253,12 +253,12 @@ awful.screen.connect_for_each_screen(function(s)
       wibox.widget.systray(),
       cpu_widget({
         width = 30,
-        color = '#78dce8'
+        color = '#1e5702'
       }),
       ram_widget({
-        color_used = '#ff6188',
-        color_free = '#a9dc76',
-        color_buf = '#ffd866',
+        color_used = '#57021e',
+        color_free = '#2c6565',
+        color_buf = '#a49b09',
         timeout = 5,
       }),
       myvolume,

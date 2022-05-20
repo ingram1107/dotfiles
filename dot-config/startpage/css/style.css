@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
 
 :root {
-  --background: #333842;
-  --name: #FFD866;
-  --obj-background: #2E323C;
-  --site: #78DCE8;
-  --hover: #AB9DF2;
-  --shadow: #26292C;
+  --background: #fbf7b7;
+  --name: #1e5702;
+  --obj-background: #f9f28e;
+  --site: #021e57;
+  --hover: #2c6565;
+  --shadow: #dca945;
 }
 
 html,body {

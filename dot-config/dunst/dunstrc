@@ -1,6 +1,6 @@
 [global]
     frame_width = 3
-    frame_color = "#1C1917"
+    frame_color = "#403E41"
 
     font = IBMPlexMono 9
 
@@ -181,18 +181,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#A9DC76"
-    foreground = "#26292C"
+    background = "#fbf7b7"
+    foreground = "#2a2c2b"
     timeout = 10
 
 [urgency_normal]
-    background = "#FC9867"
-    foreground = "#FCFCFA"
+    background = "#fbf7b7"
+    foreground = "#021e57"
     timeout = 10
 
 [urgency_critical]
-    background = "#FF6188"
-    foreground = "#FCFCFA"
+    background = "#fbf7b7"
+    foreground = "#57021e"
     timeout = 0
 
 

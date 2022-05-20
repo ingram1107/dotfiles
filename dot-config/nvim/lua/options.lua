@@ -92,7 +92,7 @@ vim.api.nvim_create_autocmd('TermLeave', {
 vim.g.termdebug_wide = 40
 
 -- theme {{{1
-vim.cmd('colo monokai_ristretto')
+vim.cmd('colo zhi')
 
 -- tabline {{{1
 function _G.tabline()

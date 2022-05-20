@@ -28,25 +28,25 @@ font:
 # Colors (Monokai)
 colors:
   primary:
-    background: '#26292C'
-    foreground: '#FCFCFA'
+    background: '#fbf7b7'
+    foreground: '#2a2c2b'
 
   normal:
-    black:   '#403E41'
-    red:     '#FF6188'
-    green:   '#A9DC76'
-    yellow:  '#FFD866'
-    blue:    '#FC9867'
-    magenta: '#AB9DF2'
-    cyan:    '#78DCE8'
-    white:   '#FCFCFA'
+    black:   '#fbf7b7'
+    red:     '#57021e'
+    green:   '#1E5702'
+    yellow:  '#824C04'
+    blue:    '#021e57'
+    magenta: '#3b0257'
+    cyan:    '#2c6565'
+    white:   '#403E41'
 
   bright:
-    black:   '#727072'
-    red:     '#FF6188'
-    green:   '#A9DC76'
-    yellow:  '#FFD866'
-    blue:    '#FC9867'
-    magenta: '#AB9DF2'
-    cyan:    '#78DCE8'
-    white:   '#FCFCFA'
+    black:   '#fbf7b7'
+    red:     '#57021e'
+    green:   '#1E5702'
+    yellow:  '#824C04'
+    blue:    '#021e57'
+    magenta: '#3b0257'
+    cyan:    '#2c6565'
+    white:   '#686d6b'
