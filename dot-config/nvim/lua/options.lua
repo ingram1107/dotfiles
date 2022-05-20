@@ -12,6 +12,7 @@ vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.inccommand = 'nosplit'
 vim.o.laststatus = 3
+vim.o.lazyredraw = true
 vim.o.modelines = 0
 vim.o.number = true
 vim.o.path = '.,**'
