@@ -600,7 +600,7 @@ awful.rules.rules = {
   -- Add titlebars to normal clients and dialogs
   { rule_any = { type = { 'normal', 'dialog' } }, properties = { titlebars_enabled = false } },
 
-  { rule_any = { class = { "firefox", "Chromium" } },
+  { rule_any = { class = { "firefox", "Chromium", "Falkon" } },
     properties = { screen = 1, tag = "" } },
   { rule = { class = "Transmission" },
     properties = { screen = 1, tag = "" } },
