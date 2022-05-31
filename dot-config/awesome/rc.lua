@@ -18,12 +18,12 @@ local hotkeys_popup = require('awful.hotkeys_popup')
 -- when client with a matching name is opened:
 require('awful.hotkeys_popup.keys')
 -- More graphical widget
-local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
-local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
-local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
-local mail_widget = require("mywidgets.mail")
+local cpu_widget = require('awesome-wm-widgets.cpu-widget.cpu-widget')
+local battery_widget = require('awesome-wm-widgets.battery-widget.battery')
+local net_speed_widget = require('awesome-wm-widgets.net-speed-widget.net-speed')
+local ram_widget = require('awesome-wm-widgets.ram-widget.ram-widget')
+local brightness_widget = require('awesome-wm-widgets.brightness-widget.brightness')
+local mail_widget = require('mywidgets.mail')
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -93,7 +93,7 @@ local element_scratch = bling.module.scratchpad({
   geometry = { x = 360, y = 90, height = 444, width = 800 }, -- The geometry in a floating state
   reapply = true, -- Whether all those properties should be reapplied on every new opening of the scratchpad (MUST BE TRUE FOR ANIMATIONS)
   dont_focus_before_close = false, -- When set to true, the scratchpad will be closed by the toggle function regardless of whether its focused or not. When set to false, the toggle function will first bring the scratchpad into focus and only close it on a second call
-  rubato = { x = anim_x, y = anim_y },                 -- Optional. This is how you can pass in the rubato tables for animations. If you don't want animations, you can ignore this option.
+  rubato = { x = anim_x, y = anim_y }, -- Optional. This is how you can pass in the rubato tables for animations. If you don't want animations, you can ignore this option.
 })
 
 -- flash focus
@@ -253,7 +253,7 @@ awful.screen.connect_for_each_screen(function(s)
       wibox.widget.systray(),
       cpu_widget({
         width = 30,
-        color = '#1e5702'
+        color = '#1e5702',
       }),
       ram_widget({
         color_used = '#57021e',
@@ -600,14 +600,10 @@ awful.rules.rules = {
   -- Add titlebars to normal clients and dialogs
   { rule_any = { type = { 'normal', 'dialog' } }, properties = { titlebars_enabled = false } },
 
-  { rule_any = { class = { "firefox", "Chromium", "Falkon" } },
-    properties = { screen = 1, tag = "" } },
-  { rule = { class = "Transmission" },
-    properties = { screen = 1, tag = "" } },
-  { rule = { class = "Steam" },
-    properties = { screen = 1, tag = "" } },
-  { rule_any = { class = { "Element", "Ferdi" } },
-    properties = { screen = 1, tag = "" } },
+  { rule_any = { class = { 'firefox', 'Chromium', 'Falkon' } }, properties = { screen = 1, tag = '' } },
+  { rule = { class = 'Transmission' }, properties = { screen = 1, tag = '' } },
+  { rule = { class = 'Steam' }, properties = { screen = 1, tag = '' } },
+  { rule_any = { class = { 'Element', 'Ferdi' } }, properties = { screen = 1, tag = '' } },
 }
 -- }}}
 
