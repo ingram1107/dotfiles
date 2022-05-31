@@ -217,7 +217,7 @@ awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
 
   -- Each screen has its own tag table.
-  awful.tag({ '', '', '', '', '', '' }, s, awful.layout.layouts[1])
+  awful.tag({ '', '', '', '', '', '', '' }, s, awful.layout.layouts[1])
 
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist({
@@ -601,6 +601,7 @@ awful.rules.rules = {
   { rule_any = { type = { 'normal', 'dialog' } }, properties = { titlebars_enabled = false } },
 
   { rule_any = { class = { 'firefox', 'Chromium', 'Falkon' } }, properties = { screen = 1, tag = '' } },
+  { rule_any = { class = { 'Zathura', 'obsidian' } }, properties = { screen = 1, tag = '' } },
   { rule = { class = 'Transmission' }, properties = { screen = 1, tag = '' } },
   { rule = { class = 'Steam' }, properties = { screen = 1, tag = '' } },
   { rule_any = { class = { 'Element', 'Ferdi' } }, properties = { screen = 1, tag = '' } },
