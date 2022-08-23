@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font = 'JetBrainsMono Nerd Font 8'
+theme.font = 'JetBrainsMono Nerd Font 12'
 
 theme.bg_normal = '#1c1917'
 theme.bg_focus = '#3d4042'
@@ -48,7 +48,7 @@ theme.tabbed_spawn_in_tab = false
 theme.tabbar_ontop = false
 theme.tabbar_radius = 0
 theme.tabbar_style = 'default'
-theme.tabbar_font = 'JetBrainsMono Nerd Font 10'
+theme.tabbar_font = 'JetBrainsMono Nerd Font 12'
 theme.tabbar_size = 20
 theme.tabbar_position = 'bottom'
 theme.tabbar_bg_normal = theme.bg_minimize
@@ -83,7 +83,7 @@ theme.tabbar_fg_focus = theme.fg_focus
 theme.wallpaper = '~/Pictures/wallpaper.jpg'
 
 -- theme.tasklist_disable_task_name = true
-theme.taglist_font = "Font Awesome 9"
+theme.taglist_font = "Font Awesome 12"
 theme.tasklist_disable_icon = true
 theme.tasklist_align = "center"
 
