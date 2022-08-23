@@ -83,7 +83,7 @@ theme.tabbar_fg_focus = theme.fg_focus
 theme.wallpaper = '~/Pictures/wallpaper.jpg'
 
 -- theme.tasklist_disable_task_name = true
-theme.taglist_font = "Font Awesome 12"
+theme.taglist_font = "Font Awesome 6 12"
 theme.tasklist_disable_icon = true
 theme.tasklist_align = "center"
 
