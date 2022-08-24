@@ -401,9 +401,6 @@ globalkeys = gears.table.join(
   awful.key({ modkey }, 'p', function()
     awful.util.spawn('rofi-pass', false)
   end, { description = 'password menu', group = 'programs' }),
-  awful.key({ modkey }, 'c', function()
-    awful.util.spawn('clipcat-menu', false)
-  end, { description = 'clipcat-menu', group = 'programs' }),
   awful.key({ modkey }, 'y', function()
     awful.util.spawn('open-yt', false)
   end, { description = 'open downloaded video', group = 'programs' }),
@@ -415,26 +412,26 @@ globalkeys = gears.table.join(
   awful.key({}, 'Scroll_Lock', function()
     awful.util.spawn('slock', false)
   end, { description = 'screenlock', group = 'system' }),
-  awful.key({ 'Shift' }, 'End', function()
+  awful.key({ }, 'F10', function()
     awful.util.spawn('rofi -show power-menu', false)
   end, { description = 'power management', group = 'system' }),
 
   -- Media control
-  awful.key({ 'Shift' }, 'F8', function()
+  awful.key({ }, 'XF86AudioMute', function()
     awful.util.spawn('pamixer -t', false)
   end, { description = 'mute audio', group = 'media' }),
-  awful.key({ 'Shift' }, 'F9', function()
+  awful.key({ }, 'XF86AudioLowerVolume', function()
     awful.util.spawn('pamixer -d 5', false)
   end, { description = 'decrease audio level', group = 'media' }),
-  awful.key({ 'Shift' }, 'F12', function()
+  awful.key({ }, 'XF86AudioRaiseVolume', function()
     awful.util.spawn('pamixer -i 5', false)
   end, { description = 'increase audio level', group = 'media' }),
 
   -- Screen
-  awful.key({ 'Shift' }, 'F10', function()
+  awful.key({ }, 'F1', function() -- TODO: configure to use keycode #224
     awful.util.spawn('light -U 5', false)
   end, { description = 'decrease backlight brightness', group = 'screen' }),
-  awful.key({ 'Shift' }, 'F11', function()
+  awful.key({ }, 'F2', function() -- TODO: configure to use keycode #225
     awful.util.spawn('light -A 5', false)
   end, { description = 'increase backlight brightness', group = 'screen' }),
   awful.key({}, 'Print', function()
