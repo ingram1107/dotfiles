@@ -152,7 +152,6 @@ return require('packer').startup({
     -- git {{{1
     use {
       'TimUntersberger/neogit',
-      cmd = 'Neogit',
       config = function()
         require('neogit').setup{
           integrations = {
