@@ -17,7 +17,7 @@ return require('packer').startup({
     }
 
     -- theme {{{1
-    use '/mnt/Nemo/git/vim-zhi'
+    use 'ingram1107/vim-zhi'
 
     -- statusline and tabline {{{1
     use 'nvim-lualine/lualine.nvim'
@@ -193,7 +193,7 @@ return require('packer').startup({
     }
 
     -- repl {{{1
-    use '/mnt/Nemo/git/aedile.nvim'
+    use 'ingram1107/aedile.nvim'
     use {
       'jpalardy/vim-slime',
       ft = { 'python', 'lua' },
