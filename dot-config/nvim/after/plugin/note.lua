@@ -21,8 +21,8 @@ require('neorg').setup({
     ['core.norg.dirman'] = {
       config = {
         workspaces = {
-          notes = '/mnt/Nemo/Documents/neorg',
-          diary = '/mnt/Nemo/Documents/diary',
+          notes = os.getenv('HOME') .. '/Documents/Notes',
+          diary = os.getenv('HOME') .. '/Diaries',
         },
         autodetect = true,
         autochdir = true,
