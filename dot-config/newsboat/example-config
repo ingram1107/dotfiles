@@ -21,11 +21,11 @@ bind-key h quit
 bind-key n next-unread
 bind-key N prev-unread
 
-color listnormal magenta default
-color listfocus yellow color237
-color listnormal_unread blue default
-color listfocus_unread yellow color237
-color info white color237
+color listnormal blue default
+color listfocus black yellow
+color listnormal_unread red default
+color listfocus_unread black yellow
+color info black green
 color article white default
 
 browser webview
@@ -35,17 +35,17 @@ macro q set browser "nohup qndl '%u' 2&> /dev/null &" ; open-in-browser ; set br
 macro w set browser "firefox %u &"; open-in-browser ; set browser webview
 macro c set browser "pipe-viewer --comments='%u'" ; open-in-browser ; set browser webview
 
-highlight feedlist "---.*---" red default bold
+highlight feedlist "---.*---" green default bold
 highlight feedlist ".*(0/0))" black
 highlight article "(^Feed:.*)" red default
 highlight article "(^Author:.*)" green default bold
-highlight article "^(Title):.*" yellow default bold
-highlight article "^(Date:.*)" magenta default
+highlight article "^(Title):.*" green default bold
+highlight article "^(Date:.*)" blue default
 highlight article "(^Link:.*)" blue default
-highlight article "https?://[^ ]+" blue default
-highlight article "\\[[0-9][0-9]*\\]" blue default bold
-highlight article "\\[image\\ [0-9]+\\]" green default bold
-highlight article "\\[embedded flash: [0-9][0-9]*\\]" red default bold
-highlight article ":.*\\(link\\)$" blue default
-highlight article ":.*\\(image\\)$" blue default
-highlight article ":.*\\(embedded flash\\)$" blue default
+highlight article "https?://[^ ]+" cyan default
+highlight article "\\[[0-9][0-9]*\\]" cyan default bold
+highlight article "\\[image\\ [0-9]+\\]" cyan default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" cyan default bold
+highlight article ":.*\\(link\\)$" cyan default
+highlight article ":.*\\(image\\)$" cyan default
+highlight article ":.*\\(embedded flash\\)$" cyan default
