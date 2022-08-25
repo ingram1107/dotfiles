@@ -1,3 +1,11 @@
 -- nvim-tree conf
-vim.g.nvim_tree_highlight_opened_files = 2
-vim.g.nvim_tree_git_hl = true
+require('nvim-tree').setup({
+  renderer = {
+    highlight_git = true,
+    highlight_opened_files = 'all'
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+  },
+})
