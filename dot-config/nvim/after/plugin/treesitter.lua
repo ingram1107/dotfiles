@@ -45,6 +45,7 @@ require('nvim-treesitter.configs').setup({
     'css',
     'html',
     'yaml',
+    'python',
   },
   highlight = {
     enable = true,
