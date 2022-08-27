@@ -5,8 +5,8 @@ set spoolfile = +Inbox
 set postponed = +Drafts
 
 ## General options
-set header_cache = "~/.cache/neomutt"
-set message_cachedir = "~/.cache/neomutt"
+set header_cache = `echo \$XDG_CACHE_HOME/neomutt`
+set message_cachedir = `echo \$XDG_CACHE_HOME/neomutt`
 set imap_check_subscribed
 unset imap_passive
 set imap_keepalive = 300
@@ -14,7 +14,7 @@ set mail_check = 120
 set mbox_type=Maildir
 set use_from = yes
 set sendmail = "/usr/bin/msmtp"
-set mailcap_path = ~/.config/neomutt/mailcap
+set mailcap_path = `echo \$XDG_CONFIG_HOME/neomutt/mailcap`
 auto_view text/html
 alternative_order text/plain text/html
 set fast_reply = yes
