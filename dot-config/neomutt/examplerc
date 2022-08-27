@@ -18,7 +18,7 @@ set mailcap_path = `echo \$XDG_CONFIG_HOME/neomutt/mailcap`
 auto_view text/html
 alternative_order text/plain text/html
 set fast_reply = yes
-set include = yes
+set include = no
 
 ## Abook
 set query_command = "abook --config '$XDG_CONFIG_HOME/abook/abookrc' --datafile '$XDG_DATA_HOME/abook/addressbook' --mutt-query '%s'"
