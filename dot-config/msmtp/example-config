@@ -2,7 +2,7 @@ defaults
 auth on
 tls on
 tls_trust_file /somewhere/somecert.crt
-logfile $XDG_CONFIG_HOME/msmtp/log
+logfile ~/.local/share/msmtp/log
 
 account example
 host smtp.example.com
