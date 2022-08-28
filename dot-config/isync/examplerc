@@ -18,4 +18,5 @@ Far :example-remote:
 Near :example-local:
 Patterns *
 Create Both
+Expunge Both
 SyncState *
