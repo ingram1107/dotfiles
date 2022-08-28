@@ -37,7 +37,6 @@ personal_key_bindings # personal key bindings
 ## User alias
 alias notify-send=dunstify
 alias sbcl="rlwrap sbcl"
-alias trans="rlwrap trans"
 alias pipe-viewer="rlwrap pipe-viewer"
 
 ## User abbreviation
