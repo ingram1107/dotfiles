@@ -100,7 +100,7 @@ color message white default
 color markers red $my_gray
 color attachment blue default
 color search black yellow
-color status white $my_gray
+color status black red
 color hdrdefault brightblue default
 color quoted $my_gray default
 color quoted1 $my_gray default
