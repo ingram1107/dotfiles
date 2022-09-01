@@ -38,6 +38,7 @@ personal_key_bindings # personal key bindings
 alias notify-send=dunstify
 alias sbcl="rlwrap sbcl"
 alias pipe-viewer="rlwrap pipe-viewer"
+alias tw="rainbowstream"
 
 ## User abbreviation
 abbr e "nvim"
