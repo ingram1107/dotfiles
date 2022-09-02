@@ -135,7 +135,6 @@ vim.o.listchars = 'tab:» ,eol:↲'
 vim.o.fillchars = 'fold: '
 
 -- yank highlight {{{1
---- TODO: neovim/neovim autocmd native lua callback PR#12378 and PR#14661
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -147,7 +146,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- loadview for config files {{{1
--- TODO: pattern does not expand environment variables
 local view_group = vim.api.nvim_create_augroup('ConfigLoadView', { clear = true })
 local nvim_conf_path = os.getenv('HOME') .. '/dotfiles/dot-config/nvim/'
 

@@ -460,7 +460,6 @@ nmap({ '<leader>n', '<cmd>let @/=""<cr>', { silent = true } })
 nmap({ '<leader>y', 'm`:%s/\\s\\+$//e<cr>``' })
 
 -- notes {{{1
---TODO: might need to set silent = false
 nmap({ '<leader>zn', '<cmd>ZkNew { title = vim.fn.input("Title: ") }<cr>' })
 nmap({ '<leader>zo', '<cmd>ZkNotes { sort = { "modified" } }<cr>' })
 nmap({ '<leader>zt', '<cmd>ZkTags<cr>' })
