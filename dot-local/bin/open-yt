@@ -1,7 +1,7 @@
 #!/usr/bin/fish
 # Author: littleclover
 
-set yt_path '/mnt/Nemo/youtube/'
+set yt_path "$HOME/Videos"
 set video (ls $yt_path | rg '(.mp[3-4]$|.m4a)' | rofi -i -dmenu -p "Select Video")
 set v_name (basename $video)
 
