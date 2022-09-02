@@ -14,8 +14,7 @@ local icon_widget = wibox.widget({
 })
 
 local text_widget = wibox.widget({
-  font = 'IBMPlex Sans 9',
-  forced_width = 15,
+  forced_width = 30,
   align = 'center',
   widget = wibox.widget.textbox,
 })
