@@ -32,8 +32,6 @@ browser webview
 macro , open-in-browser
 macro v set browser "nohup mpv '%u' 2&> /dev/null &" ; open-in-browser ; set browser webview
 macro q set browser "nohup qndl '%u' 2&> /dev/null &" ; open-in-browser ; set browser webview
-macro w set browser "firefox %u &"; open-in-browser ; set browser webview
-macro c set browser "pipe-viewer --comments='%u'" ; open-in-browser ; set browser webview
 
 highlight feedlist "---.*---" green default bold
 highlight feedlist ".*(0/0))" black
