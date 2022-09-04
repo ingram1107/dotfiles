@@ -263,7 +263,7 @@ awful.screen.connect_for_each_screen(function(s)
       }),
       myvolume,
       brightness_widget({
-        tooltip = true,
+        type = 'icon_and_text',
       }),
       net_speed_widget({
         timeout = 5,
