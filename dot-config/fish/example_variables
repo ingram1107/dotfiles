@@ -1,33 +1,68 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:3100
+SETUVAR --export BROWSER:firefox
+SETUVAR --export CARGO_HOME:/home/clover/\x2elocal/share/cargo
+SETUVAR --export EDITOR:/usr/bin/nvim
+SETUVAR --export GNUPGHOME:/home/clover/\x2elocal/share/gnupg
+SETUVAR --export NPM_CONFIG_USERCONFIG:/home/clover/\x2econfig/npm/npmrc
+SETUVAR --export PASSWORD_STORE_DIR:/home/clover/\x2elocal/share/pass
+SETUVAR --export RLWRAP_HOME:/home/clover/\x2elocal/share/rlwrap
+SETUVAR --export RUSTUP_HOME:/home/clover/\x2elocal/share/rustup
+SETUVAR --export SUDO_EDITOR:/usr/bin/nvim
+SETUVAR --export VIMRC:/home/clover/\x2econfig/nvim/init\x2elua
+SETUVAR --export XAUTHORITY:/run/user/1001/Xauthority
+SETUVAR --export XDG_CACHE_HOME:/home/clover/\x2ecache
+SETUVAR --export XDG_CONFIG_HOME:/home/clover/\x2econfig
+SETUVAR --export XDG_DATA_HOME:/home/clover/\x2elocal/share
+SETUVAR --export XDG_RUNTIME_DIR:\x1d
+SETUVAR --export XDG_STATE_HOME:/home/clover/\x2elocal/state
+SETUVAR --export XINITRC:/home/clover/\x2econfig/X11/xinitrc
+SETUVAR --export XORG_CONFIG:/home/clover/\x2econfig/X11
+SETUVAR --export _JAVA_OPTIONS:\x2dDjava\x2eutil\x2eprefs\x2euserRoot\x3d/home/clover/\x2econfig/java
+SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_e:nvim
+SETUVAR _fish_abbr_enc:emacsclient\x20\x2dnc
+SETUVAR _fish_abbr_se:sudoedit
+SETUVAR _fish_abbr_ytdl:yt\x2ddlp
+SETUVAR _fish_abbr_ytv:ytfzf
 SETUVAR fish_color_autosuggestion:75715e
 SETUVAR fish_color_cancel:normal
-SETUVAR fish_color_command:66d9ef
-SETUVAR fish_color_comment:75715e
+SETUVAR fish_color_command:2c6565
+SETUVAR fish_color_comment:686d6b
 SETUVAR fish_color_cwd:008000
 SETUVAR fish_color_cwd_root:800000
 SETUVAR fish_color_end:a6e221
-SETUVAR fish_color_error:f92672
-SETUVAR fish_color_escape:00a6b2
+SETUVAR fish_color_error:57021e
+SETUVAR fish_color_escape:824c04
 SETUVAR fish_color_history_current:normal
 SETUVAR fish_color_host:normal
-SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_host_remote:\x1d
+SETUVAR fish_color_keyword:\x1d
 SETUVAR fish_color_match:normal
-SETUVAR fish_color_normal:normal
-SETUVAR fish_color_operator:00a6b2
-SETUVAR fish_color_param:f8f8f0
-SETUVAR fish_color_quote:e6db74
-SETUVAR fish_color_redirection:ae81ff
-SETUVAR fish_color_search_match:ffff00
+SETUVAR fish_color_normal:2a2c2b
+SETUVAR fish_color_operator:2a2c2b
+SETUVAR fish_color_option:\x1d
+SETUVAR fish_color_param:2a2c2b
+SETUVAR fish_color_quote:1e5702
+SETUVAR fish_color_redirection:3b0257
+SETUVAR fish_color_search_match:824c04
 SETUVAR fish_color_selection:c0c0c0
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:00ff00
 SETUVAR fish_color_valid_path:normal
 SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell\x0aType\x20\x60help\x60\x20for\x20instructions\x20on\x20how\x20to\x20use\x20fish
 SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:normal
-SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_description:B3A06D
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-# SETUVAR fish_user_paths:
+SETUVAR fish_pager_color_secondary_background:\x1d
+SETUVAR fish_pager_color_secondary_completion:\x1d
+SETUVAR fish_pager_color_secondary_description:\x1d
+SETUVAR fish_pager_color_secondary_prefix:\x1d
+SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
+SETUVAR fish_pager_color_selected_completion:\x1d
+SETUVAR fish_pager_color_selected_description:\x1d
+SETUVAR fish_pager_color_selected_prefix:\x1d
+SETUVAR fish_user_paths:/home/clover/\x2elocal/share/rustup/toolchains/stable\x2dx86_64\x2dunknown\x2dlinux\x2dgnu/bin\x1e/home/clover/\x2elocal/bin
