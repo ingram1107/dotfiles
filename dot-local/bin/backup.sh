@@ -13,7 +13,7 @@ grep -q " $target_path " /proc/mounts && is_mounted=true  # Check whether $targe
 
 if [ $is_mounted ]; then
   echo -e "Check if there is backup in $target_path..."
-  if [ -f $backup_name-latest.$compress_opt ]; then
+  if [ -f "$target_path/$backup_name-latest.$compress_opt" ]; then
     echo -e "'$backup_name-latest.$compress_opt' exists, proceed to incremental backup procedure"
     cd $target_path && mv $backup_name-latest.$compress_opt $backup_name-$(date -r $backup_name-latest.$compress_opt +%Y-%m-%d).$compress_opt
     cd $target_path && tar upvJf $backup_name-latest.$compress_opt --exclude=/mnt/* /
