@@ -7,19 +7,22 @@ is_mounted=false
 source_path="/"             # where should be backup
 target_path="/mnt/Marlin"   # where should the backup stored
 backup_name=system
-compress_opt=xz             # gz, bzip, xz or lz
+compress_method=xz             # gz, bzip, xz or lz
 
 grep -q " $target_path " /proc/mounts && is_mounted=true  # Check whether $target_path has been mounted
 
 if [ $is_mounted ]; then
   echo -e "Check if there is backup in $target_path..."
-  if [ -f "$target_path/$backup_name-latest.$compress_opt" ]; then
+  if [ -f "$target_path/$backup_name-latest.$compress_method" ]; then
     echo -e "'$backup_name-latest.$compress_opt' exists, proceed to incremental backup procedure"
-    cd $target_path && mv $backup_name-latest.$compress_opt $backup_name-$(date -r $backup_name-latest.$compress_opt +%Y-%m-%d).$compress_opt
-    cd $target_path && tar upvJf $backup_name-latest.$compress_opt --exclude=/mnt/* /
+    cd $target_path && cp $backup_name-latest.tar $backup_name-$(date -r $backup_name-latest.tar +%Y-%m-%d).tar
+    cd $target_path && cp $backup_name-latest.$compress_method $backup_name-$(date -r $backup_name-latest.$compress_method +%Y-%m-%d).$compress_method
+    cd $target_path && tar upvf $backup_name-latest.tar --exclude=/mnt/* /
+    cd $target_path && xz -zlck9T 6 -v $backup_name-latest.tar
   else
     echo -e "'$backup_name-latest.$compress_opt' doesn't exist, proceed to initial backup procedure"
-    cd $target_path && tar cpvJf $backup_name-latest.$compress_opt --exclude=/mnt/* /
+    cd $target_path && tar cpvf $backup_name-latest.tar --exclude=/mnt/* /
+    cd $target_path && xz -zlck9T 6 -v $backup_name-latest.tar
   fi
 else
   echo -e "backup: no drive mounted onto $target_path"
