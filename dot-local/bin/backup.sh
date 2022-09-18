@@ -13,16 +13,13 @@ grep -q " $target_path " /proc/mounts && is_mounted=true  # Check whether $targe
 
 if [ $is_mounted ]; then
   echo -e "Check if there is backup in $target_path..."
-  if [ -f "$target_path/$backup_name-latest.$compress_method" ]; then
+  if [ -f "$target_path/$backup_name-latest.tar" ]; then
     echo -e "'$backup_name-latest.$compress_opt' exists, proceed to incremental backup procedure"
     cd $target_path && cp $backup_name-latest.tar $backup_name-$(date -r $backup_name-latest.tar +%Y-%m-%d).tar
-    cd $target_path && cp $backup_name-latest.$compress_method $backup_name-$(date -r $backup_name-latest.$compress_method +%Y-%m-%d).$compress_method
     cd $target_path && tar upvf $backup_name-latest.tar --exclude=/mnt/* /
-    cd $target_path && xz -zlck9T 6 -v $backup_name-latest.tar
   else
     echo -e "'$backup_name-latest.$compress_opt' doesn't exist, proceed to initial backup procedure"
     cd $target_path && tar cpvf $backup_name-latest.tar --exclude=/mnt/* /
-    cd $target_path && xz -zlck9T 6 -v $backup_name-latest.tar
   fi
 else
   echo -e "backup: no drive mounted onto $target_path"
