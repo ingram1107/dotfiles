@@ -5,13 +5,13 @@ set yt_path "$HOME/Videos"
 set video (ls $yt_path | rg '(.mp[3-4]$|.m4a)' | rofi -i -dmenu -p "Select Video")
 set v_name (basename $video)
 
-if [ $video != "" ] && [ -e $yt_path$video ]
+if [ $video != "" ] && [ -e "$yt_path/$video" ]
   set opt (echo -e "Open\nRemove" | rofi -i -dmenu -p "Option")
   if [ $opt = "Open" ]
-    mpv $yt_path$video
+    mpv "$yt_path/$video"
     dunstify -a 'mpv' -u 0 -t 1000 $v_name
   else if [ $opt = "Remove" ]
-    rm $yt_path$video
+    rm "$yt_path/$video"
     dunstify -a 'system' -u 0 -t 1000 "remove $v_name"
   else
     exit 0
