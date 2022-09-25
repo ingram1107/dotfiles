@@ -15,7 +15,7 @@ if [ $is_mounted ]; then
   echo -e "Check if there is backup in $target_path..."
   if [ -f "$target_path/$backup_name-latest.tar" ]; then
     echo -e "'$backup_name-latest.$compress_opt' exists, proceed to incremental backup procedure"
-    cd $target_path && cp $backup_name-latest.tar $backup_name-$(date -r $backup_name-latest.tar +%Y-%m-%d).tar
+    cd $target_path && cp -v $backup_name-latest.tar $backup_name-$(date -r $backup_name-latest.tar +%Y-%m-%d).tar
     cd $target_path && tar upvf $backup_name-latest.tar --exclude=/mnt/* /
   else
     echo -e "'$backup_name-latest.$compress_opt' doesn't exist, proceed to initial backup procedure"
