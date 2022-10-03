@@ -7,7 +7,7 @@ is_mounted=false
 source_path="/"             # where should be backup
 target_path="/mnt/Marlin"   # where should the backup stored
 backup_name=system
-compress_method=xz             # gz, bzip, xz or lz
+compress_method=xz          # gz, bzip, xz or lz
 
 grep -q " $target_path " /proc/mounts && is_mounted=true  # Check whether $target_path has been mounted
 
