@@ -168,7 +168,7 @@ return require('packer').startup({
     use 'emmanueltouzery/agitator.nvim'
     use {
       'lewis6991/gitsigns.nvim',
-      tag = 'release',
+      -- tag = 'release',
       requires = {
         'nvim-lua/plenary.nvim',
       },
