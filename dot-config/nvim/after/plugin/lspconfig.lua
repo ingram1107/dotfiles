@@ -2,6 +2,9 @@
 local lspconfig = require('lspconfig')
 local configs = require('lspconfig/configs')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lsp_flags = {
+  debounce_text_changes = 150,
+}
 
 --- on_attach func
 local on_attach = function(client, bufnr)
@@ -40,19 +43,19 @@ local on_attach = function(client, bufnr)
   ]])
 
   --- set keybind for lsp formatting based on server capability
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.keymap.set('n', 'glf', vim.lsp.buf.formatting, opts)
-  elseif client.resolved_capabilities.document_range_formatting then
+  elseif client.server_capabilities.document_range_formatting then
     vim.keymap.set('n', 'glf', vim.lsp.buf.range_formatting, opts)
   end
 
-  if client.resolved_capabilities.code_action then
+  if client.server_capabilities.code_action then
     vim.keymap.set('n', 'gla', vim.lsp.buf.code_action, opts)
   end
 end
 
 --- clangd: C/C++/Obj-C
-lspconfig.clangd.setup({
+lspconfig['clangd'].setup({
   cmd = {
     'clangd',
     '--background-index',
@@ -65,6 +68,7 @@ lspconfig.clangd.setup({
   -- },
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = lsp_flags,
 })
 
 --- nlua: nvim lua dev
@@ -96,10 +100,11 @@ require('nlua/lsp/nvim').setup(lspconfig, {
   },
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = lsp_flags,
 })
 
 --- jedi_language_server: Python
-lspconfig.jedi_language_server.setup({
+lspconfig['jedi_language_server'].setup({
   startupMessage = false,
 
   -- jediSettings = {
@@ -112,11 +117,13 @@ lspconfig.jedi_language_server.setup({
 
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = lsp_flags,
 })
 
 --- jdtls: Java
-lspconfig.jdtls.setup({
+lspconfig['jdtls'].setup({
   capabilities = capabilities,
+  flags = lsp_flags,
 })
 
 local en_dict = io.open(os.getenv('XDG_CONFIG_HOME') .. '/nvim/spell/en.utf-8.add')
@@ -129,7 +136,7 @@ if en_dict ~= nil then
 end
 
 -- LTeX: Natural languages
-lspconfig.ltex.setup({
+lspconfig['ltex'].setup({
   filetypes = {
     'NeogitCommitMessage',
     'bib',
@@ -156,4 +163,5 @@ lspconfig.ltex.setup({
   },
   on_attach = on_attach,
   capabilities = capabilities,
+  flags = lsp_flags,
 })
