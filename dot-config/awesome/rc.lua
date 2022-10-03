@@ -600,7 +600,7 @@ awful.rules.rules = {
   { rule_any = { class = { 'firefox', 'Chromium', 'Falkon' } }, properties = { screen = 1, tag = '' } },
   { rule_any = { class = { 'Zathura', 'Zettlr' } }, properties = { screen = 1, tag = '' } },
   { rule = { class = 'Transmission' }, properties = { screen = 1, tag = '' } },
-  { rule = { class = 'Steam' }, properties = { screen = 1, tag = '' } },
+  { rule = { class = 'Steam', 'Lutris' }, properties = { screen = 1, tag = '' } },
   { rule_any = { class = { 'Element', 'Ferdi' } }, properties = { screen = 1, tag = '' } },
 }
 -- }}}
