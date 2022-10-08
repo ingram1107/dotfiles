@@ -37,3 +37,7 @@ if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
   vim.keymap.set('n', '<leader>zl', '<cmd>ZkLinks<cr>', { buffer = true, silent = true })
   vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { buffer = true, silent = true })
 end
+
+-- markdownpreview mapping
+vim.keymap.set('n', 'm<cr>', '<cmd>MarkdownPreview<cr>', { buffer = true, silent = true, expr = true });
+vim.keymap.set('n', 'm<space>', '<cmd>MarkdownPreview ', { buffer = true, expr = true });
