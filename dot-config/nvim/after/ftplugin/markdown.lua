@@ -4,6 +4,9 @@ vim.wo.linebreak = true
 vim.wo.wrap = true
 vim.bo.textwidth = 80
 
+-- activate zk.nvim
+vim.cmd("ZkSetup")
+
 -- magma mapping
 vim.keymap.set('n', '<leader>r', ':MagmaEvaluateOperator<cr>', { buffer = true, silent = true, expr = true })
 vim.keymap.set('n', '<leader>rr', ':MagmaEvaluateLine<cr>', { buffer = true, silent = true })
