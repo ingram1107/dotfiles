@@ -232,11 +232,7 @@ return require('packer').startup({
     use {
       'numToStr/Comment.nvim',
       config = function()
-        require('Comment').setup({
-          mappings = {
-            extended = true,
-          }
-        })
+        require('Comment').setup()
       end
     }
     use {
