@@ -15,7 +15,7 @@ return {
         '4.0 International License</a>',
       }),
     }),
-    s('tg', {
+    s('tll', {
       t({
         '---',
         'layout:     post',
