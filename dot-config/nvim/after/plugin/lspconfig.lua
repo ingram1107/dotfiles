@@ -34,6 +34,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gR', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', 'gle', vim.diagnostic.open_float, opts)
   vim.keymap.set('n', 'glq', vim.diagnostic.setloclist, opts)
+  vim.keymap.set('n', 'gla', vim.lsp.buf.code_action, opts)
 
   vim.cmd([[
   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
@@ -47,10 +48,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'glf', vim.lsp.buf.formatting, opts)
   elseif client.server_capabilities.document_range_formatting then
     vim.keymap.set('n', 'glf', vim.lsp.buf.range_formatting, opts)
-  end
-
-  if client.server_capabilities.code_action then
-    vim.keymap.set('n', 'gla', vim.lsp.buf.code_action, opts)
   end
 end
 
