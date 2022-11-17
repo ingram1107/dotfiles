@@ -138,13 +138,57 @@ local luasnip_jump_to_previous = function()
   end
 end
 
-nmap({ '<leader>ls', '<cmd>lua require("luasnip.loaders.from_lua").edit_snippet_files()<cr>' })
-imap({ '<c-k>', luasnip_expand_or_jump, { expr = true } })
-imap({ '<c-j>', luasnip_jump_to_previous, { expr = true } })
-imap({ '<c-h>', '<Plug>luasnip-next-choice' })
-smap({ '<c-k>', luasnip_expand_or_jump, { expr = true } })
-smap({ '<c-j>', luasnip_jump_to_previous, { expr = true } })
-smap({ '<c-h>', '<Plug>luasnip-next-choice' })
+local luasnip_next_choice = function()
+  if luasnip and luasnip.choice_active() then
+    return luasnip.change_choice(1)
+  else
+    return tc('<c-h>')
+  end
+end
+
+nmap({
+  '<leader>ls',
+  function()
+    require('luasnip.loaders.from_lua').edit_snippet_files()
+  end,
+  { desc = "edit current filetype's LuaSnip snippet" },
+})
+imap({
+  '<c-k>',
+  luasnip_expand_or_jump,
+  {
+    expr = true,
+    desc = 'expand the snippet or jump to the next snippet node, or normal <C-k> if snippet is not active',
+  },
+})
+imap({
+  '<c-j>',
+  luasnip_jump_to_previous,
+  { expr = true, desc = 'jump to the previous snippet node, or normal <C-j> if snippet is not active' },
+})
+imap({
+  '<c-h>',
+  luasnip_next_choice,
+  { desc = 'jump to the next Luasnip choice node, or normal <C-h> if there is none' },
+})
+smap({
+  '<c-k>',
+  luasnip_expand_or_jump,
+  {
+    expr = true,
+    desc = 'expand the snippet or jump to the next snippet node, or normal <C-k> if snippet is not active',
+  },
+})
+smap({
+  '<c-j>',
+  luasnip_jump_to_previous,
+  { expr = true, desc = 'jump to the previous snippet node, or normal <C-j> if snippet is not active' },
+})
+smap({
+  '<c-h>',
+  luasnip_next_choice,
+  { desc = 'jump to the next Luasnip choice node, or normal <C-h> if there is none' },
+})
 
 -- undotree {{{1
 nmap({ '<leader>u', '<cmd>UndotreeToggle<cr>' })
