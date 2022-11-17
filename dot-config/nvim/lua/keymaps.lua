@@ -107,7 +107,6 @@ local function prequire(...)
 end
 
 local luasnip = prequire('luasnip')
-local cmp = prequire('cmp')
 
 local tc = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -122,36 +121,29 @@ local check_back_space = function()
   end
 end
 
-_G.luasnip_expand_or_jump = function()
-  if cmp and cmp.visible() then
-    cmp.select_next_item()
-  elseif luasnip and luasnip.expand_or_jumpable() then
-    return tc('<Plug>luasnip-expand-or-jump')
+local luasnip_expand_or_jump = function()
+  if luasnip and luasnip.expand_or_jumpable() then
+    return luasnip.expand_or_jump()
   elseif check_back_space() then
     return tc('<c-k>')
-  else
-    cmp.complete()
   end
   return ''
 end
 
-_G.luasnip_jump_to_previous = function()
-  if cmp and cmp.visible() then
-    cmp.select_prev_item()
-  elseif luasnip and luasnip.jumpable(-1) then
-    return tc('<Plug>luasnip-jump-prev')
+local luasnip_jump_to_previous = function()
+  if luasnip and luasnip.jumpable(-1) then
+    return luasnip.jump(-1)
   else
     return tc('<c-j>')
   end
-  return ''
 end
 
 nmap({ '<leader>ls', '<cmd>lua require("luasnip.loaders.from_lua").edit_snippet_files()<cr>' })
-imap({ '<c-k>', 'v:lua.luasnip_expand_or_jump()', { expr = true } })
-imap({ '<c-j>', 'v:lua.luasnip_jump_to_previous()', { expr = true } })
+imap({ '<c-k>', luasnip_expand_or_jump, { expr = true } })
+imap({ '<c-j>', luasnip_jump_to_previous, { expr = true } })
 imap({ '<c-h>', '<Plug>luasnip-next-choice' })
-smap({ '<c-k>', 'v:lua.luasnip_expand_or_jump()', { expr = true } })
-smap({ '<c-j>', 'v:lua.luasnip_jump_to_previous()', { expr = true } })
+smap({ '<c-k>', luasnip_expand_or_jump, { expr = true } })
+smap({ '<c-j>', luasnip_jump_to_previous, { expr = true } })
 smap({ '<c-h>', '<Plug>luasnip-next-choice' })
 
 -- undotree {{{1
