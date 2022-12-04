@@ -77,6 +77,7 @@ require('origin').setup({
     vim = { 'after', 'autoload', 'plugin', 'colors', 'ftdetect', 'compiler' },
     css = 'css',
     scss = 'scss',
+    java = { 'src', 'test' },
   },
   prompt = false,
 })
