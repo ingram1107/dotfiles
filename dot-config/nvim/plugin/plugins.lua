@@ -256,6 +256,7 @@ return require('packer').startup({
     use 'ledger/vim-ledger'
     use {
       'nvim-neorg/neorg',
+      run = ":Neorg sync-parsers",
       requires = 'nvim-lua/plenary.nvim',
     }
     use 'mickael-menu/zk-nvim'
