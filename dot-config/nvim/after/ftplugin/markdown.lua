@@ -18,6 +18,11 @@ vim.keymap.set('n', '<leader>ro', ':MagmaShowOutput<cr>', { buffer = true, silen
 vim.g.magma_automatically_open_output = false
 
 -- zk mapping
+require('zk.commands').add('ZkOrphans', function(options)
+  options = vim.tbl_extend('force', { orphan = true }, options or {})
+  require('zk').edit(options, { title = 'Zk Orphans', sort = 'modified' })
+end)
+
 vim.keymap.set('n', '<leader>zz', '<cmd>ZkSetup<cr>', { buffer = true, silent = true })
 if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
   vim.keymap.set('n', '<cr>', '<cmd>lua vim.lsp.buf.definition()<cr>', { buffer = true, silent = true })
@@ -36,6 +41,7 @@ if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
   )
   vim.keymap.set('n', '<leader>zl', '<cmd>ZkLinks<cr>', { buffer = true, silent = true })
   vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { buffer = true, silent = true })
+  vim.keymap.set('n', '<leader>zp', '<cmd>ZkOrphans<cr>', { buffer = true, silent = true })
 end
 
 -- markdownpreview mapping
