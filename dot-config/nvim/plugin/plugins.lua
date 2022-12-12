@@ -284,6 +284,8 @@ return require('packer').startup({
       'davidgranstrom/nvim-markdown-preview',
       cmd = 'MarkdownPreview'
     }
+    use 'seandewar/killersheep.nvim'
+    use 'alec-gibson/nvim-tetris'
     -- }}}
   end,
   config = {
