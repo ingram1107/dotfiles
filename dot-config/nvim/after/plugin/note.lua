@@ -37,21 +37,5 @@ require('neorg').setup({
         use_folders = true,
       },
     },
-    ['core.gtd.base'] = {
-      config = {
-        workspace = 'notes',
-        displayers = {
-          projects = {
-            show_completed_projects = true,
-          },
-        },
-        syntax = {
-          context = '#contexts',
-          due = '#time.due',
-          start = '#time.start',
-          waiting = '#waiting.for',
-        },
-      },
-    },
   },
 })
