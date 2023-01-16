@@ -145,7 +145,7 @@ return require('packer').startup({
     -- finder {{{1
     use {
       'nvim-telescope/telescope.nvim',
-      requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', },
+      requires = 'nvim-lua/plenary.nvim',
     }
     use 'jremmen/vim-ripgrep'
 
