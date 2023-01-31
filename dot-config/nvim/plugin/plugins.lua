@@ -47,7 +47,6 @@ return require('packer').startup({
       'nvim-treesitter/nvim-treesitter',
       requires = {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        'p00f/nvim-ts-rainbow',
         'romgrk/nvim-treesitter-context',
         'JoosepAlviste/nvim-ts-context-commentstring',
         'nvim-treesitter/playground',
