@@ -309,6 +309,8 @@ return require('packer').startup({
       requires = 'nvim-lua/plenary.nvim',
     }
     use 'mickael-menu/zk-nvim'
+    use 'jbyuki/nabla.nvim'
+
 
     -- miscellaneous {{{1
     use {
