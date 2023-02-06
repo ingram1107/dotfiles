@@ -41,6 +41,16 @@ return require('packer').startup({
       'https://gitlab.com/yorickpeterse/nvim-pqf',
       config = function() require('pqf').setup() end,
     }
+    use {
+      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+      config = function()
+        require('lsp_lines').setup()
+
+        vim.diagnostic.config({
+          virtual_text = false,
+        })
+      end,
+    }
 
     -- syntax and debug {{{1
     use {
