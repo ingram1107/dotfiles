@@ -53,6 +53,14 @@ return require('packer').startup({
       },
       run = ':TSUpdate',
     }
+    use {
+      'romgrk/nvim-treesitter-context',
+      config = function()
+        require('treesitter-context').setup({
+          max_lines = 3,
+        })
+      end,
+    }
     use 'dag/vim-fish'
     use {
       'lervag/vimtex',
