@@ -438,7 +438,7 @@ globalkeys = gears.table.join(
     awful.util.spawn("scrot -e 'mv $f ~/Pictures/'", false)
   end, { description = 'screen shot', group = 'screen' }),
   awful.key({ 'Shift' }, 'Print', function()
-    awful.util.spawn("scrot -s -e 'mv $f ~/Pictures/'", false)
+    awful.util.spawn("scrot -d 5 -s -e 'mv $f ~/Pictures/'", false)
   end, { description = 'screen shot', group = 'screen' })
 )
 
