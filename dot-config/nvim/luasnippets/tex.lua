@@ -96,6 +96,39 @@ return {
         '\\end{document}',
       }),
     }),
+    s('bmr', {
+      t({
+        '\\documentclass{beamer}',
+        '\\usetheme{Warsaw}',
+        '\\title[',
+      }),
+      i(0, 'Abbreviated Title'), t(']{'),
+      i(1, 'Main Title'), t('}'),
+      newline(''),
+      t('\\subtitle{'), i(2, 'Subtitle'), t('}'),
+      newline(''),
+      t('\\author{'), i(3, 'Little Clover'), t('}'),
+      newline(''),
+      t('\\institute{'), i(4, 'FIST'), t('}'),
+      t({
+        '\\begin{document}',
+        '\\begin{frame}',
+        '\\titlepage',
+        '\\end{frame}',
+        '\\end{document}',
+      })
+    }),
+    s('nfr', {
+      t({
+        '\\begin{frame}[t]{',
+      }),
+      i(0, 'Slide Title'), t('}\vspace{4pt}'),
+      newline(''),
+      i(1),
+      t({
+        '\\end{frame}',
+      })
+    }),
     s('begg', {
       t('\\begin{'),
       i(1),
