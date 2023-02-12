@@ -114,7 +114,6 @@ return require('packer').startup({
     use 'tpope/vim-dispatch'
 
     -- nvim dev {{{1
-    use 'tjdevries/nlua.nvim'
     use 'milisims/nvim-luaref'
 
     -- dir and project {{{1

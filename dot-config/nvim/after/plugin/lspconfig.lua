@@ -68,15 +68,8 @@ lspconfig['clangd'].setup({
   flags = lsp_flags,
 })
 
---- nlua: nvim lua dev
-local sumneko_root_path = '/usr/lib/lua-language-server/'
-local sumneko_binary = '/usr/bin/lua-language-server'
-require('nlua/lsp/nvim').setup(lspconfig, {
-  cmd = {
-    sumneko_binary,
-    '-E',
-    sumneko_root_path .. 'main.lua',
-  },
+--- lua_ls: Lua
+lspconfig.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
@@ -154,6 +147,14 @@ lspconfig['ltex'].setup({
       },
       additionalRules = {
         enablePickyRules = true,
+      },
+      disabledRules = {
+        ['en-GB'] = {
+          'OXFORD_SPELLING_NOUNS',
+          'OXFORD_SPELLING_VERBS',
+          'OXFORD_SPELLING_ADJECTIVES',
+          'OXFORD_SPELLING_ADVERBS',
+        },
       },
       checkFrequency = 'save',
     },
