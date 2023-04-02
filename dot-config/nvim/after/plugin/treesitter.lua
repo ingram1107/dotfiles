@@ -11,6 +11,7 @@ require('nvim-treesitter.configs').setup({
     'fish',
     'rust',
     'vim',
+    'vimdoc',
     'markdown',
     'latex',
     'query',
