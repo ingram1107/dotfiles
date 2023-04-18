@@ -154,6 +154,7 @@ lspconfig['ltex'].setup({
           'OXFORD_SPELLING_VERBS',
           'OXFORD_SPELLING_ADJECTIVES',
           'OXFORD_SPELLING_ADVERBS',
+          'OXFORD_SPELLING_Z_NOT_S',
         },
       },
       checkFrequency = 'save',
