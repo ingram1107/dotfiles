@@ -12,6 +12,6 @@ if vim.fn.isdirectory(packer_path) == 1 then
 end
 
 -- basic settings
-require('impatient')
+vim.loader.enable()
 require('options')
 require('keymaps')

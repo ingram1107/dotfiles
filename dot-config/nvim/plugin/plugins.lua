@@ -10,7 +10,6 @@ return require('packer').startup({
     use { 'wbthomason/packer.nvim', opt = true }
 
     -- performance {{{1
-    use 'lewis6991/impatient.nvim'
     use {
       'tweekmonster/startuptime.vim',
       cmd = { 'StartupTime', }
