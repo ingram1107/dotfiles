@@ -7,7 +7,7 @@ packadd termdebug
 return require('packer').startup({
   function()
     -- load packer {{{1
-    use { 'wbthomason/packer.nvim', opt = true }
+    use 'wbthomason/packer.nvim'
 
     -- performance {{{1
     use {
@@ -124,20 +124,20 @@ return require('packer').startup({
       config = function()
         require('nvim-tree').setup {
           hijack_cursor = true,
-          
           hijack_directories = {
             enable = false,
           },
-
+          renderer = {
+            highlight_git = true,
+            highlight_opened_files = 'all'
+          },
           diagnostics = {
             enable = true,
             show_on_dirs = true,
           },
-
           view = {
             width = 25,
           },
-
           filters = {
             custom = { '.git', 'node_modules' },
           },
