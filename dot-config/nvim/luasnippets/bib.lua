@@ -10,7 +10,7 @@ return {
       i(1, 'book'),
       t('{'),
       i(2, 'tag'),
-      t('},'),
+      t(','),
       newline('  author = '),
       t('{'),
       i(3, 'author'),
