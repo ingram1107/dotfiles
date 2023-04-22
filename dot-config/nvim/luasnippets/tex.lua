@@ -49,7 +49,7 @@ return {
         '\\begin{document}',
         '',
         '\\begin{titlepage}',
-        '  \\vspace*{\fill}',
+        '  \\vspace*{\\fill}',
         '  \\centering',
         '  \\LARGE ',
       }),
@@ -70,7 +70,7 @@ return {
       t(' \\par'),
       newline(''),
       t({
-        '  \\vspace*{\fill}',
+        '  \\vspace*{\\fill}',
         '\\end{titlepage}',
         '',
         '',
