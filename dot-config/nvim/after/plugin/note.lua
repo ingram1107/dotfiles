@@ -7,18 +7,18 @@ require('neorg').setup({
         default_keybinds = true,
       },
     },
-    ['core.norg.completion'] = {
+    ['core.completion'] = {
       config = {
         engine = 'nvim-cmp',
       },
     },
-    ['core.norg.concealer'] = {},
-    ['core.norg.esupports.metagen'] = {
+    ['core.concealer'] = {},
+    ['core.esupports.metagen'] = {
       config = {
         type = 'auto',
       },
     },
-    ['core.norg.dirman'] = {
+    ['core.dirman'] = {
       config = {
         workspaces = {
           notes = os.getenv('HOME') .. '/Documents/Notes',
@@ -30,7 +30,7 @@ require('neorg').setup({
         last_workspace = vim.fn.stdpath('cache') .. '/neorg_last_workspace.txt',
       },
     },
-    ['core.norg.journal'] = {
+    ['core.journal'] = {
       config = {
         workspace = 'diary',
         journal_folder = nil,
