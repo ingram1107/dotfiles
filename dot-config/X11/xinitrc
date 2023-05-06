@@ -3,8 +3,6 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 fcitx5 -d
 dunst &
-xset s 480 600
-xss-lock -- slock &
 clipcatd --no-daemon &
 picom &
 thunar --daemon &
