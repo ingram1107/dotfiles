@@ -3,7 +3,6 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 fcitx5 -d
 dunst &
-clipcatd --no-daemon &
 picom &
 thunar --daemon &
 exec awesome
