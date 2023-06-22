@@ -164,3 +164,6 @@ lspconfig['ltex'].setup({
   capabilities = capabilities,
   flags = lsp_flags,
 })
+
+-- Fennel: fennel-ls
+lspconfig['fennel_ls'].setup({})
