@@ -24,7 +24,7 @@ function fish_greeting
 end
 
 ## XDG alias
-alias startx="startx $XINITRC"
+# alias startx="startx $XINITRC"
 alias irssi="irssi --config='$XDG_CONFIG_HOME'/irssi/config --home='$XDG_DATA_HOME'/irssi"
 alias dict="dict -c '$XDG_CONFIG_HOME'/dict/dictrc"
 alias abook="abook --config '$XDG_CONFIG_HOME'/abook/abookrc --datafile '$XDG_DATA_HOME'/abook/addressbook"
