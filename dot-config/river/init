@@ -102,7 +102,7 @@
           (binds "Super"              "N"                     "focus-output next")
           (binds "Super+Shift"        "P"                     "send-to-output previous")
           (binds "Super+Shift"        "N"                     "send-to-output next")
-          (binds "Super"              "E"                     "zoom")
+          (binds "Super"              "Z"                     "zoom")
           (binds "Super"              "H"                     "send-layout-cmd rivertile main-ratio -0.02")
           (binds "Super"              "L"                     "send-layout-cmd rivertile main-ratio +0.02")
           (binds "Super+Shift"        "H"                     "send-layout-cmd rivertile main-count +1")
