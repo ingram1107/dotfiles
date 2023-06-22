@@ -1,0 +1,101 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: #fbf7b7;
+    color: #2a2c2b;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#mode {
+  background-color: #f9f28e;
+}
+
+#tags button {
+  padding: 0 2px;
+  margin: 1px;
+}
+
+#tags button.occupied {
+  background-color: #f9f28e;
+}
+
+#tags button.focused {
+  background-color: #f6ee65;
+}
+
+#tags button.urgent {
+  background-color: #57021e;
+}
+
+#windows {
+  margin: 1px;
+  padding: 0 2px;
+}
+
+#windows.focused {
+  background-color: #f6ee65;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#scratchpad,
+#mpd {
+  padding: 0 8px;
+  color: #2a2c2b;
+}
+
+/* .modules-center { */
+/*   text-align: center; */
+/* } */
+
+.modules-left, .modules-center, .modules-right {
+  border-bottom: 1px solid #f9f28e
+}
+
+.modules-right {
+  background-color: #f9f28e;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #tags {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #tags {
+  margin-right: 0;
+}
