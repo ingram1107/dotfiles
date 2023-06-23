@@ -118,8 +118,8 @@ return require('packer').startup({
     -- dir and project {{{1
     use 'elihunter173/dirbuf.nvim'
     use {
-      'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-tree.lua',
+      requires = 'nvim-tree/nvim-web-devicons',
       cmd = 'NvimTreeToggle',
       config = function()
         require('nvim-tree').setup {
