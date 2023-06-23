@@ -19,9 +19,11 @@
 (local wl-script-dir (.. (os.getenv "HOME") "/.local/libexec/wayland"))
 (local drun-menu "rofi -show drun")
 (local run-menu "rofi -show run")
+(local waylock "waylock -init-color 0x9ed2c6 -input-color 0xfbf7b7 -fail-color 0x57021e")
 
 (local startup-commands
        ["dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP"
+        (.. (.. "swayidle timeout 300 '" waylock) "'")
         "waybar -c ~/.config/waybar/river/config -s ~/.config/waybar/river/style.css"
         "fctix5 -d"
         "dunst"
@@ -134,6 +136,9 @@
           (binds "None"               "XF86AudioMicMute"      (spawn "pamixer --source 2 -t"))
           (binds "None"               "XF86MonBrightnessUp"   (spawn "light -A 5") "repeat")
           (binds "None"               "XF86MonBrightnessDown" (spawn "light -U 5") "repeat")
+
+          ;; System control
+          (binds "Super"              "X"                     (spawn waylock))
 
           ;; Application programs
           (binds "Super"              "Return"                (spawn "alacritty -e tmux"))
