@@ -7,40 +7,44 @@ packadd termdebug
 return require('packer').startup({
   function()
     -- load packer {{{1
-    use 'wbthomason/packer.nvim'
+    use('wbthomason/packer.nvim')
 
     -- performance {{{1
-    use {
+    use({
       'tweekmonster/startuptime.vim',
-      cmd = { 'StartupTime', }
-    }
+      cmd = { 'StartupTime' },
+    })
 
     -- theme {{{1
-    use 'ingram1107/vim-zhi'
+    use('ingram1107/vim-zhi')
 
     -- statusline and tabline {{{1
-    use 'nvim-lualine/lualine.nvim'
-    use {
+    use('nvim-lualine/lualine.nvim')
+    use({
       'j-hui/fidget.nvim',
-      config = function ()
+      config = function()
         require('fidget').setup({
           window = {
-            blend = 50,  -- makes it transparent
-          }
+            blend = 50, -- makes it transparent
+          },
         })
-      end
-    }
+      end,
+    })
 
     -- visual improvement {{{1
-    use {
+    use({
       'luukvbaal/stabilize.nvim',
-      config = function() require('stabilize').setup() end,
-    }
-    use {
+      config = function()
+        require('stabilize').setup()
+      end,
+    })
+    use({
       'https://gitlab.com/yorickpeterse/nvim-pqf',
-      config = function() require('pqf').setup() end,
-    }
-    use {
+      config = function()
+        require('pqf').setup()
+      end,
+    })
+    use({
       'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
       config = function()
         require('lsp_lines').setup()
@@ -49,10 +53,10 @@ return require('packer').startup({
           virtual_text = false,
         })
       end,
-    }
+    })
 
     -- syntax and debug {{{1
-    use {
+    use({
       'nvim-treesitter/nvim-treesitter',
       requires = {
         'nvim-treesitter/nvim-treesitter-textobjects',
@@ -61,37 +65,37 @@ return require('packer').startup({
         'nvim-treesitter/playground',
       },
       run = ':TSUpdate',
-    }
-    use {
+    })
+    use({
       'romgrk/nvim-treesitter-context',
       config = function()
         require('treesitter-context').setup({
           max_lines = 3,
         })
       end,
-    }
-    use 'dag/vim-fish'
-    use {
+    })
+    use('dag/vim-fish')
+    use({
       'lervag/vimtex',
       ft = 'tex',
-    }
+    })
 
     -- format {{{1
-    use 'mhartington/formatter.nvim'
-    use {
+    use('mhartington/formatter.nvim')
+    use({
       'godlygeek/tabular',
       cmd = { 'Tab' },
-    }
+    })
 
     -- language-server {{{1
-    use 'neovim/nvim-lspconfig'
+    use('neovim/nvim-lspconfig')
 
     -- completion {{{1
-    use {
+    use({
       'hrsh7th/nvim-compe',
       opt = true,
-    }
-    use {
+    })
+    use({
       'hrsh7th/nvim-cmp',
       requires = {
         'hrsh7th/cmp-buffer',
@@ -101,35 +105,35 @@ return require('packer').startup({
         'saadparwaiz1/cmp_luasnip',
         'PaterJason/cmp-conjure',
       },
-    }
-    use 'onsails/lspkind-nvim'
-    use 'windwp/nvim-ts-autotag'
+    })
+    use('onsails/lspkind-nvim')
+    use('windwp/nvim-ts-autotag')
 
     -- compiler plugin {{{1
-    use {
+    use({
       'ingram1107/sass-compiler.vim',
       ft = 'scss',
-    }
-    use 'tpope/vim-dispatch'
+    })
+    use('tpope/vim-dispatch')
 
     -- nvim dev {{{1
-    use 'milisims/nvim-luaref'
+    use('milisims/nvim-luaref')
 
     -- dir and project {{{1
-    use 'elihunter173/dirbuf.nvim'
-    use {
+    use('elihunter173/dirbuf.nvim')
+    use({
       'nvim-tree/nvim-tree.lua',
       requires = 'nvim-tree/nvim-web-devicons',
       cmd = 'NvimTreeToggle',
       config = function()
-        require('nvim-tree').setup {
+        require('nvim-tree').setup({
           hijack_cursor = true,
           hijack_directories = {
             enable = false,
           },
           renderer = {
             highlight_git = true,
-            highlight_opened_files = 'all'
+            highlight_opened_files = 'all',
           },
           diagnostics = {
             enable = true,
@@ -141,61 +145,66 @@ return require('packer').startup({
           filters = {
             custom = { '.git', 'node_modules' },
           },
-        }
+        })
       end,
-    }
-    use 'ingram1107/origin.nvim'
-    use 'tpope/vim-projectionist'
+    })
+    use('ingram1107/origin.nvim')
+    use('tpope/vim-projectionist')
 
     -- session management {{{1
-    use 'ingram1107/souvenir.nvim'
-    use 'ThePrimeagen/harpoon'
+    use('~/Projects/souvenir.nvim')
+    use('ThePrimeagen/harpoon')
 
     -- undo tree visualise {{{1
-    use {
+    use({
       'mbbill/undotree',
       cmd = { 'UndotreeToggle' },
-    }
+    })
 
     -- finder {{{1
-    use {
+    use({
       'nvim-telescope/telescope.nvim',
       requires = 'nvim-lua/plenary.nvim',
-    }
-    use 'jremmen/vim-ripgrep'
+    })
+    use('jremmen/vim-ripgrep')
 
     -- git {{{1
-    use {
+    use({
       'TimUntersberger/neogit',
       config = function()
-        require('neogit').setup{
+        require('neogit').setup({
           integrations = {
             diffview = true,
           },
-        }
+        })
       end,
-      requires = 'nvim-lua/plenary.nvim'
-    }
-    use {
+      requires = 'nvim-lua/plenary.nvim',
+    })
+    use({
       'sindrets/diffview.nvim',
       cmd = { 'Neogit', 'DiffviewOpen', 'DiffviewFileHistory' },
       requires = 'nvim-lua/plenary.nvim',
-    }
-    use 'emmanueltouzery/agitator.nvim'
-    use {
+    })
+    use('emmanueltouzery/agitator.nvim')
+    use({
       'lewis6991/gitsigns.nvim',
       -- tag = 'release',
       requires = {
         'nvim-lua/plenary.nvim',
       },
       config = function()
-        require('gitsigns').setup {
+        require('gitsigns').setup({
           signs = {
-            add          = {hl = 'GitSignsAdd'   , text = '▏', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-            change       = {hl = 'GitSignsChange', text = '▏', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-            delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-            topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-            changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+            add = { hl = 'GitSignsAdd', text = '▏', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+            change = { hl = 'GitSignsChange', text = '▏', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+            delete = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+            topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+            changedelete = {
+              hl = 'GitSignsChange',
+              text = '~',
+              numhl = 'GitSignsChangeNr',
+              linehl = 'GitSignsChangeLn',
+            },
           },
           on_attach = function(bufnr)
             local gs = package.loaded.gitsigns
@@ -207,115 +216,129 @@ return require('packer').startup({
             end
 
             map('n', ']c', function()
-              if vim.wo.diff then return ']c' end
-              vim.schedule(function() gs.next_hunk() end)
+              if vim.wo.diff then
+                return ']c'
+              end
+              vim.schedule(function()
+                gs.next_hunk()
+              end)
               return '<Ignore>'
-            end, {expr=true})
+            end, { expr = true })
 
             map('n', '[c', function()
-              if vim.wo.diff then return '[c' end
-              vim.schedule(function() gs.prev_hunk() end)
+              if vim.wo.diff then
+                return '[c'
+              end
+              vim.schedule(function()
+                gs.prev_hunk()
+              end)
               return '<Ignore>'
-            end, {expr=true})
+            end, { expr = true })
 
-            map({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-            map({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+            map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+            map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
             map('n', '<leader>hS', gs.stage_buffer)
             map('n', '<leader>hu', gs.undo_stage_hunk)
             map('n', '<leader>hR', gs.reset_buffer)
             map('n', '<leader>hp', gs.preview_hunk)
-            map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+            map('n', '<leader>hb', function()
+              gs.blame_line({ full = true })
+            end)
             map('n', '<leader>tb', gs.toggle_current_line_blame)
             map('n', '<leader>hd', gs.diffthis)
-            map('n', '<leader>hD', function() gs.diffthis('~') end)
+            map('n', '<leader>hD', function()
+              gs.diffthis('~')
+            end)
             map('n', '<leader>td', gs.toggle_deleted)
 
-            map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+            map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
           end,
-        }
-      end
-    }
+        })
+      end,
+    })
 
     -- repl {{{1
-    use 'ingram1107/aedile.nvim'
-    use {
+    use('ingram1107/aedile.nvim')
+    use({
       'jpalardy/vim-slime',
       ft = { 'python', 'lua' },
-    }
-    use {
+    })
+    use({
       'Olical/conjure',
+      requires = 'Olical/aniseed',
       config = function()
         vim.g['conjure#mapping#prefix'] = '\\'
         vim.g['conjure#filetype#fennel'] = 'conjure.client.fennel.stdio'
       end,
-    }
-    use {
+    })
+    use({
       'eraserhd/parinfer-rust',
       cmd = 'ParinferOn',
       run = 'cargo build --release',
-    }
-    use {
+    })
+    use({
       'guns/vim-sexp',
       ft = { 'clojure', 'scheme', 'lisp', 'timl', 'fennel' },
       config = function()
         vim.cmd('packadd vim-sexp')
       end,
-    }
-    use {
+    })
+    use({
       'dccsillag/magma-nvim',
       run = ':UpdateRemotePlugins',
-      cmd = 'MagmaInit'
-    }
-    use 'goerz/jupytext.vim'
-    use 'rafcamlet/nvim-luapad'
+      cmd = 'MagmaInit',
+    })
+    use('goerz/jupytext.vim')
+    use('rafcamlet/nvim-luapad')
 
     -- snippet support {{{1
-    use { 'SirVer/ultisnips', opt=true }
-    use 'L3MON4D3/LuaSnip'
+    use({ 'SirVer/ultisnips', opt = true })
+    use('L3MON4D3/LuaSnip')
 
     -- useful keybind {{{1
-    use {
+    use({
       'numToStr/Comment.nvim',
       config = function()
         require('Comment').setup({
           pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
         })
-      end
-    }
-    use {
+      end,
+    })
+    use({
       'andymass/vim-matchup',
       config = function()
         vim.g.matchup_matchparen_offscreen = {}
       end,
-    }
-    use 'tpope/vim-surround'
-    use 'tpope/vim-repeat'
-    use {
+    })
+    use('tpope/vim-surround')
+    use('tpope/vim-repeat')
+    use({
       'mattn/emmet-vim',
       ft = {
         'html',
         'css',
         'php',
       },
-    }
+    })
 
     -- note plugin {{{1
-    use 'ledger/vim-ledger'
-    use {
+    use('ledger/vim-ledger')
+    use({
       'nvim-neorg/neorg',
-      run = ":Neorg sync-parsers",
+      run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
-    }
-    use 'mickael-menu/zk-nvim'
-    use 'jbyuki/nabla.nvim'
-
+    })
+    use('mickael-menu/zk-nvim')
+    use('jbyuki/nabla.nvim')
 
     -- miscellaneous {{{1
-    use {
+    use({
       'norcalli/nvim-colorizer.lua',
-      config = function() require('colorizer').setup() end,
-    }
-    use {
+      config = function()
+        require('colorizer').setup()
+      end,
+    })
+    use({
       'tpope/vim-eunuch',
       cmd = {
         'Delete',
@@ -327,16 +350,16 @@ return require('packer').startup({
         'SudoEdit',
         'SudoWrite',
       },
-    }
-    use {
+    })
+    use({
       'davidgranstrom/nvim-markdown-preview',
-      cmd = 'MarkdownPreview'
-    }
-    use 'seandewar/killersheep.nvim'
-    use 'alec-gibson/nvim-tetris'
+      cmd = 'MarkdownPreview',
+    })
+    use('seandewar/killersheep.nvim')
+    use('alec-gibson/nvim-tetris')
     -- }}}
   end,
   config = {
-    compile_path = vim.fn.stdpath('config')..'/plugin/packer_compiled.lua'
+    compile_path = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua',
   },
 })

@@ -19,16 +19,15 @@ return {
     i(0),
     newline('},'),
   }),
-},
-  {
-    -- auto snippets
-    s('rels', {
-      t({
-        'return {',
-        '  -- normal snippets',
-        '}, {',
-        '  -- auto snippets',
-        '}',
-      }),
+}, {
+  -- auto snippets
+  s('rels', {
+    t({
+      'return {',
+      '  -- normal snippets',
+      '}, {',
+      '  -- auto snippets',
+      '}',
     }),
-  }
+  }),
+}

@@ -52,7 +52,6 @@ return {
       '</jnlp>',
     }),
   }),
-},
-  {
-    -- auto snippets
-  }
+}, {
+  -- auto snippets
+}

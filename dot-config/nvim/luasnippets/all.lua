@@ -51,7 +51,6 @@ return {
       '  vim:tw=78:ts=8:ft=help:norl:',
     }),
   }),
-},
-  {
-    -- auto snippets
-  }
+}, {
+  -- auto snippets
+}

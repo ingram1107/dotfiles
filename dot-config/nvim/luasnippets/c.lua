@@ -19,7 +19,6 @@ return {
     i(0),
     newline('}'),
   }),
-},
-  {
-    -- auto snippets
-  }
+}, {
+  -- auto snippets
+}

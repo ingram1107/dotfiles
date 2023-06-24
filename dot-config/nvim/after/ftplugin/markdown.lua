@@ -5,7 +5,7 @@ vim.wo.wrap = true
 vim.bo.textwidth = 80
 
 -- activate zk.nvim
-vim.cmd("ZkSetup")
+vim.cmd('ZkSetup')
 
 -- magma mapping
 vim.keymap.set('n', '<leader>r', ':MagmaEvaluateOperator<cr>', { buffer = true, silent = true, expr = true })
@@ -45,5 +45,5 @@ if require('zk.util').notebook_root(vim.fn.expand('%:p')) ~= nil then
 end
 
 -- markdownpreview mapping
-vim.keymap.set('n', 'm<cr>', ':MarkdownPreview<cr>', { buffer = true, silent = true });
-vim.keymap.set('n', 'm<space>', ':MarkdownPreview ', { buffer = true });
+vim.keymap.set('n', 'm<cr>', ':MarkdownPreview<cr>', { buffer = true, silent = true })
+vim.keymap.set('n', 'm<space>', ':MarkdownPreview ', { buffer = true })
