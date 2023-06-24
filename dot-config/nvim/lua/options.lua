@@ -54,7 +54,7 @@ vim.o.foldexpr = vim.treesitter.foldexpr()
 vim.o.foldlevelstart = 99
 vim.o.foldtext = 'v:lua.simple_fold()'
 
--- disable netrw
+-- disable netrw {{{1
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -165,7 +165,7 @@ vim.api.nvim_create_autocmd('BufRead', {
   group = view_group,
 })
 
--- nvim-tree auto close
+-- nvim-tree auto close {{{1
 -- TODO: inconsistent behaviour across Vimscript and Lua
 local nvim_tree_group = vim.api.nvim_create_augroup('NvimTreeAutoClose', { clear = true })
 
