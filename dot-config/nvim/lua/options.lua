@@ -50,7 +50,7 @@ end
 
 vim.o.foldenable = true
 vim.o.foldmethod = 'expr'
-vim.o.foldexpr = vim.treesitter.foldexpr()
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldlevelstart = 99
 vim.o.foldtext = 'v:lua.simple_fold()'
 
