@@ -5,6 +5,7 @@ return {
   s('main', {
     t('int main(int argc, char** argv)'),
     newline('{'),
+    newline(''),
     i(0),
     newline('}'),
   }),
@@ -16,6 +17,7 @@ return {
     i(3),
     t(')'),
     newline('{'),
+    newline(''),
     i(0),
     newline('}'),
   }),
