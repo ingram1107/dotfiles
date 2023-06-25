@@ -25,7 +25,7 @@
        ["dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP"
         (.. (.. "swayidle timeout 300 '" waylock) "'")
         "waybar -c ~/.config/waybar/river/config -s ~/.config/waybar/river/style.css"
-        "fctix5 -d"
+        "fcitx5 -d"
         "dunst"
         "picom"
         "thunar --daemon"
