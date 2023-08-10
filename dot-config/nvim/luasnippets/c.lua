@@ -9,7 +9,26 @@ return {
     i(0),
     newline('}'),
   }),
+}, {
+  -- auto snippets
   s('fn', {
+    t({
+      "/**",
+      " * ",
+    }),
+    i(4, "Description"),
+    newline(''),
+    t(' *'),
+    newline(''),
+    f(function (args, parent, user_args)
+      if args[1][1] == "void" then
+        return ""
+      else
+        return " * @return " .. args[1][1]
+      end
+    end, {1}, {}),
+    t(' */'),
+    newline(''),
     i(1, 'void'),
     t(' '),
     i(2, 'func'),
@@ -21,6 +40,16 @@ return {
     i(0),
     newline('}'),
   }),
-}, {
-  -- auto snippets
+  s('ifndef', {
+    t({
+      '#ifndef ' .. string.upper(vim.fn.expand('%:t:r') .. '_h'),
+      '#define ' .. string.upper(vim.fn.expand('%:t:r') .. '_h'),
+    }),
+    newline(''),
+    newline(''),
+    i(0),
+    newline(''),
+    newline(''),
+    t('#endif'),
+  }),
 }

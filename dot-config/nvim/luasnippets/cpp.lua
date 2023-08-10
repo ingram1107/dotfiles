@@ -9,6 +9,8 @@ return {
     i(0),
     newline('}'),
   }),
+}, {
+  -- auto snippets
   s('fn', {
     i(1, 'void'),
     t(' '),
@@ -21,6 +23,10 @@ return {
     i(0),
     newline('}'),
   }),
-}, {
-  -- auto snippets
+  s('ifndef', {
+    t('#ifndef ' .. string.upper(vim.fn.expand('%:t:r') .. '_h')),
+    t('#define ' .. string.upper(vim.fn.expand('%:t:r') .. '_h')),
+    newline(''),
+    t('#endif'),
+  }),
 }
