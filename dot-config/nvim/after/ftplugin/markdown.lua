@@ -5,7 +5,7 @@ vim.wo.wrap = true
 vim.bo.textwidth = 80
 
 -- activate zk.nvim
-vim.cmd('ZkSetup')
+require('zk').setup({ picker = 'telescope' })
 
 -- magma mapping
 vim.keymap.set('n', '<leader>r', ':MagmaEvaluateOperator<cr>', { buffer = true, silent = true, expr = true })
