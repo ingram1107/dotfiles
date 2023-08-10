@@ -45,15 +45,19 @@
                    :preferred true}})
 
 (local inputs
-       {:pointer-10182-480-GXTP7863:00_27C6:01E0_Touchpad {:events                "disable-on-external-mouse"
-                                                           :drag                  "enabled"
-                                                           :drag-lock             "enabled"
-                                                           :tap                   "enabled"
-                                                           :tap-button-map        "left-right-middle"
-                                                           :disable-while-typeing "enabled"
-                                                           :click-method          "clickfinger"
-                                                           :natural-scroll        "enabled"
-                                                           :scroll-method         "two-finger"}})
+       {:pointer-10182-480-GXTP7863:00_27C6:01E0_Touchpad   {:events                "disable-on-external-mouse"
+                                                             :drag                  "enabled"
+                                                             :drag-lock             "enabled"
+                                                             :tap                   "enabled"
+                                                             :tap-button-map        "left-right-middle"
+                                                             :disable-while-typing  "enabled"
+                                                             :click-method          "clickfinger"
+                                                             :natural-scroll        "enabled"
+                                                             :scroll-method         "two-finger"}
+        :pointer-10429-2352-UGTABLET_4_inch_PenTablet_Mouse {:events                "enabled"
+                                                             :drag                  "enabled"
+                                                             :drag-lock             "enabled"
+                                                             :click-method          "button-areas"}})
 
 (local keyboard-options
        {:model    "pc105"
