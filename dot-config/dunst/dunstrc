@@ -50,8 +50,8 @@
 
 
     # The geometry of the window
-    width = 6
-    height = 4
+    width = 300
+    height = 200
     offset = 5x5
     origin = top-right
 
