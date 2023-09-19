@@ -68,6 +68,7 @@ vim.g.projectionist_heuristics = {
 
 -- origin conf
 require('origin').setup({
+  git = true,
   default_source = {
     c = { 'src', 'lib', 'test' },
     cpp = { 'src', 'lib', 'test' },
