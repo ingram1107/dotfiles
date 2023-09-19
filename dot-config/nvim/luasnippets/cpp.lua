@@ -25,6 +25,7 @@ return {
   }),
   s('ifndef', {
     t('#ifndef ' .. string.upper(vim.fn.expand('%:t:r') .. '_h')),
+    newline(''),
     t('#define ' .. string.upper(vim.fn.expand('%:t:r') .. '_h')),
     newline(''),
     t('#endif'),
