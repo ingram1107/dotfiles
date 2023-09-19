@@ -16,7 +16,7 @@ return require('packer').startup({
     })
 
     -- theme {{{1
-    use('ingram1107/vim-zhi')
+    use('~/Projects/vim-zhi')
 
     -- statusline and tabline {{{1
     use('nvim-lualine/lualine.nvim')
@@ -327,6 +327,48 @@ return require('packer').startup({
       'nvim-neorg/neorg',
       run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
+      config = function ()
+        require('neorg').setup({
+          load = {
+            ['core.defaults'] = {},
+            ['core.keybinds'] = {
+              config = {
+                default_keybinds = true,
+              },
+            },
+            ['core.completion'] = {
+              config = {
+                engine = 'nvim-cmp',
+              },
+            },
+            ['core.concealer'] = {},
+            ['core.esupports.metagen'] = {
+              config = {
+                type = 'auto',
+              },
+            },
+            ['core.dirman'] = {
+              config = {
+                workspaces = {
+                  notes = os.getenv('HOME') .. '/Documents/Notes',
+                  diary = os.getenv('HOME') .. '/Diaries',
+                },
+                autodetect = true,
+                autochdir = true,
+                index = 'index.norg',
+                last_workspace = vim.fn.stdpath('cache') .. '/neorg_last_workspace.txt',
+              },
+            },
+            ['core.journal'] = {
+              config = {
+                workspace = 'diary',
+                journal_folder = nil,
+                use_folders = true,
+              },
+            },
+          },
+        })
+      end
     })
     use('mickael-menu/zk-nvim')
     use('jbyuki/nabla.nvim')
