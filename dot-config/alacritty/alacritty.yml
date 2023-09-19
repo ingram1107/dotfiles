@@ -26,7 +26,7 @@ font:
     style: Bold Italic
   size: 12
 
-# Colors (Monokai)
+# Colors (Zhi)
 colors:
   primary:
     background: '#fbf7b7'
