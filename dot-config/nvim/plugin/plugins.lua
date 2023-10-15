@@ -16,7 +16,7 @@ return require('packer').startup({
     })
 
     -- theme {{{1
-    use('~/Projects/vim-zhi')
+    use('ingram1107/vim-zhi')
 
     -- statusline and tabline {{{1
     use('nvim-lualine/lualine.nvim')
