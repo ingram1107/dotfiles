@@ -318,6 +318,8 @@ return require('packer').startup({
         'html',
         'css',
         'php',
+        'xml',
+        'xslt',
       },
     })
 
