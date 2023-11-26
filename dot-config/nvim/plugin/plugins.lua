@@ -61,10 +61,15 @@ return require('packer').startup({
       requires = {
         'nvim-treesitter/nvim-treesitter-textobjects',
         'romgrk/nvim-treesitter-context',
-        'JoosepAlviste/nvim-ts-context-commentstring',
         'nvim-treesitter/playground',
       },
       run = ':TSUpdate',
+    })
+    use ({
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      config = function()
+        vim.g.skip_ts_context_commentstring_module = true
+      end
     })
     use({
       'romgrk/nvim-treesitter-context',
