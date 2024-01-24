@@ -13,16 +13,16 @@ cursor:
 # Font
 font:
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: monospace
     style: Regular
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: monospace
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: monospace
     style: Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: monospace
     style: Bold Italic
   size: 12
 
