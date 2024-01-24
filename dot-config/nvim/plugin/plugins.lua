@@ -24,9 +24,11 @@ return require('packer').startup({
       'j-hui/fidget.nvim',
       config = function()
         require('fidget').setup({
-          window = {
-            blend = 50, -- makes it transparent
-          },
+          notification = {
+            window = {
+              winblend = 50, -- makes it transparent
+            },
+          }
         })
       end,
     })
@@ -334,6 +336,7 @@ return require('packer').startup({
       'nvim-neorg/neorg',
       run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
+      ft = 'norg',
       config = function ()
         require('neorg').setup({
           load = {
