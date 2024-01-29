@@ -300,7 +300,11 @@ return require('packer').startup({
 
     -- snippet support {{{1
     use({ 'SirVer/ultisnips', opt = true })
-    use('L3MON4D3/LuaSnip')
+    use({
+      'L3MON4D3/LuaSnip',
+      tag = "v2.*",
+      run = "make install_jsregexp"
+    })
 
     -- useful keybind {{{1
     use({
