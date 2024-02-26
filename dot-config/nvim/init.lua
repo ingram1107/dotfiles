@@ -11,6 +11,10 @@ if vim.fn.isdirectory(packer_path) == 0 then
   ]])
 end
 
+if vim.loader then
+  vim.loader.enable()
+end
+
 -- basic settings
 vim.loader.enable()
 require('options')
