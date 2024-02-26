@@ -152,9 +152,7 @@
           (binds "Super"              "W"                     (spawn (os.getenv "BROWSER")))
           (binds "Super"              "Y"                     (spawn "open-yt"))
           (binds "Super"              "E"                     (spawn "element-desktop"))
-          (binds "Super"              "Print"                 (spawn (.. (.. (.. "grim " "$HOME/Pictures/") (os.date "%Y%m%d-%H%M%S")) ".png")))
-          ;;TODO
-          (binds "Super+Shift"        "Print"                 (spawn (.. (.. (.. "grim -g '$\\(slurp\\)' " "$HOME/Pictures/") (os.date "%Y%m%d-%H%M%S")) ".png")))]}
+          (binds "Super"              "Print"                 (spawn "screenshot"))]}
 
         ;; Mouse bindings
         :map-pointer
