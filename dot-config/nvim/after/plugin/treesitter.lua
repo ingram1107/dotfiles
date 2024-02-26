@@ -20,10 +20,12 @@ require('nvim-treesitter.configs').setup({
     'html',
     'yaml',
     'python',
+    'org'
   },
   highlight = {
     enable = true,
     disable = {},
+    additional_vim_regex_highlighting = { 'org' },
   },
   incremental_selection = {
     enable = true,
