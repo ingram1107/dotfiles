@@ -1,0 +1,238 @@
+#!/usr/bin/fennel
+
+;; Wrappers
+(fn concat [list sep i j ...]
+  (if (= (type list) :table)
+      (table.concat list sep i j)
+      (tostring list)))
+
+(fn binds [mod key command ?opt]
+  {:mod     mod
+   :key     key
+   :command command
+   :opt     ?opt})
+
+(fn spawn [cmd]
+  (.. (.. (.. "spawn " "\"") cmd) "\""))
+
+;; Configurations
+(local wl-script-dir (.. (os.getenv "HOME") "/.local/libexec/wayland"))
+(local drun-menu "rofi -show drun")
+(local run-menu "rofi -show run")
+(local waylock "waylock -init-color 0x9ed2c6 -input-color 0xfbf7b7 -fail-color 0x57021e")
+
+(local startup-commands
+       ["dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP='river'"
+        "systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr"
+        "systemctl --user start wireplumber"
+        (.. (.. "swayidle timeout 6000 '" waylock) "'")
+        "waybar -c ~/.config/waybar/river/config -s ~/.config/waybar/river/style.css"
+        "fcitx5 -d"
+        "dunst"
+        "picom"
+        "thunar --daemon"
+        "swaybg -i ~/Pictures/wallpaper.jpg -m fill"])
+
+(local outputs
+       {:eDP-1    {:mode      "1920x1080"
+                   :pos       "1920,0"
+                   :transform "normal"
+                   :scale     "1.000000"
+                   :preferred true}
+
+        :HDMI-A-1 {:mode      "1920x1080"
+                   :pos       "0,0"
+                   :transform "normal"
+                   :scale     "1.000000"
+                   :preferred true}})
+
+(local inputs
+       {:pointer-10182-480-GXTP7863:00_27C6:01E0_Touchpad   {:events                "disable-on-external-mouse"
+                                                             :drag                  "enabled"
+                                                             :drag-lock             "enabled"
+                                                             :tap                   "enabled"
+                                                             :tap-button-map        "left-right-middle"
+                                                             :disable-while-typing  "enabled"
+                                                             :click-method          "clickfinger"
+                                                             :natural-scroll        "enabled"
+                                                             :scroll-method         "two-finger"}
+        :pointer-10429-2352-UGTABLET_4_inch_PenTablet_Mouse {:events                "enabled"
+                                                             :drag                  "enabled"
+                                                             :drag-lock             "enabled"
+                                                             :click-method          "button-areas"}})
+
+(local keyboard-options
+       {:model    "pc105"
+        :options  "ctrl:swapcaps,grp:alt_shift_toggle"
+        :layouts  "us,epo,fr,de"})
+
+(local river-options
+       {:border-width 2
+        :border-color-focused   "0xf6ee65"
+        :border-color-unfocused "0xfbf7b7"
+        :border-color-urgent    "0x57021e"
+        :xcursor-theme          nil
+        :background-color       "0xfbf7b7"
+        :set-repeat             [50 300]
+        :focus-follows-cursor   "normal"
+        :set-cursor-warp        "on-output-change"
+        :attach-mode            "bottom"
+        :default-layout         "rivertile"})
+
+(local gsettings
+       {:org.gnome.desktop.interface {:icon-theme  "Papirus"}})
+
+(local window-rules
+       {:float-filter-add {:app-id  []
+                           :title   ["Picture-in-Picture"]}
+        :csd-filter-add   {:app-id  []}})
+
+(local modes
+       {:passthrough
+        {:name  "passthrough"
+         :mod   "Super"
+         :key   "F11"}})
+
+(local mappings
+       ;; Keyboard bindings
+       {:map
+        {:normal
+         [;; Riverwm's programs
+          (binds "Super"              "Q"                     "close")
+          (binds "Super+Shift"        "Q"                     (spawn "riverctl exit"))
+
+          ;; Layout control
+          (binds "Super"              "J"                     "focus-view previous")
+          (binds "Super"              "K"                     "focus-view next")
+          (binds "Super+Shift"        "J"                     "swap previous")
+          (binds "Super+Shift"        "K"                     "swap next")
+          (binds "Super"              "P"                     "focus-output previous")
+          (binds "Super"              "N"                     "focus-output next")
+          (binds "Super+Shift"        "P"                     "send-to-output previous")
+          (binds "Super+Shift"        "N"                     "send-to-output next")
+          (binds "Super"              "Z"                     "zoom")
+          (binds "Super"              "H"                     "send-layout-cmd rivertile main-ratio -0.02")
+          (binds "Super"              "L"                     "send-layout-cmd rivertile main-ratio +0.02")
+          (binds "Super+Shift"        "H"                     "send-layout-cmd rivertile main-count +1")
+          (binds "Super+Shift"        "L"                     "send-layout-cmd rivertile main-count -1")
+          (binds "Control+Alt"        "H"                     "send-layout-cmd rivertile main-location left")
+          (binds "Control+Alt"        "J"                     "send-layout-cmd rivertile main-location bottom")
+          (binds "Control+Alt"        "K"                     "send-layout-cmd rivertile main-location top")
+          (binds "Control+Alt"        "L"                     "send-layout-cmd rivertile main-location right")
+          (binds "Super+Alt"          "H"                     "move left 100")
+          (binds "Super+Alt"          "J"                     "move down 100")
+          (binds "Super+Alt"          "K"                     "move up 100")
+          (binds "Super+Alt"          "L"                     "move right 100")
+          (binds "Super+Control"      "H"                     "resize horizontal -100")
+          (binds "Super+Control"      "J"                     "resize vertical 100")
+          (binds "Super+Control"      "K"                     "resize vertical -100")
+          (binds "Super+Control"      "L"                     "resize horizontal 100")
+          (binds "Super+Alt+Control"  "H"                     "snap left")
+          (binds "Super+Alt+Control"  "J"                     "snap down")
+          (binds "Super+Alt+Control"  "K"                     "snap up")
+          (binds "Super+Alt+Control"  "L"                     "snap right")
+          (binds "Super"              "Space"                 "toggle-float")
+          (binds "Super"              "F"                     "toggle-fullscreen")
+
+          ;; Media control
+          (binds "None"               "XF86Eject"             (spawn "eject -T"))
+          (binds "None"               "XF86AudioRaiseVolume"  (spawn "pamixer -i 5") "repeat")
+          (binds "None"               "XF86AudioLowerVolume"  (spawn "pamixer -d 5") "repeat")
+          (binds "None"               "XF86AudioMute"         (spawn "pamixer -t"))
+          (binds "None"               "XF86AudioMicMute"      (spawn "pamixer --source 2 -t"))
+          (binds "None"               "XF86MonBrightnessUp"   (spawn "light -A 5") "repeat")
+          (binds "None"               "XF86MonBrightnessDown" (spawn "light -U 5") "repeat")
+
+          ;; System control
+          (binds "Super"              "X"                     (spawn waylock))
+
+          ;; Application programs
+          (binds "Super"              "Return"                (spawn "alacritty -e tmux"))
+          (binds "Super"              "R"                     (spawn drun-menu))
+          (binds "Super"              "W"                     (spawn (os.getenv "BROWSER")))
+          (binds "Super"              "Y"                     (spawn "open-yt"))
+          (binds "Super"              "E"                     (spawn "element-desktop"))
+          (binds "Super"              "Print"                 (spawn "screenshot"))]}
+
+        ;; Mouse bindings
+        :map-pointer
+        {:normal
+         [(binds "Super"              "BTN_LEFT"              "move-view")
+          (binds "Super"              "BTN_RIGHT"             "resize-view")]}})
+
+(fn tag-mappings []
+  (for [i 1 9 1]
+    (let [tag-num (lshift 1 (- i 1))]
+      (os.execute (string.format "riverctl map normal Super %s set-focused-tags %s" i tag-num))
+      (os.execute (string.format "riverctl map normal Super+Shift %s set-view-tags %s" i tag-num))
+      (os.execute (string.format "riverctl map normal Super+Control %s toggle-focused-tags %s" i tag-num))
+      (os.execute (string.format "riverctl map normal Super+Alt %s toggle-view-tags %s" i tag-num)))
+    (let [all-tags (- (lshift 1 32) 1)]
+      (os.execute (string.format "riverctl map normal Super 0 set-focused-tags %s" all-tags))
+      (os.execute (string.format "riverctl map normal Super+Shift 0 set-view-tags %s" all-tags)))))
+
+;; Apply settings
+;;; Startup commands
+(each [_ cmd (ipairs startup-commands)]
+  (os.execute (string.format "riverctl %s" (spawn cmd))))
+
+;;; Output devices configurations
+(var randr-cmd "wlr-randr")
+(each [output options (pairs outputs)]
+  (set randr-cmd (.. (.. randr-cmd " --output") output))
+  (each [opt val (pairs options)]
+    (when (not= opt "preferred")
+      (set randr-cmd (string.format (.. randr-cmd " --%s %s") opt val))))
+  (when options.preferred?
+    (set randr-cmd (.. randr-cmd "--preferred"))))
+
+;;; Input devices configurations
+(each [dev options (pairs inputs)]
+  (each [key val (pairs options)]
+    (os.execute (string.format "riverctl input %s %s %s" dev key val))))
+
+;;; Keyboard set-up
+(os.execute (string.format "riverctl keyboard-layout -model %s -options %s %s" keyboard-options.model keyboard-options.options keyboard-options.layouts))
+
+;;; GNOME settings
+(each [group tbl (pairs gsettings)]
+  (each [key val (pairs tbl)]
+    (os.execute (string.format "gsettings set %s %s %s" group key val))))
+
+;;; Riverwm's options
+(each [key val (pairs river-options)]
+  (os.execute (string.format "riverctl %s %s" key (concat val " "))))
+
+;;; Additional modes
+(each [_ mode (ipairs modes)]
+  (let [mode-name mode.name
+        modifiers (concat mode.mod "+")]
+    (os.execute (.. "riverctl declare-mode " mode-name))
+    (os.execute (string.format "riverctl map normal %s %s enter-mode %s" modifiers mode.key mode-name))
+    (os.execute (string.format "riverctl map %s %s %s enter-mode normal" mode-name modifiers mode.key))))
+
+;;; Setting up keybaord and mouse bindings
+(each [map-type tbl (pairs mappings)]
+  (each [mode val (pairs tbl)]
+    (each [_ binding (ipairs val)]
+      (let [modifiers (concat binding.mod "+")
+            cmd (concat binding.command " ")
+            opt binding.opt]
+        (if (and (not= opt "release") (not= opt "repeat"))
+            (os.execute (string.format "riverctl %s %s %s %s %s %s" map-type "" mode modifiers binding.key cmd))
+            (os.execute (string.format "riverctl %s %s %s %s %s %s" map-type (.. "-" opt) mode modifiers binding.key cmd)))))))
+
+(tag-mappings)
+
+;;; Window rules
+(each [key val (pairs window-rules)]
+  (each [type patterns (pairs val)]
+    (each [_ pat (ipairs patterns)]
+      (os.execute (string.format "riverctl %s %s %s" key type pat)))))
+
+(local unistd (require :posix.unistd))
+(unistd.execp "rivertile" {:-view-padding   5
+                           :-outer-padding  5
+                           :-main-location  "left"
+                           :-main-count     1
+                           :-main-ratio     0.54})

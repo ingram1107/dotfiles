@@ -1,0 +1,10 @@
+set mutt_command=neomutt
+set add_email_prevent_duplicates=true
+set use_colors=true
+set color_header_fg=white
+set color_header_bg=black
+set color_list_header_fg=black
+set color_list_header_bg=red
+set color_list_even_fg=white
+set color_list_highlight_bg=yellow
+set color_field_name_fg=blue

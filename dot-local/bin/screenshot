@@ -1,0 +1,16 @@
+#!/usr/bin/fish
+
+set pic_path (xdg-user-dir PICTURES)
+set option (echo -e "Whole Screen\nSelected Area\nExit" | rofi -i -dmenu -p "Screenshot option:")
+
+if [ $option = "Whole Screen" ]
+  set pic "$pic_path/$(date +'%Y%m%d-%H%M%S').png"
+  grim "$pic"
+  dunstify -a 'grim' -u 0 -t 1000 "Screenshot $pic"
+else if [ $option = "Selected Area" ]
+  set pic "$pic_path/$(date +'%Y%m%d-%H%M%S').png"
+  grim -g (slurp) "$pic"
+  dunstify -a 'grim' -u 0 -t 1000 "Screenshot $pic"
+else
+  exit 0
+end

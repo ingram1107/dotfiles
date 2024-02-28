@@ -1,0 +1,12 @@
+[Unit]
+Description=GnuPG cryptographic agent and passphrase cache
+Documentation=man:gpg-agent(1)
+
+[Socket]
+ListenStream=/run/user/1001/gnupg/d.ipbgxpodmdn7oycax45uc7bk
+FileDescriptorName=std
+SocketMode=0600
+DirectoryMode=0700
+
+[Install]
+WantedBy=sockets.target

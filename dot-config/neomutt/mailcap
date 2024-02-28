@@ -1,0 +1,8 @@
+text/html; cp %s /tmp/mail.html && setsid -f $BROWSER /tmp/mail.html > /dev/null 2>&1 && disown &; copiousoutput;
+text/plain; nvim %s;
+application/pdf; zathura %s > /dev/null 2>&1 &;
+application/vnd.ms-powerpoint; nohup soffice %s > /dev/null 2>&1 && disown &;
+video/mpv; nohup mpv %s > /dev/null 2>&1 && disown &;
+video/webm; nohup mpv %s > /dev/null 2>&1 && disown &;
+image/jpeg; nohup feh %s > /dev/null 2>&1 && disown &;
+image/png; nohup feh %s > /dev/null 2>&1 && disown &;

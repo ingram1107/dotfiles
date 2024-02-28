@@ -1,0 +1,13 @@
+[Unit]
+Description=Mailbox synchronisation service
+
+[Service]
+Environment=XAUTHORITY=%h/.Xauthority
+Environment=DISPLAY=:0
+Type=oneshot
+ExecStart=/usr/bin/mbsync -Va -c "/home/clover/.config/isync/mbsyncrc"
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

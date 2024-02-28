@@ -1,0 +1,12 @@
+defaults
+auth on
+tls on
+tls_trust_file /somewhere/somecert.crt
+logfile ~/.local/share/msmtp/log
+
+account example
+host smtp.example.com
+port 587
+from example@example.com
+user example@example.com
+passwordeval "gpg --quiet --for-your-eyes-only --no-tty --decrypt $XDG_CONFIG_HOME/msmtp/example.gpg"

@@ -1,0 +1,4 @@
+#!/bin/fish
+# Author: Arch wiki
+
+pacman -Slq | fzf --multi --reverse --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S

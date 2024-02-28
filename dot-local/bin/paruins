@@ -1,0 +1,5 @@
+#!/bin/fish
+# Author: littleclover
+# Based on Arch wiki
+
+paru -Slq | fzf --multi --reverse --preview 'paru -Si {1}' | xargs -ro paru -S

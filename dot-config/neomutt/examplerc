@@ -1,0 +1,131 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set editor=`echo \$EDITOR`
+set spoolfile = +Inbox
+set postponed = +Drafts
+
+## General options
+set header_cache = `echo \$XDG_CACHE_HOME/neomutt`
+set message_cachedir = `echo \$XDG_CACHE_HOME/neomutt`
+set imap_check_subscribed
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
+set mbox_type=Maildir
+set use_from = yes
+set sendmail = "/usr/bin/msmtp"
+set mailcap_path = `echo \$XDG_CONFIG_HOME/neomutt/mailcap`
+auto_view text/html
+alternative_order text/plain text/html
+set fast_reply = yes
+set include = no
+
+## Abook
+set query_command = "abook --config '$XDG_CONFIG_HOME/abook/abookrc' --datafile '$XDG_DATA_HOME/abook/addressbook' --mutt-query '%s'"
+macro index,pager a "<pipe-message>abook --config '$XDG_CONFIG_HOME/abook/abookrc' --datafile '$XDG_DATA_HOME/abook/addressbook' --add-email-quiet<return>" "Add this sender to Abook"
+bind editor <Tab> complete-query
+
+bind editor <space> noop
+bind index j next-entry
+bind index k previous-entry
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+bind index,pager g noop
+bind index G last-entry
+bind index gg first-entry
+bind pager,attach h exit
+bind pager G bottom
+bind pager gg top
+bind pager j next-line
+bind pager k previous-line
+bind pager l view-attachments
+bind pager d next-page
+bind pager u previous-page
+bind index d half-down
+bind index u half-up
+bind index,pager D delete-message
+bind index,pager U undelete-message
+bind index L limit
+bind index h noop
+bind index l display-message
+bind index,pager Y copy-message
+bind browser l select-entry
+bind browser h goto-parent
+bind browser gg first-entry
+bind browser G last-entry
+
+macro index gi "<change-folder>=Inbox<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent mail"
+macro index gS "<change-folder>=[Gmail]/Spam<enter>" "Go to spam"
+macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
+macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro pager gu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro index h '<change-folder>?<change-dir><home>^K=<enter>'
+
+set date_format="%y/%m/%d %I:%M%p"
+set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set sort = 'reverse-date'
+
+# Add Gray colors
+set my_gray = "color239"
+set my_bold_gray = "brightcolor239"
+
+# Default index colors:
+color index red default '.*'
+color index_author white default '.*'
+color index_number $my_gray default
+color index_subject yellow default '.*'
+
+# New mail is boldened:
+color index brightred default "~N"
+color index_author brightwhite default "~N"
+color index_subject brightyellow default "~N"
+
+# Tagged mail is highlighted:
+color index default yellow "~T"
+color index_author default yellow "~T"
+color index_subject default yellow "~T"
+
+# Other colors and aesthetic settings:
+mono bold bold
+mono underline underline
+mono indicator reverse
+mono error bold
+color normal default default
+color indicator black yellow
+color error red default
+color tilde white default
+color message white default
+color markers red $my_gray
+color attachment blue default
+color search black yellow
+color status black red
+color hdrdefault brightblue default
+color quoted $my_gray default
+color quoted1 $my_gray default
+color quoted2 $my_gray default
+color quoted3 $my_gray default
+color quoted4 $my_gray default
+color quoted5 $my_gray default
+color signature magenta default
+color bold white default
+color underline white default
+color normal default default
+
+# Regex highlighting:
+color header brightyellow default ".*"
+color body magenta default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
+color body magenta default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
+color body yellow default "\`[^\`]*\`" # text between ` and `
+color body brightgreen default "^#* \.*" # Headings
+color body yellow default "^(\t| )*(-|\\*) \.*" # List items
+color body red default "(BAD signature)"
+color body green default "(Good signature)"
+color body green default "^gpg: Good signature .*"
+color body white default "^gpg: "
+color body white red "^gpg: BAD signature from.*"
+mono body bold "^gpg: Good signature"
+mono body bold "^gpg: BAD signature from.*"
+color body magenta default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+color body magenta default "image: [\-\.a-zA-Z0-9]+"

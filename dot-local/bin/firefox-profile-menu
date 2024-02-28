@@ -1,0 +1,7 @@
+#!/bin/fish
+
+set opt (echo -e "daily\nsocial\nprivate" | rofi -i -dmenu -p "firefox profiles")
+
+if [ $opt != "" ]
+  firefox -p $opt
+end

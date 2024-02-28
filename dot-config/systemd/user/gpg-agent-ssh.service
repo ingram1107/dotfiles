@@ -1,0 +1,11 @@
+[Unit]
+Description=gpg-agent Daemon with SSH Support
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/gpg-agent --quiet --daemon --enable-ssh-support
+ExecReload=/usr/bin/gpgconf --reload gpg-agent
+Restart=on-success
+
+[Install]
+WantedBy=default.target
