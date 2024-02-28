@@ -1,3 +1,0 @@
-#!/bin/fish
-
-nvim (fd ".ledger" "$HOME/Documents/Ledgers/" | fzf --reverse --preview 'bat {}')
