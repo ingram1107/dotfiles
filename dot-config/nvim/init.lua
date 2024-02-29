@@ -26,6 +26,3 @@ end
 vim.loader.enable()
 require('options')
 require('keymaps')
-
--- orgmode setup
-require('orgmode').setup_ts_grammar()
