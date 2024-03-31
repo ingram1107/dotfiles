@@ -267,8 +267,11 @@ require('lazy').setup{
   -- snippet support {{{1
   {
     'L3MON4D3/LuaSnip',
-    tag = 'v2.*',
+    tag = 'v2.2.0',
     build = 'make install_jsregexp',
+    config = function()
+      require('luasnip.loaders.from_lua').load({ paths = '~/.config/nvim/luasnippets/' })
+    end,
   },
 
   -- useful keybind {{{1
