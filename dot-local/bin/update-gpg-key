@@ -1,0 +1,22 @@
+#!/usr/bin/fish
+
+echo "update-gpg-key: Updating GPG key"
+gpg --full-gen-key
+read -l -p "Enter the newly created  GPG key's fingerprint: " key_fpr
+echo "update-gpg-key: Reinitialising pass GPG key..."
+pass init $key_fpr
+echo "update-gpg-key: Updating isync GPG-encrypted files..."
+pass show mail/oath/littleclover909@gmail.com > /tmp/littleclover909@gmail.com
+gpg --recipient $key_fpr --encrypt /tmp/littleclover909@gmail.com
+pass show mail/oath/pmarcilus@gmail.com > /tmp/pmarcilus@gmail.com
+gpg --recipient $key_fpr --encrypt /tmp/pmarcilus@gmail.com
+pass show mmu/1171103503 > /tmp/1171103503@student.mmu.edu.my
+gpg --recipient $key_fpr --encrypt /tmp/1171103503@student.mmu.edu.my
+mv /tmp/*.gpg $XDG_CONFIG_HOME/isync/
+echo "update-gpg-key: Updating msmtp GPG-encrypted files..."
+pass show mail/oath/littleclover909@gmail.com > /tmp/littleclover909@gmail.com
+gpg --recipient $key_fpr --encrypt /tmp/littleclover909@gmail.com
+pass show mail/oath/pmarcilus@gmail.com > /tmp/pmarcilus@gmail.com
+gpg --recipient $key_fpr --encrypt /tmp/pmarcilus@gmail.com
+mv /tmp/*.gpg $XDG_CONFIG_HOME/msmtp/
+echo "update-gpg-key: Done"
