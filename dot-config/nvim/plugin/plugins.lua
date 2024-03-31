@@ -1,5 +1,5 @@
 -- lazy conf
-require('lazy').setup{
+require('lazy').setup({
   -- theme {{{1
   'ingram1107/vim-zhi',
 
@@ -322,7 +322,7 @@ require('lazy').setup{
 
   {
     'tpope/vim-eunuch',
-    cmd  = {
+    cmd = {
       'Delete',
       'Unlink',
       'Remove',
@@ -339,4 +339,4 @@ require('lazy').setup{
   'alec-gibson/nvim-tetris',
 
   -- }}}
-}
+})
