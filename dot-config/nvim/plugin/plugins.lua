@@ -302,7 +302,6 @@ require('lazy').setup({
   {
     'nvim-orgmode/orgmode',
     config = function()
-      require('orgmode').setup_ts_grammar()
       require('orgmode').setup({
         org_agenda_files = '~/Org/**/*',
         org_default_notes_files = '~/Documents/Notes/index.org',
