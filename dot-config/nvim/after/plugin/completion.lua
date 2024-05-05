@@ -24,7 +24,6 @@ cmp.setup({
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'conjure' },
-    { name = 'neorg' },
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer', keyword_length = 5 },
