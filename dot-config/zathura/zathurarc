@@ -5,7 +5,7 @@ set recolor-darkcolor "#2a2c2b"
 set recolor-keephue
 set default-bg "#fbf7b7"
 set highlight-color "#f6ee65"
-set highlight-active-color "#DCA945"
+set highlight-active-color "rgba(220, 169, 69, 0.5)"
 set statusbar-bg "#fbf7b7"
 set statusbar-fg "#2a2c2b"
 set inputbar-bg "#f6ee65"
