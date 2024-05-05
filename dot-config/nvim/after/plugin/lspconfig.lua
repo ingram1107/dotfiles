@@ -167,3 +167,6 @@ lspconfig['ltex'].setup({
 
 -- Fennel: fennel-ls
 lspconfig['fennel_ls'].setup({})
+
+-- arduino_language_server: Arduino
+lspconfig['arduino_language_server'].setup({})
