@@ -10,15 +10,13 @@ cmp.setup({
     end,
   },
 
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<c-d>'] = cmp.mapping.scroll_docs(-4),
     ['<c-f>'] = cmp.mapping.scroll_docs(4),
     ['<c-l>'] = cmp.mapping.complete(),
     ['<c-e>'] = cmp.mapping.close(),
     ['<c-i>'] = cmp.mapping.confirm({ select = true }),
-    ['<c-n>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }), { 'i', 'c' }),
-    ['<c-p>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }), { 'i', 'c' }),
-  },
+  }),
 
   sources = cmp.config.sources({
     { name = 'nvim_lua' },
