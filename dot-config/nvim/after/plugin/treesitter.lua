@@ -13,7 +13,6 @@ require('nvim-treesitter.configs').setup({
     'vim',
     'vimdoc',
     'markdown',
-    'latex',
     'query',
     'make',
     'css',
