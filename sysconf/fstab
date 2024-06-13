@@ -1,0 +1,2 @@
+/uuid / btrfs rw,relatime,ssd,space_cache=v2,subvolid=5,subvol=/ 0 0
+/dev/zram0 none swap defaults,pri=100 0 0
