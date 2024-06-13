@@ -134,20 +134,21 @@
     max_icon_size=128
 
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#fbf7b7"
-    foreground = "#2a2c2b"
+    background = "#e9e9ec"
+    foreground = "#3760bf"
+    frame_color = "#3760bf"
     timeout = 10
 
 [urgency_normal]
-    background = "#fbf7b7"
-    foreground = "#021e57"
+    background = "#e1e2e7"
+    foreground = "#3760bf"
+    frame_color = "#3760bf"
     timeout = 10
 
 [urgency_critical]
-    background = "#fbf7b7"
-    foreground = "#57021e"
+    background = "#c4c8da"
+    foreground = "#c64343"
+    frame_color = "#c64343"
     timeout = 0
 
 

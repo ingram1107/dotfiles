@@ -90,9 +90,6 @@ vim.api.nvim_create_autocmd('TermLeave', {
 -- termdebug {{{1
 vim.g.termdebug_wide = 40
 
--- theme {{{1
-vim.cmd('colo zhi')
-
 -- tabline {{{1
 function _G.tabline()
   local s = ''
