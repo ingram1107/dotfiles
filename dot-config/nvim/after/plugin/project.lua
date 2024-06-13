@@ -67,18 +67,18 @@ vim.g.projectionist_heuristics = {
 }
 
 -- origin conf
-require('origin').setup({
-  git = true,
-  default_source = {
-    c = { 'src', 'lib', 'test' },
-    cpp = { 'src', 'lib', 'test' },
-    rust = { 'src', 'tests' },
-    lua = { 'lua', 'plugin', 'after' },
-    lisp = { 'src', 'test' },
-    vim = { 'after', 'autoload', 'plugin', 'colors', 'ftdetect', 'compiler' },
-    css = 'css',
-    scss = 'scss',
-    java = { 'src', 'test' },
-  },
-  prompt = false,
-})
+-- require('origin').setup({
+--   git = true,
+--   default_source = {
+--     c = { 'src', 'lib', 'test' },
+--     cpp = { 'src', 'lib', 'test' },
+--     rust = { 'src', 'tests' },
+--     lua = { 'lua', 'plugin', 'after' },
+--     lisp = { 'src', 'test' },
+--     vim = { 'after', 'autoload', 'plugin', 'colors', 'ftdetect', 'compiler' },
+--     css = 'css',
+--     scss = 'scss',
+--     java = { 'src', 'test' },
+--   },
+--   prompt = false,
+-- })

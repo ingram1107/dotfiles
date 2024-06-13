@@ -142,7 +142,7 @@ require('lazy').setup({
     end,
   },
 
-  'ingram1107/origin.nvim',
+  -- 'ingram1107/origin.nvim',
   'tpope/vim-projectionist',
 
   -- session management {{{1
