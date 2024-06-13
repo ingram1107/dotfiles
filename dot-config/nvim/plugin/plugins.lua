@@ -303,7 +303,7 @@ require('lazy').setup({
 
   -- note plugin {{{1
   'ledger/vim-ledger',
-  'mickael-menu/zk-nvim',
+  'zk-org/zk-nvim',
 
   {
     'nvim-orgmode/orgmode',
