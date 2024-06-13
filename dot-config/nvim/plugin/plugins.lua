@@ -2,6 +2,12 @@
 require('lazy').setup({
   -- theme {{{1
   'ingram1107/vim-zhi',
+  {
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   -- statusline and tabline {{{1
   'nvim-lualine/lualine.nvim',
