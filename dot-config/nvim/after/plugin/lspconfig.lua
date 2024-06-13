@@ -170,3 +170,6 @@ lspconfig['fennel_ls'].setup({})
 
 -- arduino_language_server: Arduino
 lspconfig['arduino_language_server'].setup({})
+
+-- Ocaml: ocaml-lsp-server
+lspconfig['ocamllsp'].setup({})

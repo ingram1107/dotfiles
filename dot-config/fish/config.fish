@@ -56,3 +56,6 @@ set -Ux GPG_TTY (tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 set -e SSH_AGENT_PID
 set -Ux SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+
+# opam configuration
+source /home/clover/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
