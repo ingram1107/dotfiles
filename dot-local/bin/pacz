@@ -1,0 +1,8 @@
+#!/bin/fish
+# Author: Arch wiki
+
+if test $argv = '-S' || test $argv = '--install'
+  pacman -Slq | fzf --multi --reverse --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
+else if test $argv = '-R' || test $argv = '--remove'
+  pacman -Qq | fzf --multi --reverse --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rcns
+end
