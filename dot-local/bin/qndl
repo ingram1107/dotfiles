@@ -5,7 +5,7 @@
 [ -z "$argv[1]" ] && exit
 set base (basename "$argv[1]")
 dunstify -a 'qndl' -t 1000 "Queing $base..."
-set cmd "yt-dlp --embed-metadata --embed-chapters --embed-thumbnail -f best -o"
+set cmd "yt-dlp --embed-metadata --embed-chapters --embed-thumbnail -o"
 set dest "$HOME/Videos" && [ -d "$dest" ]
 set idnum (tsp fish -c "$cmd '$dest/%(title)s.%(ext)s' '$argv[1]'")
 set realname (echo "$base" | sed "s/?\(source\|dest\).*//;s/%20/ /g")
