@@ -27,7 +27,7 @@
         "systemctl --user start wireplumber"
         (.. (.. "swayidle timeout 6000 '" waylock) "'")
         "waybar -c ~/.config/waybar/river/config -s ~/.config/waybar/river/style.css"
-        ; "fcitx5 -d"
+        "fcitx5 -d"
         "dunst"
         "picom"
         "thunar --daemon"
