@@ -31,7 +31,7 @@
         "dunst"
         "picom"
         "thunar --daemon"
-        "swaybg -i ~/Pictures/wallpaper.jpg -m fill"])
+        "swaybg -i ~/Pictures/wallpaper.jpeg -m fill"])
 
 (local outputs
        {:eDP-1    {:mode      "1920x1080"
