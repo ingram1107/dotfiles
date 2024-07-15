@@ -4,7 +4,7 @@ require('lualine').setup({
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     globalstatus = true,
-    theme = 'tokyonight',
+    theme = 'tokyonight-day',
   },
   sections = {
     lualine_a = { 'mode' },
