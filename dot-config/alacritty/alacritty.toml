@@ -48,7 +48,7 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 12
+size = 14
 
 [font.bold]
 family = "monospace"
@@ -67,4 +67,4 @@ family = "monospace"
 style = "Regular"
 
 [window]
-opacity = 0.7
+opacity = 0.9
