@@ -14,11 +14,6 @@ light
 ltex-ls-bin
 neuron-zettelkasten-bin
 nodejs-live-server
-paru
-paru-debug
-php7-apache
-php7-fpm
-php7-gd
 simple-mtpfs
 task-spooler
 texlive-fonts-fontawesome
