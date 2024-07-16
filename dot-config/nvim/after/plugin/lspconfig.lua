@@ -49,6 +49,9 @@ local on_attach = function(client, bufnr)
   elseif client.server_capabilities.document_range_formatting then
     vim.keymap.set('n', 'glf', vim.lsp.buf.range_formatting, opts)
   end
+
+  -- inlay type hint
+  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 end
 
 --- clangd: C/C++/Obj-C
