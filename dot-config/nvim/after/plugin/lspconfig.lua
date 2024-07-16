@@ -173,3 +173,6 @@ lspconfig['arduino_language_server'].setup({})
 
 -- Ocaml: ocaml-lsp-server
 lspconfig['ocamllsp'].setup({})
+
+-- Rust: rust-analyzer
+lspconfig['rust_analyzer'].setup({})
