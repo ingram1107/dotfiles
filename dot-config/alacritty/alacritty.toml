@@ -48,22 +48,22 @@ blinking = "Always"
 shape = "Block"
 
 [font]
-size = 14
+size = 12
 
 [font.bold]
-family = "monospace"
+family = "Intel One Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "monospace"
+family = "Intel One Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "monospace"
+family = "Intel One Mono"
 style = "Italic"
 
 [font.normal]
-family = "monospace"
+family = "Intel One Mono"
 style = "Regular"
 
 [window]
