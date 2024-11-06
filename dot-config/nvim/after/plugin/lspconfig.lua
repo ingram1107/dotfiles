@@ -179,3 +179,6 @@ lspconfig['ocamllsp'].setup({})
 
 -- Rust: rust-analyzer
 lspconfig['rust_analyzer'].setup({})
+
+-- LaTeX: texlab
+lspconfig['texlab'].setup({})
