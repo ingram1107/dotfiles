@@ -483,13 +483,6 @@ nmap({ '<leader>zo', '<cmd>ZkNotes { sort = { "modified" } }<cr>' })
 nmap({ '<leader>zt', '<cmd>ZkTags<cr>' })
 nmap({ '<leader>zf', '<cmd>ZkNotes { sort = { "modified" }, match = { vim.fn.input("Search: ") } }<cr>' })
 vmap({ '<leader>zf', ":'<,'>ZkMatch<cr>" })
-nmap({
-  'mm',
-  function()
-    require('nabla').popup()
-  end,
-  { desc = 'show Tex formula' },
-})
 
 -- disable arrow keys {{{1
 nmap({ '<up>', '<cmd>echoerr "---> k <---"<cr>' })
