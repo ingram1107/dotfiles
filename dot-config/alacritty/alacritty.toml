@@ -1,8 +1,8 @@
-# TokyoNight Alacritty Colors
+# Spacemacs Alacritty Colors
 # Default colors
 [colors.primary]
-background = '#e1e2e7'
-foreground = '#3760bf'
+background = '#292b2e'
+foreground = '#b2b2b2'
 
 #[colors.cursor]
 #cursor = '#3760bf'
@@ -10,34 +10,34 @@ foreground = '#3760bf'
 
 # Normal colors
 [colors.normal]
-black = '#e9e9ed'
-red = '#f52a65'
-green = '#587539'
-yellow = '#8c6c3e'
-blue = '#2e7de9'
-magenta = '#9854f1'
-cyan = '#007197'
-white = '#6172b0'
+black = '#292b2e'
+red = '#f2241f'
+green = '#67b11d'
+yellow = '#b1951d'
+blue = '#4f97d7'
+magenta = '#a31db1'
+cyan = '#28def0'
+white = '#b2b2b2'
 
 # Bright colors
 [colors.bright]
-black = '#a1a6c5'
-red = '#f52a65'
-green = '#587539'
-yellow = '#8c6c3e'
-blue = '#2e7de9'
-magenta = '#9854f1'
-cyan = '#007197'
-white = '#3760bf'
+black = '#655370'
+red = '#f2241f'
+green = '#67b11d'
+yellow = '#b1951d'
+blue = '#3a81c3'
+magenta = '#a31db1'
+cyan = '#21b8c7'
+white = '#fbf8ef'
 
 # Indexed Colors
 [[colors.indexed_colors]]
 index = 16
-color = '#b15c00'
+color = '#b1951d'
 
 [[colors.indexed_colors]]
 index = 17
-color = '#c64343'
+color = '#f2241f'
 
 [cursor]
 blink_interval = 550
