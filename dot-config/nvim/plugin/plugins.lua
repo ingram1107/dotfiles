@@ -295,15 +295,17 @@ require('lazy').setup({
   -- note plugin {{{1
   'ledger/vim-ledger',
   'zk-org/zk-nvim',
-  {
-    'nvim-orgmode/orgmode',
-    config = function()
-      require('orgmode').setup({
-        org_agenda_files = '~/Org/**/*',
-        org_default_notes_files = '~/Documents/Notes/index.org',
-      })
-    end,
-  },
+
+  -- {
+  --   'nvim-orgmode/orgmode',
+  --   config = function()
+  --     require('orgmode').setup({
+  --       org_agenda_files = '~/Org/**/*',
+  --       org_default_notes_files = '~/Documents/Notes/index.org',
+  --     })
+  --   end,
+  -- },
+
   {
     'OXY2DEV/markview.nvim',
     lazy = false,
