@@ -32,8 +32,12 @@ nmap({ ' ', '<nop>' })
 vim.g.mapleader = ' '
 
 -- :source file {{{1
-nmap({ '<leader>ss', '<cmd>source<cr>', { silent = true } })
-nmap({ '<leader>sk', '<cmd>source $XDG_CONFIG_HOME/nvim/lua/keymaps.lua<cr>', { silent = true } })
+nmap({ '<leader>ss', '<cmd>source<cr>', { silent = true, desc = 'reload config file' } })
+nmap({
+  '<leader>sk',
+  '<cmd>source $XDG_CONFIG_HOME/nvim/lua/keymaps.lua<cr>',
+  { silent = true, desc = 'reload keymaps file' },
+})
 
 -- spelling {{{1
 nmap({ '<leader>c', '<cmd>setlocal spell! spelllang=en_gb<cr>', { silent = true } })
@@ -43,7 +47,7 @@ imap({ '<c-c>', '<c-g>u<esc>[s1z=`]a<c-g>u' })
 nmap({ '<f10>', '<cmd>TSHighlightCapturesUnderCursor<cr>' })
 
 -- quickhelp {{{1
-nmap({ '<leader>hh', ':h <c-r><c-w><cr>' })
+nmap({ '<leader>hh', ':h <c-r><c-w><cr>', { desc = "quickhelp" }})
 
 -- terminal esc {{{1
 tmap({ '<esc>', '<c-\\><c-n>' })
