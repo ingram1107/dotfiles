@@ -3,10 +3,13 @@ require('lazy').setup({
   -- theme {{{1
   'ingram1107/vim-zhi',
   {
-    'folke/tokyonight.nvim',
+    'Th3Whit3Wolf/space-nvim',
     lazy = false,
     priority = 1000,
-    opts = {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      vim.cmd([[ colorscheme space-nvim ]])
+    end,
   },
 
   -- statusline and tabline {{{1

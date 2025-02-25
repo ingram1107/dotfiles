@@ -1,4 +1,5 @@
 -- general {{{1
+vim.o.background = 'dark'
 vim.o.backupcopy = 'no'
 vim.o.clipboard = 'unnamedplus'
 vim.o.completeopt = 'menu,menuone,noselect'
