@@ -196,7 +196,7 @@ require('lazy').setup({
 
           map('n', ']c', function()
             if vim.wo.diff then
-              vim.cmd.normal({']c', bang = true})
+              vim.cmd.normal({ ']c', bang = true })
             else
               gs.nav_hunk('next')
             end
@@ -204,7 +204,7 @@ require('lazy').setup({
 
           map('n', '[c', function()
             if vim.wo.diff then
-              vim.cmd.normal({'[c', bang = true})
+              vim.cmd.normal({ '[c', bang = true })
             else
               gs.nav_hunk('prev')
             end
@@ -212,15 +212,23 @@ require('lazy').setup({
 
           map('n', '<leader>hs', gs.stage_hunk)
           map('n', '<leader>hr', gs.reset_hunk)
-          map('v', '<leader>hs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-          map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+          map('v', '<leader>hs', function()
+            gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+          end)
+          map('v', '<leader>hr', function()
+            gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+          end)
           map('n', '<leader>hS', gs.stage_buffer)
           map('n', '<leader>hR', gs.reset_buffer)
           map('n', '<leader>hp', gs.preview_hunk)
-          map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+          map('n', '<leader>hb', function()
+            gs.blame_line({ full = true })
+          end)
           map('n', '<leader>tb', gs.toggle_current_line_blame)
           map('n', '<leader>hd', gs.diffthis)
-          map('n', '<leader>hD', function() gs.diffthis('~') end)
+          map('n', '<leader>hD', function()
+            gs.diffthis('~')
+          end)
 
           map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end,
@@ -284,7 +292,6 @@ require('lazy').setup({
   -- note plugin {{{1
   'ledger/vim-ledger',
   'zk-org/zk-nvim',
-
   {
     'nvim-orgmode/orgmode',
     config = function()
