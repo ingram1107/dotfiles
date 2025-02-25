@@ -189,4 +189,8 @@ lspconfig['ocamllsp'].setup({})
 lspconfig['rust_analyzer'].setup({})
 
 -- LaTeX: texlab
-lspconfig['texlab'].setup({})
+lspconfig['texlab'].setup({
+  build = {
+    args = { '-lualatex', '%f' },
+  },
+})
