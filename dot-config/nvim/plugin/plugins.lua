@@ -294,8 +294,11 @@ require('lazy').setup({
       })
     end,
   },
-
   'jbyuki/nabla.nvim',
+  {
+    'OXY2DEV/markview.nvim',
+    lazy = false,
+  },
 
   -- miscellaneous {{{1
   {
