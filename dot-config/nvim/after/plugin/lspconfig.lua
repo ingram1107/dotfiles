@@ -15,26 +15,34 @@ local on_attach = function(client, bufnr)
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   --- mappings
+  local function set_opts(desc)
+    return {
+      buffer = true,
+      silent = true,
+      desc = desc,
+    }
+  end
+
   local opts = { buffer = true, silent = true }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-  vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, opts)
-  vim.keymap.set('i', '<c-e>', vim.lsp.buf.signature_help, opts)
-  vim.keymap.set('n', 'gwa', vim.lsp.buf.add_workspace_folder, opts)
-  vim.keymap.set('n', 'gwr', vim.lsp.buf.remove_workspace_folder, opts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, set_opts("LSP jump to declaraction"))
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, set_opts("LSP jump to definition"))
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, set_opts("LSP list all references"))
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, set_opts("LSP list all implementation"))
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, set_opts("LSP hover"))
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, set_opts("LSP go to previous diagnostic"))
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, set_opts("LSP go to next diagnostic"))
+  vim.keymap.set('n', '<c-k>', vim.lsp.buf.signature_help, set_opts("LSP get signature help"))
+  vim.keymap.set('i', '<c-e>', vim.lsp.buf.signature_help, set_opts("LSP get signature help"))
+  vim.keymap.set('n', 'gwa', vim.lsp.buf.add_workspace_folder, set_opts("LSP add workspace folder"))
+  vim.keymap.set('n', 'gwr', vim.lsp.buf.remove_workspace_folder, set_opts("LSP remove workspace folder"))
   vim.keymap.set('n', 'gwl', function()
     vim.pretty_print(vim.lsp.buf.list_workspace_folders())
-  end, opts)
-  vim.keymap.set('n', 'gld', vim.lsp.buf.type_definition, opts)
-  vim.keymap.set('n', 'gR', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', 'gle', vim.diagnostic.open_float, opts)
-  vim.keymap.set('n', 'glq', vim.diagnostic.setloclist, opts)
-  vim.keymap.set('n', 'gla', vim.lsp.buf.code_action, opts)
+  end, set_opts("LSP list workspace folders"))
+  vim.keymap.set('n', 'gld', vim.lsp.buf.type_definition, set_opts("LSP jump to type definition"))
+  vim.keymap.set('n', 'gR', vim.lsp.buf.rename, set_opts("LSP rename"))
+  vim.keymap.set('n', 'gle', vim.diagnostic.open_float, set_opts("LSP open diagnostic in a float window"))
+  vim.keymap.set('n', 'glq', vim.diagnostic.setloclist, set_opts("LSP add diagnostics to locallist"))
+  vim.keymap.set('n', 'gla', vim.lsp.buf.code_action, set_opts("LSP code action"))
 
   vim.cmd([[
   sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
@@ -45,9 +53,9 @@ local on_attach = function(client, bufnr)
 
   --- set keybind for lsp formatting based on server capability
   if client.server_capabilities.document_formatting then
-    vim.keymap.set('n', 'glf', vim.lsp.buf.formatting, opts)
+    vim.keymap.set('n', 'glf', vim.lsp.buf.formatting, set_opts("LSP formatting"))
   elseif client.server_capabilities.document_range_formatting then
-    vim.keymap.set('n', 'glf', vim.lsp.buf.range_formatting, opts)
+    vim.keymap.set('n', 'glf', vim.lsp.buf.range_formatting, set_opts("LSP formatting"))
   end
 
   -- inlay type hint
