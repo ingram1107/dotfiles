@@ -2,11 +2,12 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, JetBrainsMono Nerd Font;
     font-size: 11px;
+    color: #cdcdcd;
 }
 
 window#waybar {
-    background-color: #e1e2e7;
-    color: #3760bf;
+    background-color: #292b2e;
+    color: #cdcdcd;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -26,11 +27,11 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #3750bf;
+    box-shadow: inset 0 -3px #4f97d7;
 }
 
 #mode {
-  background-color: #e1e2e7;
+  background-color: #544a65;
 }
 
 #tags button {
@@ -39,18 +40,18 @@ button:hover {
 }
 
 #tags button.occupied {
-  color: #e9e9ed;
-  background-color: #2e7de9;
+  color: #292b2e;
+  background-color: #768294;
 }
 
 #tags button.focused {
-  color: #e9e9ed;
-  background-color: #587539;
+  color: #292b2e;
+  background-color: #7590db;
 }
 
 #tags button.urgent {
-  color: #e9e9ed;
-  background-color: #f52a65;
+  color: #292b2e;
+  background-color: #d79650;
 }
 
 #windows {
@@ -59,7 +60,7 @@ button:hover {
 }
 
 #windows.focused {
-  background-color: #2e7de9;
+  background-color: #7590db;
 }
 
 #clock,
@@ -78,7 +79,7 @@ button:hover {
 #scratchpad,
 #mpd {
   padding: 0 8px;
-  color: #3750bf;
+  color: #cdcdcd;
 }
 
 /* .modules-center { */
@@ -86,11 +87,11 @@ button:hover {
 /* } */
 
 .modules-left, .modules-center, .modules-right {
-  border-bottom: 1px solid #e1e2e7
+  border-bottom: 1px solid #9a9aba
 }
 
 .modules-right {
-  background-color: #e1e2e7;
+  background-color: #544a65;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

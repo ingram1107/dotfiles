@@ -14,7 +14,15 @@
         }
     },
     "river/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "<span style=\"normal\">{}</span>"
+    },
+    "river/tags": {
+        "num-tags": 10,
+        "tag-labels": [ "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "V", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ", "Ⅹ" ],
+    },
+    "river/window": {
+        "max-length": 20,
+        "justify": "center",
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
