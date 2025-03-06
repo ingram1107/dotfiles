@@ -68,11 +68,11 @@
 
 (local river-options
        {:border-width 2
-        :border-color-focused   "0xf6ee65"
-        :border-color-unfocused "0xfbf7b7"
-        :border-color-urgent    "0x57021e"
-        :xcursor-theme          nil
-        :background-color       "0xfbf7b7"
+        :border-color-focused   "0x4f97d7"
+        :border-color-unfocused "0x8e8e8e"
+        :border-color-urgent    "0xd79650"
+        :xcursor-theme          "Ninomae-Ina'nis"
+        :background-color       "0x292b2e"
         :set-repeat             [50 300]
         :focus-follows-cursor   "normal"
         :set-cursor-warp        "on-output-change"
