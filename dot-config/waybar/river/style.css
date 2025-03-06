@@ -2,7 +2,6 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, JetBrainsMono Nerd Font;
     font-size: 11px;
-    color: #cdcdcd;
 }
 
 window#waybar {
@@ -37,6 +36,7 @@ button:hover {
 #tags button {
   padding: 0 2px;
   margin: 1px;
+  color: #cdcdcd;
 }
 
 #tags button.occupied {
