@@ -1,6 +1,6 @@
 [global]
     frame_width = 3
-    frame_color = "#403E41"
+    frame_color = "#67b11d"
 
     font = JetBrainsMonoNerdFont 9
 
@@ -134,21 +134,21 @@
     max_icon_size=128
 
 [urgency_low]
-    background = "#e9e9ec"
-    foreground = "#3760bf"
-    frame_color = "#3760bf"
+    background = "#292b2e"
+    foreground = "#b2b2b2"
+    frame_color = "#4f97d7"
     timeout = 10
 
 [urgency_normal]
-    background = "#e1e2e7"
-    foreground = "#3760bf"
-    frame_color = "#3760bf"
+    background = "#292b2e"
+    foreground = "#b2b2b2"
+    frame_color = "#67b11d"
     timeout = 10
 
 [urgency_critical]
-    background = "#c4c8da"
-    foreground = "#c64343"
-    frame_color = "#c64343"
+    background = "#292b2e"
+    foreground = "#b2b2b2"
+    frame_color = "#f2241f"
     timeout = 0
 
 
