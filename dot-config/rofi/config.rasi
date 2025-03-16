@@ -5,4 +5,4 @@ configuration {
   icon-theme: "Papirus Dark";
   combi-modi: "window,drun";
 }
-@theme "zhi"
+@import "colors/spacemacs.rasi"
