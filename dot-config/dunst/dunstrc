@@ -122,7 +122,7 @@
     separator_color = frame
 
     # Browser for opening urls in context menu.
-    browser = firefox
+    browser = zen-browser
 
     # Align icons left/right/off
     icon_position = left
