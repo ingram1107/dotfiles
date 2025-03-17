@@ -1,5 +1,0 @@
-#!/bin/fish
-# Author: littleclover
-# Based on Arch wiki
-
-pacman -Qq | fzf --multi --reverse --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rcns

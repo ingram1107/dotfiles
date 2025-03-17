@@ -1,8 +1,38 @@
 #!/bin/fish
-# Author: Arch wiki
+# Algorithm refers to Arch wiki
+# https://wiki.archlinux.org/title/Fzf#Pacman
 
-if test $argv = '-S' || test $argv = '--install'
-  pacman -Slq | fzf --multi --reverse --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
-else if test $argv = '-R' || test $argv = '--remove'
-  pacman -Qq | fzf --multi --reverse --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rcns
+argparse 'h/help' 'S/install' 'R/remove' 'a/aur' -- $argv
+or return
+
+if set -ql _flag_h
+  echo -e "Usage: pacz [-h | --help] [-S] [-R] [-aS] [-aR]" >&2
+  echo -e "" >&2
+  echo -e "-h/--help\tDisplay this help prompt" >&2
+  echo -e "-S/--install\tInstall package" >&2
+  echo -e "-R/--remove\tRemove package" >&2
+  echo -e "-a/--paru\tInclude AUR packages" >&2
+  return 1
+end
+
+function package_fzf -a args1 -a args2
+  pacman $args1 | fzf --multi --reverse --preview "pacman $args2 {1}" 
+end
+
+function xargs_is_sudo_needed? -a args
+  if set -ql _flag_a
+    xargs -ro paru $args
+  else
+    xargs -ro sudo pacman $args
+  end
+end
+
+if set -ql _flag_S
+  if set -ql _flag_a
+    paru -Slq | fzf --multi --reverse --preview "paru -Si {1}" | xargs_is_sudo_needed? -S
+  else 
+    package_fzf -Slq -Si | xargs_is_sudo_needed? -S
+  end
+else if set -ql _flag_R
+  package_fzf -Qq -Qi | xargs_is_sudo_needed? -Rcns
 end
