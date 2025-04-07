@@ -145,6 +145,7 @@
 
           ;; System control
           (binds "Super"              "X"                     (spawn waylock))
+          (binds "Super"              "P"                     (spawn "powermenu"))
 
           ;; Application programs
           (binds "Super"              "Return"                (spawn "alacritty -e tmux"))
