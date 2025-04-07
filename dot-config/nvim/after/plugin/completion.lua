@@ -15,7 +15,7 @@ cmp.setup({
     ['<c-f>'] = cmp.mapping.scroll_docs(4),
     ['<c-l>'] = cmp.mapping.complete(),
     ['<c-e>'] = cmp.mapping.close(),
-    ['<c-i>'] = cmp.mapping.confirm({ select = true }),
+    ['<cr>'] = cmp.mapping.confirm({ select = true, cmp.ConfirmBehavior.Insert }),
   }),
 
   sources = cmp.config.sources({
