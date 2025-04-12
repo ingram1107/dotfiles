@@ -44,13 +44,6 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'glq', vim.diagnostic.setloclist, set_opts('LSP add diagnostics to locallist'))
   vim.keymap.set('n', 'gla', vim.lsp.buf.code_action, set_opts('LSP code action'))
 
-  vim.cmd([[
-  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=
-  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
-  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
-  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
-  ]])
-
   --- set keybind for lsp formatting based on server capability
   if client.server_capabilities.document_formatting then
     vim.keymap.set('n', 'glf', vim.lsp.buf.formatting, set_opts('LSP formatting'))
@@ -65,6 +58,14 @@ end
 -- vim.diagnostic config
 vim.diagnostic.config({
   virtual_text = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.INFO] = "",
+    },
+  },
 })
 
 --- clangd: C/C++/Obj-C
