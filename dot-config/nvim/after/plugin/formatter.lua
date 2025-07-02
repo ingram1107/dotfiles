@@ -44,5 +44,17 @@ require('formatter').setup({
         }
       end,
     },
+    html = {
+      function()
+        return {
+          exe = 'prettier',
+          args = {
+            '--html-whitespace-sensitivity=strict',
+            '--parser=html',
+          },
+          stdin = true,
+        }
+      end,
+    },
   },
 })
