@@ -19,13 +19,13 @@
 (local wl-script-dir (.. (os.getenv "HOME") "/.local/libexec/wayland"))
 (local drun-menu (.. "rofi -show drun -theme " (.. (os.getenv "XDG_CONFIG_HOME") "/rofi/themes/launcher.rasi")))
 (local run-menu "rofi -show run")
-(local waylock "waylock -init-color 0x292b2e -input-color 0x4f97d7 -fail-color 0xf2241f")
+(local session-lock "gtklock")
 
 (local startup-commands
        ["dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP='river'"
         "systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr"
         "systemctl --user start wireplumber"
-        (.. (.. "swayidle timeout 6000 '" waylock) "'")
+        (.. (.. "swayidle timeout 6000 '" session-lock) "'")
         "waybar -c ~/.config/waybar/river/config -s ~/.config/waybar/river/style.css"
         "fcitx5 -d"
         "dunst"
@@ -144,7 +144,7 @@
           (binds "None"               "XF86MonBrightnessDown" (spawn "light -U 5") "repeat")
 
           ;; System control
-          (binds "Super"              "X"                     (spawn waylock))
+          (binds "Super"              "X"                     (spawn session-lock))
           (binds "Super"              "P"                     (spawn "powermenu"))
 
           ;; Application programs
