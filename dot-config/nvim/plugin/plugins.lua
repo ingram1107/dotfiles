@@ -9,6 +9,7 @@ require('lazy').setup({
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       vim.cmd([[ colorscheme space-nvim ]])
+      vim.g.space_nvim_transparent_by = false
     end,
   },
 
