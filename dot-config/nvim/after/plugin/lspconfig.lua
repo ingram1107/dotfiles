@@ -200,3 +200,6 @@ lspconfig['texlab'].setup({
     args = { '-lualatex', '%f' },
   },
 })
+
+-- Javascript/Typescript: biome (linting only)
+lspconfig['biome'].setup({})
