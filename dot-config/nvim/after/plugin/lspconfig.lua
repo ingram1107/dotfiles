@@ -183,23 +183,46 @@ lspconfig['ltex'].setup({
 })
 
 -- Fennel: fennel-ls
-lspconfig['fennel_ls'].setup({})
+lspconfig['fennel_ls'].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+})
 
 -- arduino_language_server: Arduino
-lspconfig['arduino_language_server'].setup({})
+lspconfig['arduino_language_server'].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+})
 
 -- Ocaml: ocaml-lsp-server
-lspconfig['ocamllsp'].setup({})
+lspconfig['ocamllsp'].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+})
 
 -- Rust: rust-analyzer
-lspconfig['rust_analyzer'].setup({})
+lspconfig['rust_analyzer'].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+})
 
 -- LaTeX: texlab
 lspconfig['texlab'].setup({
   build = {
     args = { '-lualatex', '%f' },
   },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
 })
 
 -- Javascript/Typescript: biome (linting only)
-lspconfig['biome'].setup({})
+lspconfig['biome'].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = lsp_flags,
+})
