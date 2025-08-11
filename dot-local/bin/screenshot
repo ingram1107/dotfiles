@@ -1,16 +1,45 @@
 #!/usr/bin/fish
 
-set pic_path (xdg-user-dir PICTURES)
-set option (echo -e "Whole Screen\nSelected Area\nExit" | rofi -i -dmenu -p "Screenshot option:")
+set screenshotOption (echo -e "Whole Screen\nSelected Area\nExit" | rofi -i -dmenu -p "Screenshot option")
+set nameOption (echo -e "Timestamp\nCustom\nExit" | rofi -i -dmenu -p "Name option")
+set path (echo -e "Pictures\nCustom\nExit" | rofi -i -dmenu -p "Store in")
 
-if [ $option = "Whole Screen" ]
-  set pic "$pic_path/$(date +'%Y%m%d-%H%M%S').png"
-  grim "$pic"
+function determineScreenshotOption -a pic_path -a pic_name
+  set pic_name $(determineNameOption)
+  set pic "$pic_path/$pic_name"
+
+  if [ $screenshotOption = "Whole Screen" ]
+    grim "$pic"
+  else if [ $screenshotOption = "Selected Area" ]
+    grim -g (slurp) "$pic"
+  else
+    exit 0
+  end
+
   dunstify -a 'grim' -u 0 -t 1000 "Screenshot $pic"
-else if [ $option = "Selected Area" ]
-  set pic "$pic_path/$(date +'%Y%m%d-%H%M%S').png"
-  grim -g (slurp) "$pic"
-  dunstify -a 'grim' -u 0 -t 1000 "Screenshot $pic"
+end
+
+function determineNameOption
+  if [ $nameOption = "Timestamp" ]
+    echo "$(date +'%Y%m%d-%H%M%S').png"
+  else if [ $nameOption = "Custom" ]
+    echo "$(rofi -i -dmenu -p "Name").png"
+  else
+    exit 0
+  end
+end
+
+if [ $path = "Pictures" ]
+  set pic_path (xdg-user-dir PICTURES)
+  determineScreenshotOption $pic_path $name
+else if [ $path = "Custom" ]
+  set pic_path (rofi -i -dmenu -p "Path")
+
+  if test -d $pic_path
+    determineScreenshotOption $pic_path $name
+  else
+    dunstify -a 'screenshot' -u critical -t 1000 "Invalid path" 
+  end
 else
   exit 0
 end
