@@ -1,6 +1,5 @@
 -- lspconfig
-local lspconfig = require('lspconfig')
-local configs = require('lspconfig/configs')
+-- local configs = require('lspconfig/configs')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_flags = {
   debounce_text_changes = 150,
@@ -68,8 +67,22 @@ vim.diagnostic.config({
   },
 })
 
+local clients = {
+  'clangd',
+  'lua_ls',
+  'jedi_language_server',
+  'jdtls',
+  'ltex',
+  'fennel_ls',
+  'arduino_language_server',
+  'ocamllsp',
+  'rust_analyzer',
+  'texlab',
+  'biome',
+}
+
 --- clangd: C/C++/Obj-C
-lspconfig['clangd'].setup({
+vim.lsp.config.clangd = {
   cmd = {
     'clangd',
     '--background-index',
@@ -83,10 +96,10 @@ lspconfig['clangd'].setup({
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 --- lua_ls: Lua
-lspconfig.lua_ls.setup({
+vim.lsp.config.lua_ls = {
   settings = {
     Lua = {
       runtime = {
@@ -108,10 +121,10 @@ lspconfig.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 --- jedi_language_server: Python
-lspconfig['jedi_language_server'].setup({
+vim.lsp.config.jedi_language_server = {
   startupMessage = false,
 
   -- jediSettings = {
@@ -125,13 +138,13 @@ lspconfig['jedi_language_server'].setup({
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 --- jdtls: Java
-lspconfig['jdtls'].setup({
+vim.lsp.config.jdtls = {
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 local en_dict = io.open(os.getenv('XDG_CONFIG_HOME') .. '/nvim/spell/en.utf-8.add')
 local en_words = {}
@@ -143,7 +156,7 @@ if en_dict ~= nil then
 end
 
 -- LTeX: Natural languages
-lspconfig['ltex'].setup({
+vim.lsp.config.ltex = {
   filetypes = {
     'NeogitCommitMessage',
     'bib',
@@ -180,49 +193,51 @@ lspconfig['ltex'].setup({
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 -- Fennel: fennel-ls
-lspconfig['fennel_ls'].setup({
+vim.lsp.config.fennel_ls = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 -- arduino_language_server: Arduino
-lspconfig['arduino_language_server'].setup({
+vim.lsp.config.arduino_language_server = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 -- Ocaml: ocaml-lsp-server
-lspconfig['ocamllsp'].setup({
+vim.lsp.config.ocamllsp = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 -- Rust: rust-analyzer
-lspconfig['rust_analyzer'].setup({
+vim.lsp.config.rust_analyzer = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 -- LaTeX: texlab
-lspconfig['texlab'].setup({
+vim.lsp.config.texlab = {
   build = {
     args = { '-lualatex', '%f' },
   },
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
 
 -- Javascript/Typescript: biome (linting only)
-lspconfig['biome'].setup({
+vim.lsp.config.biome = {
   on_attach = on_attach,
   capabilities = capabilities,
   flags = lsp_flags,
-})
+}
+
+vim.lsp.enable(clients)
