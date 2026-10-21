@@ -81,7 +81,9 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
       'romgrk/nvim-treesitter-context',
     },
+    lazy = 'false',
     run = ':TSUpdate',
+    branch = 'main',
   },
 
   {
