@@ -168,6 +168,10 @@ require('lazy').setup({
   },
 
   -- 'ingram1107/origin.nvim',
+  {
+    dir = '~/Projects/simple-root.nvim/',
+    cmd = 'SimpleRootAuto',
+  },
   'tpope/vim-projectionist',
 
   -- session management {{{1
