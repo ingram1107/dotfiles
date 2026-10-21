@@ -82,3 +82,16 @@ vim.g.projectionist_heuristics = {
 --   },
 --   prompt = false,
 -- })
+
+require('simple-root').setup({
+  root_pattern = {
+    c = { 'src', 'lib', 'test' },
+    cpp = { 'src', 'lib', 'test' },
+    rust = { 'src', 'tests' },
+    lua = { 'lua', 'plugin', 'after' },
+    lisp = { 'src', 'test' },
+    vim = { 'after', 'autoload', 'plugin', 'colors', 'ftdetect', 'compiler' },
+    css = 'css',
+    scss = 'scss',
+  }
+})
