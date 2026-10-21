@@ -332,6 +332,13 @@ require('lazy').setup({
     'OXY2DEV/markview.nvim',
     lazy = false,
   },
+  {
+    '3rd/image.nvim',
+    build = false,
+    opts = {
+      processor = 'magick_cli',
+    },
+  },
 
   -- miscellaneous {{{1
   {
