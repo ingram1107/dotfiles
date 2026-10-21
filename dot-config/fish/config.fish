@@ -20,7 +20,7 @@ end
 
 ## fish greeting
 function fish_greeting
-  ufetch
+  fastfetch
 end
 
 ## XDG alias
