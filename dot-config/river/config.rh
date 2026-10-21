@@ -1,0 +1,211 @@
+layout {
+    0 bsp
+    1 bsp
+    2 bsp
+    * bsp
+}
+
+layout_config {
+    bsp {
+        # split_override 1, 1
+        gaps 5
+    }
+}
+
+env {
+    SDL_VIDEODRIVER wayland,x11
+    QT_QPA_PLATFORM wayland
+    ELECTRON_OZONE_PLATFORM_HINT wayland
+}
+
+# TODO: fix easing
+animations {
+    move {
+        duration 300_000
+        easing smootherstep
+    }
+    resize {
+        duration 300_000
+        easing smootherstep
+    }
+    workspace {
+        duration 400_000
+        easing smootherstep
+    }
+}
+
+# alt, s, tiler, bsp, togglesplit
+keybinds [
+    super, q, close, Focus
+    super+shift, q, exit
+    super, Escape, pointerOp, xkill
+    super, f, fullscreen, toggle, Focus
+    super, Tab, focusWorkspace, PrevActive
+    super, v, floating, toggle, focus
+    super, s, layoutCommand, bsp, changeSplit
+    super+shift, s, layoutCommand, bsp, changeSplit
+    none, F12, overlay, toggle, -1
+    super, F12, sendToWorkspace, -1
+
+    # Media control
+    none, XF86Eject, launch, eject -T
+    none, XF86AudioRaiseVolume, launch, pamixer -i 5
+    none, XF86AudioLowerVolume, launch, pamixer -d 5
+    none, XF86AudioMute, launch, pamixer -t
+    none, XF86AudioMicMute, launch, pamixer --source 2 -t
+    none, XF86MonBrightnessUp, launch, light -A 5
+    none, XF86MonBrightnessDown, launch, light -U 5
+
+    # Application shortcut
+    super, Return, launch, kitty tmux
+    super, r, launch, fuzzel #rofi-like
+    super, w, launch, firefox
+    super, y, launch, open-yt
+    super, Print, launch, screenshot
+
+    # System control
+    super+shift, x, launch, gtklock
+    super, p, launch, powermenu
+
+    # Vim-like window/workspace keybinds
+    super, h, moveFocus, Left
+    super, l, moveFocus, Right
+    super, j, moveFocus, Down
+    super, k, moveFocus, Up
+
+    ctrl+super, p, focusWorkspace, Previous
+    ctrl+super, n, focusWorkspace, Next
+
+    super+shift, h, moveWindow, Left
+    super+shift, l, moveWindow, Right
+    super+shift, j, moveWindow, Down
+    super+shift, k, moveWindow, Up
+
+    # Arrow-key window/workspace keybinds
+    super, Left, moveFocus, Left
+    super, Right, moveFocus, Right
+    super, Down, moveFocus, Down
+    super, Up, moveFocus, Up
+
+    ctrl+super, Left, focusWorkspace, Previous
+    ctrl+super, Right, focusWorkspace, Next
+
+    super+shift, Left, moveWindow, Left
+    super+shift, Right, moveWindow, Right
+    super+shift, Down, moveWindow, Down
+    super+shift, Up, moveWindow, Up
+
+    super, 1, focusWorkspace, 0
+    super, 2, focusWorkspace, 1
+    super, 3, focusWorkspace, 2
+    super, 4, focusWorkspace, 3
+    super, 5, focusWorkspace, 4
+    super, 6, focusWorkspace, 5
+    super, 7, focusWorkspace, 6
+    super, 8, focusWorkspace, 7
+    super, 9, focusWorkspace, 8
+    super, 0, focusWorkspace, 9
+
+    super+shift, 1, moveToWorkspace, 0
+    super+shift, 2, moveToWorkspace, 1
+    super+shift, 3, moveToWorkspace, 2
+    super+shift, 4, moveToWorkspace, 3
+    super+shift, 5, moveToWorkspace, 4
+    super+shift, 6, moveToWorkspace, 5
+    super+shift, 7, moveToWorkspace, 6
+    super+shift, 8, moveToWorkspace, 7
+    super+shift, 9, moveToWorkspace, 8
+    super+shift, 0, moveToWorkspace, 9
+
+    super+ctrl, 1, sendToWorkspace, 0
+    super+ctrl, 2, sendToWorkspace, 1
+    super+ctrl, 3, sendToWorkspace, 2
+    super+ctrl, 4, sendToWorkspace, 3
+    super+ctrl, 5, sendToWorkspace, 4
+    super+ctrl, 6, sendToWorkspace, 5
+    super+ctrl, 7, sendToWorkspace, 6
+    super+ctrl, 8, sendToWorkspace, 7
+    super+ctrl, 9, sendToWorkspace, 8
+    super+ctrl, 0, sendToWorkspace, 9
+]
+
+window_management {
+    follow_cursor true
+    float_move 0.1
+    border {
+        width 3
+        colours {
+            focus rgba8, 0, 0xA0, 0, 0xAA
+            inactive hsla, 6.5, 0.3, 0.5, 0.5
+        }
+    }
+}
+
+windowrules [
+    #com.mitchellh.ghostty, workspace 1
+    #zenity, float
+]
+
+pointer_binds [
+    super      , Left, startPointerOp, move
+    super+shift, Left, startPointerOp, resize
+]
+
+xcursor {
+    theme Breeze_Hacked
+    size 24
+}
+
+startup [
+    #dbus-update-activation-environment --all --systemd
+    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_SESSION_TYPE XDG_CURRENT_DESKTOP='river'
+    systemctl --user stop pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+    systemctl --user start wireplumber
+    channel
+    swayidle timeout 6000 'gtklock'
+    waybar -c ~/.config/waybar/rhine/config -s ~/.config/waybar/rhine/style.css
+    fcitx5 -d
+    dunst
+    picom
+    thunar --daemon
+    swaybg -i ~/Pictures/wallpaper.jpeg -m fill
+    kanshi
+
+    #awww-daemon
+]
+
+# Input config needs https://codeberg.org/Sivecano/channel to work
+input {
+  profiles {
+    keyboard {
+      keyboard {
+        layout us
+        options ctrl:swapcaps,grp:alt_shift_toggle
+      }
+    }
+
+
+    touchpad {
+      pointer {
+        scroll_factor 1.0
+      }
+
+      libinput {
+        natural_scroll          true
+        drag                    true
+        drag_lock               true
+        tap_to_click            true
+        tapping_button_map      left_right_middle
+        disable_while_typing    true
+        scroll_method           two_finger
+        click_method            clickfinger
+        events                  disable_on_external_mouse
+      }
+    }
+  }
+
+  rules [
+    type, keyboard, keyboard
+    name, * Touchpad, touchpad
+  ]
+}
