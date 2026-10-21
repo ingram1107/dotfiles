@@ -368,7 +368,7 @@ require('lazy').setup({
     },
   },
 
-  { 'davidgranstrom/nvim-markdown-preview', cmd = 'MarkdownPreview' },
+  'davidgranstrom/nvim-markdown-preview',
   'seandewar/killersheep.nvim',
   'alec-gibson/nvim-tetris',
 
