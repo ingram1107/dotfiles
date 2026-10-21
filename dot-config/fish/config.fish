@@ -14,7 +14,7 @@ function fish_prompt
 end
 
 ## fish Vi mode
-# fish_vi_key_bindings
+fish_vi_key_bindings
 function fish_mode_prompt
 end
 
