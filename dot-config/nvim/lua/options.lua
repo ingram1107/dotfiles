@@ -36,6 +36,7 @@ vim.o.wildignore = '*.o,*.obj,__pycache__,*.pyc,*pycache'
 vim.o.wildmode = 'longest,full'
 vim.o.wildoptions = 'pum'
 vim.o.wrap = false
+vim.o.tags = "tags"
 
 -- indentation {{{1
 vim.o.softtabstop = 2
