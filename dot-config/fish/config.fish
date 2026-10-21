@@ -1,8 +1,8 @@
 # fish configuration
-#
+
 ## fish prompt
 function fish_prompt
-  set_color cyan --bold
+  set_color blue --bold
   printf "%s" (prompt_pwd)
   set_color normal
   printf " >"
