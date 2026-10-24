@@ -1,4 +1,4 @@
-local newline = require('snippet_utils').newline
+local newline = require('config.snippet_utils').newline
 
 return {
   -- normal snippets
