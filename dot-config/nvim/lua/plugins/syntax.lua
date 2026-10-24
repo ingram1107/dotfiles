@@ -54,11 +54,6 @@ return {
         'zig',
       }
       require('nvim-treesitter').install(parsers)
-      --   incremental_selection = {
-      --     enable = true,
-      --     disable = {},
-      --   },
-      -- })
     end,
   },
   {
