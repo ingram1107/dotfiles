@@ -64,9 +64,6 @@ return {
       --     updatetime = 25,
       --     persist_queries = false,
       --   },
-      --   autotag = {
-      --     enable = true,
-      --   },
       -- })
     end,
   },
@@ -217,6 +214,12 @@ return {
       require('treesitter-context').setup({
         max_lines = 3,
       })
+    end,
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup()
     end,
   },
 }
