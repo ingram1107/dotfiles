@@ -2,7 +2,7 @@ return {
   'elihunter173/dirbuf.nvim',
   {
     'nvim-tree/nvim-tree.lua',
-    requires = 'nvim-tree/nvim-web-devicons',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     cmd = 'NvimTreeToggle',
     config = function()
       require('nvim-tree').setup({
