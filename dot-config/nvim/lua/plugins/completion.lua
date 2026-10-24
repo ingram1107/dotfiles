@@ -55,13 +55,25 @@ return {
   },
   'onsails/lspkind-nvim',
   'windwp/nvim-ts-autotag',
-  
+
   -- snippet support
   {
     'L3MON4D3/LuaSnip',
     tag = 'v2.2.0',
     build = 'make install_jsregexp',
     config = function()
+      -- config
+      local ls = require('luasnip')
+      local sniploader_lua = require('luasnip.loaders.from_lua')
+
+      ls.config.set_config({
+        enable_autosnippets = true,
+      })
+
+      sniploader_lua.load({ include = { 'lua', 'all' } })
+      sniploader_lua.lazy_load({ include = { 'bib', 'c', 'cpp', 'markdown', 'tex', 'xml' } })
+
+      -- load snippets from path
       require('luasnip.loaders.from_lua').load({ paths = '~/.config/nvim/luasnippets/' })
     end,
   },
