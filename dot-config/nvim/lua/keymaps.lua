@@ -201,9 +201,9 @@ nmap({ '<leader>u', '<cmd>UndotreeToggle<cr>' })
 nmap({
   '<leader>tt',
   function()
-    require('nvim-treesitter-playground.internal').toggle()
+    vim.treesitter.inspect_tree()
   end,
-  { desc = 'toggle treesitter playground' },
+  { desc = 'toggle treesitter inspect tree' },
 })
 nmap({
   '<leader>tr',
