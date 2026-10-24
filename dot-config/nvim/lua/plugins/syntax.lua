@@ -1,9 +1,6 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
-      'romgrk/nvim-treesitter-context',
-    },
     lazy = 'false',
     run = ':TSUpdate',
     branch = 'main',
@@ -58,6 +55,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     branch = 'main',
     init = function()
       -- disable entire built-in ftplugin to avoid conflicts
@@ -192,12 +190,14 @@ return {
   },
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       vim.g.skip_ts_context_commentstring_module = true
     end,
   },
   {
     'romgrk/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('treesitter-context').setup({
         max_lines = 3,
@@ -206,6 +206,7 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
       require('nvim-ts-autotag').setup()
     end,
