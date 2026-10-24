@@ -183,7 +183,6 @@ return {
         require('nvim-treesitter-textobjects.move').goto_next_end('@class.outer', 'textobjects')
       end)
 
-
       local ts_repeat_move = require('nvim-treesitter-textobjects.repeatable_move')
 
       -- Repeat movement with ; and ,
