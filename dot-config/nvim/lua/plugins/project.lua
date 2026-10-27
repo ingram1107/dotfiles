@@ -18,7 +18,17 @@ return {
     end,
   },
   {
-    'tpope/vim-projectionist',
+    {
+      'tpope/vim-projectionist',
+      keys = {
+        { '<leader>pa', '<cmd>A<cr>' },
+        { '<leader>ps', ':AS ' },
+        { '<leader>pv', ':AV ' },
+        { '<leader>pt', ':AT ' },
+        { '<leader>po', ':AO ' },
+        { '<leader>pd', '<cmd>AD<cr>' },
+      },
+    },
     config = function()
       -- projectionist conf
       vim.g.projectionist_heuristics = {

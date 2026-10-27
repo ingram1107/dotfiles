@@ -209,14 +209,6 @@ nmap({
 -- add tags (C/C++) {{{1
 nmap({ '[t', '<cmd>call jobstart("ctags -R")<cr>' })
 
--- projectionist {{{1
-nmap({ '<leader>pa', '<cmd>A<cr>' })
-nmap({ '<leader>ps', ':AS ' })
-nmap({ '<leader>pv', ':AV ' })
-nmap({ '<leader>pt', ':AT ' })
-nmap({ '<leader>po', ':AO ' })
-nmap({ '<leader>pd', '<cmd>AD<cr>' })
-
 -- telescope {{{1
 nmap({
   '<leader>ff',
