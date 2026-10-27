@@ -18,7 +18,30 @@ return {
       { '<leader>gl', '<cmd>Neogit log<cr>' },
     },
   },
-  'emmanueltouzery/agitator.nvim',
+  {
+    'emmanueltouzery/agitator.nvim',
+    keys = {
+      {
+        '<leader>gb',
+        function()
+          require('agitator').git_blame_toggle()
+        end,
+        desc = 'toggle git blame',
+      },
+      {
+        '<leader>gm',
+        function()
+          require('agitator').git_time_machine()
+        end,
+        desc = 'open git time machine',
+      },
+      { '<leader>gdo', '<cmd>DiffviewOpen<cr>' },
+      { '<leader>gdd', ':DiffviewOpen ' },
+      { '<leader>gdq', '<cmd>DiffviewClose<cr>' }, --- move this to DiffviewFile
+      { '<leader>gdh', '<cmd>DiffviewFileHistory<cr>' },
+      { '<leader>gdH', ':DiffviewFileHistory ' },
+    },
+  },
   {
     'lewis6991/gitsigns.nvim',
     dependencies = 'nvim-lua/plenary.nvim',

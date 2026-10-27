@@ -313,25 +313,6 @@ cmap({
 -- git related {{{1
 nmap({ '<leader>gj', '<cmd>diffget //3<cr>' })
 nmap({ '<leader>gf', '<cmd>diffget //2<cr>' })
-nmap({
-  '<leader>gb',
-  function()
-    require('agitator').git_blame_toggle()
-  end,
-  { desc = 'toggle git blame' },
-})
-nmap({
-  '<leader>gm',
-  function()
-    require('agitator').git_time_machine()
-  end,
-  { desc = 'open git time machine' },
-})
-nmap({ '<leader>gdo', '<cmd>DiffviewOpen<cr>' })
-nmap({ '<leader>gdd', ':DiffviewOpen ' })
-nmap({ '<leader>gdq', '<cmd>DiffviewClose<cr>' }) --- move this to DiffviewFile
-nmap({ '<leader>gdh', '<cmd>DiffviewFileHistory<cr>' })
-nmap({ '<leader>gdH', ':DiffviewFileHistory ' })
 
 -- plugin management {{{1
 nmap({ '<leader>pE', '<cmd>PluginEdit<cr>' })
