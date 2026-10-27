@@ -11,12 +11,12 @@ return {
   },
   {
     'sindrets/diffview.nvim',
-    cmd = {
-      'Neogit',
-      'DiffviewOpen',
-      'DiffviewFileHistory',
-    },
     dependencies = 'nvim-lua/plenary.nvim',
+    keys = {
+      { '<leader>gs', '<cmd>Neogit<cr>' },
+      { '<leader>gg', ':Neogit ' },
+      { '<leader>gl', '<cmd>Neogit log<cr>' },
+    },
   },
   'emmanueltouzery/agitator.nvim',
   {

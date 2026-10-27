@@ -311,11 +311,8 @@ cmap({
 })
 
 -- git related {{{1
-nmap({ '<leader>gs', '<cmd>Neogit<cr>' })
 nmap({ '<leader>gj', '<cmd>diffget //3<cr>' })
 nmap({ '<leader>gf', '<cmd>diffget //2<cr>' })
-nmap({ '<leader>gg', ':Neogit ' })
-nmap({ '<leader>gl', '<cmd>Neogit log<cr>' })
 nmap({
   '<leader>gb',
   function()
