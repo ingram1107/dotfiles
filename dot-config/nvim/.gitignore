@@ -1,3 +1,4 @@
 spell
 plugin/vimwiki.lua
 plugin/lazy-lock.json
+lazy-lock.json
