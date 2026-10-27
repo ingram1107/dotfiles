@@ -190,9 +190,6 @@ smap({
   { desc = 'jump to the next Luasnip choice node, or normal <C-h> if there is none' },
 })
 
--- undotree {{{1
-nmap({ '<leader>u', '<cmd>UndotreeToggle<cr>' })
-
 -- treesitter {{{1
 nmap({
   '<leader>tt',

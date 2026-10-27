@@ -9,5 +9,11 @@ return {
       vim.g.undotree_ShortIndicators = 1
       vim.g.undotree_HelpLine = 0
     end,
+    keys = {
+      {
+        '<leader>u',
+        '<cmd>UndotreeToggle<cr>',
+      },
+    },
   },
 }
