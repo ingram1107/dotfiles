@@ -332,13 +332,6 @@ vim.cmd('cabbrev %s/ %s/\\v')
 nmap({ '<leader>n', '<cmd>let @/=""<cr>', { silent = true } })
 nmap({ '<leader>y', 'm`:%s/\\s\\+$//e<cr>``' })
 
--- notes {{{1
-nmap({ '<leader>zn', '<cmd>ZkNew { title = vim.fn.input("Title: ") }<cr>' })
-nmap({ '<leader>zo', '<cmd>ZkNotes { sort = { "modified" } }<cr>' })
-nmap({ '<leader>zt', '<cmd>ZkTags<cr>' })
-nmap({ '<leader>zf', '<cmd>ZkNotes { sort = { "modified" }, match = { vim.fn.input("Search: ") } }<cr>' })
-vmap({ '<leader>zf', ":'<,'>ZkMatch<cr>" })
-
 -- disable arrow keys {{{1
 nmap({ '<up>', '<cmd>echoerr "---> k <---"<cr>' })
 nmap({ '<down>', '<cmd>echoerr "---> j <---"<cr>' })
