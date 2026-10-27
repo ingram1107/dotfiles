@@ -96,9 +96,6 @@ nmap({ ']c', '<cmd>cnext<cr>' })
 nmap({ '[l', '<cmd>lprevious<cr>' })
 nmap({ ']l', '<cmd>lnext<cr>' })
 
--- directory viewer and drawer {{{1
-nmap({ '<c-p>', '<cmd>NvimTreeToggle<cr>' })
-
 -- snippet {{{1
 local function prequire(...)
   local status, lib = pcall(require, ...)

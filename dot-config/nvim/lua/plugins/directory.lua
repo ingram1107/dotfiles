@@ -34,5 +34,11 @@ return {
         },
       })
     end,
+    keys = {
+      {
+        '<c-p>',
+        '<cmd>NvimTreeToggle<cr>',
+      },
+    },
   },
 }
