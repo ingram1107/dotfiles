@@ -47,6 +47,15 @@ return {
       -- }
       -- vim.g.slime_dont_ask_default = 1
     end,
+    keys = {
+      {
+        '<c-c><c-c>',
+        ':<c-u>call slime#store_curpos()<cr>:set opfunc=slime#send_op<cr>g@af',
+        silent = true,
+      },
+      { '<c-c>v', '<Plug>SlimeConfig' },
+      { '<c-c><c-c>', '<Plug>SlimeRegionSend', mode = 'x' },
+    },
   },
   { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins', cmd = 'MagmaInit' },
   'goerz/jupytext.vim',

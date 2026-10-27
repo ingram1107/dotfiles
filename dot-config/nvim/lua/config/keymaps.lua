@@ -209,11 +209,6 @@ nmap({
 -- add tags (C/C++) {{{1
 nmap({ '[t', '<cmd>call jobstart("ctags -R")<cr>' })
 
--- slime {{{1
-nmap({ '<c-c><c-c>', ':<c-u>call slime#store_curpos()<cr>:set opfunc=slime#send_op<cr>g@af', { silent = true } })
-nmap({ '<c-c>v', '<Plug>SlimeConfig' })
-xmap({ '<c-c><c-c>', '<Plug>SlimeRegionSend' })
-
 -- projectionist {{{1
 nmap({ '<leader>pa', '<cmd>A<cr>' })
 nmap({ '<leader>ps', ':AS ' })
