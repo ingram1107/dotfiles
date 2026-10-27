@@ -28,7 +28,6 @@ vim.o.signcolumn = 'yes:1'
 vim.o.smartcase = true
 vim.o.spellfile = os.getenv('XDG_CONFIG_HOME') .. '/nvim/spell/en.utf-8.add'
 vim.o.swapfile = false
-vim.o.termguicolors = true
 vim.o.undofile = true
 vim.o.updatetime = 10
 vim.o.viewoptions = 'folds'

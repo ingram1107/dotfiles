@@ -1,3 +1,6 @@
+-- Fix not able to render theme
+vim.o.termguicolors = true
+
 -- Load lazy.nvim config
 require('config.lazy')
 
