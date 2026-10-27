@@ -1,4 +1,4 @@
--- Fix not able to render theme
+-- Render theme
 vim.o.termguicolors = true
 
 -- Load lazy.nvim config
