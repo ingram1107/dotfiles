@@ -1,5 +1,13 @@
 return {
-  'elihunter173/dirbuf.nvim',
+  {
+    'elihunter173/dirbuf.nvim',
+    keys = {
+      {
+        '<c-n>',
+        '<cmd>Dirbuf<cr>'
+      },
+    },
+  },
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
