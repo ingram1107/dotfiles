@@ -14,6 +14,22 @@ return {
         scrolldown_map = '<M-d>',
       })
     end,
+    keys = {
+      {
+        '<leader>rr',
+        function()
+          require('aedile').toggle_repl()
+        end,
+        desc = 'toggle Aedile REPL',
+      },
+      {
+        '<leader>rc',
+        function()
+          require('aedile').terminate_repl()
+        end,
+        desc = 'terminate Aedile REPL',
+      },
+    },
   },
   {
     'jpalardy/vim-slime',
