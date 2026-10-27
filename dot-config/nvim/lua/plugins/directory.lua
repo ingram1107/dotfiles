@@ -4,7 +4,7 @@ return {
     keys = {
       {
         '<c-n>',
-        '<cmd>Dirbuf<cr>'
+        '<cmd>Dirbuf<cr>',
       },
     },
   },
