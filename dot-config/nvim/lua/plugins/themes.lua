@@ -1,13 +1,12 @@
 return {
   'ingram1107/vim-zhi',
   {
-    'Th3Whit3Wolf/space-nvim',
+    'serhez/teide.nvim',
     lazy = false,
     priority = 1000,
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {},
     config = function()
-      vim.cmd([[ colorscheme space-nvim ]])
-      vim.g.space_nvim_transparent_by = false
+      vim.cmd([[ colorscheme teide-dark ]])
     end,
   },
 }
