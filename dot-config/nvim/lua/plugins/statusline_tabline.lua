@@ -7,6 +7,7 @@ return {
           section_separators = { left = '', right = '' },
           component_separators = { left = '', right = '' },
           globalstatus = true,
+          theme = 'teide-dark',
         },
         sections = {
           lualine_a = { 'mode' },
